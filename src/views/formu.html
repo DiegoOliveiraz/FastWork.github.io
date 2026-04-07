@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formulário - FastWork</title>
+    <title>Formulï¿½rio - FastWork</title>
     <link
       rel="shortcut icon"
-      href="/images/Logo_FAVICON.png"
+      href="../../public/images/Logo_FAVICON.png"
       type="image/x-icon"
     />
     <link
@@ -28,8 +28,10 @@
         --bg-color: #000000;
         --border-color: #1976d2;
         --card-bg: rgba(0, 0, 0, 0.8);
-        --input-bg: rgba(0, 0, 0, 0.7);
-        --bg-image: url("/images/textured-black-background-vector.jpg");
+        --input-bg: #1a1a1a;
+        --input-text: #ffffff;
+        --input-border: #444;
+        --bg-image: url("../../public/images/textured-black-background-vector.jpg");
       }
 
       [data-theme="light"] {
@@ -39,8 +41,10 @@
         --bg-color: #ffffff;
         --border-color: #ffc107;
         --card-bg: rgba(255, 255, 255, 0.9);
-        --input-bg: rgba(255, 255, 255, 0.8);
-        --bg-image: url("/images/novo-backgroundclaro.png");
+        --input-bg: #ffffff;
+        --input-text: #000000;
+        --input-border: #ddd;
+        --bg-image: url("../../public/images/novo-backgroundclaro.png");
         --title-color: #000000;
         --card-text-color: #000000;
         --footer-text-color: #000000;
@@ -76,6 +80,11 @@
         align-items: center;
         justify-content: center;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+        text-align: center;
+        padding: 8px;
       }
 
       .theme-toggle:hover {
@@ -121,14 +130,8 @@
       .hero-title {
         font-size: 2.5rem;
         margin-bottom: 15px;
-        background: linear-gradient(
-          45deg,
-          var(--primary-color),
-          var(--text-color)
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: var(--primary-color);
+        font-weight: 700;
       }
 
       .hero-subtitle {
@@ -162,13 +165,19 @@
       textarea {
         width: 100%;
         padding: 12px 15px;
-        border: 2px solid var(--border-color);
+        border: 2px solid var(--input-border, #1976d2);
         border-radius: 8px;
         font-size: 16px;
-        background: var(--input-bg);
-        color: var(--text-color);
+        background: var(--input-bg) !important;
+        color: var(--input-text) !important;
         transition: all 0.3s ease;
         backdrop-filter: blur(5px);
+      }
+
+      input::placeholder,
+      textarea::placeholder {
+        color: var(--input-text);
+        opacity: 0.6;
       }
 
       input:focus,
@@ -178,12 +187,6 @@
         border-color: var(--primary-color);
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      }
-
-      input::placeholder,
-      textarea::placeholder {
-        color: var(--text-color);
-        opacity: 0.6;
       }
 
       .form-row {
@@ -202,6 +205,7 @@
       input[type="checkbox"] {
         width: auto;
         margin: 0;
+        cursor: pointer;
       }
 
       .submit-btn {
@@ -407,7 +411,7 @@
         }
       }
 
-      /* Estilos para botão buscar CEP */
+      /* Estilos para botï¿½o buscar CEP */
       #btnBuscar:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(25, 118, 210, 0.4);
@@ -523,8 +527,8 @@
         }
       }
     </style>
-      <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/formu.css">
+      <link rel="stylesheet" href="../../public/css/style.css">
+    <link rel="stylesheet" href="../../public/css/formu.css">
 </head>
   <body>
     <button class="theme-toggle" onclick="toggleTheme()">
@@ -534,14 +538,17 @@
     <main class="conteudo-principal">
       <div style="text-align: left; margin-bottom: 20px">
         <a
-          href="/"
+          href="../../index.html
           style="
             color: var(--primary-color);
             text-decoration: none;
             font-size: 14px;
+            transition: all 0.3s ease;
           "
+          onmouseover="this.style.opacity='0.8'"
+          onmouseout="this.style.opacity='1'"
         >
-          ? Voltar ao FastWork
+          â† Voltar ao FastWork
         </a>
       </div>
       <section class="hero-section">
@@ -559,7 +566,7 @@
               name="nome"
               required
               placeholder="Digite seu nome completo"
-              pattern="^[A-Za-zÀ-ÿ\s]{3,50}$"
+              pattern="^[A-Za-zï¿½-ï¿½\s]{3,50}$"
             />
             <div class="error-message" id="nome-error"></div>
           </div>
@@ -593,12 +600,12 @@
           </div>
 
           <div class="form-group">
-            <label for="endereco">Endereço:</label>
+            <label for="endereco">Endereï¿½o:</label>
             <input
               type="text"
               id="endereco"
               name="endereco"
-              placeholder="Digite seu endereço completo"
+              placeholder="Digite seu endereï¿½o completo"
               required
             />
             <div class="error-message" id="endereco-error"></div>
@@ -687,9 +694,9 @@
           </div>
 
           <div class="form-group">
-            <label for="profissao">Profissão:</label>
+            <label for="profissao">Profissï¿½o:</label>
             <select id="profissao" name="profissao" required>
-              <option value="">Selecione sua profissão</option>
+              <option value="">Selecione sua profissï¿½o</option>
               <option value="pedreiro">Pedreiro</option>
               <option value="servente">Servente</option>
               <option value="eletricista">Eletricista</option>
@@ -697,16 +704,16 @@
               <option value="pintor">Pintor</option>
               <option value="carpinteiro">Carpinteiro</option>
               <option value="soldador">Soldador</option>
-              <option value="mecanico">Mecânico</option>
+              <option value="mecanico">Mecï¿½nico</option>
               <option value="outro">Outro</option>
             </select>
             <div class="error-message" id="profissao-error"></div>
           </div>
 
           <div class="form-group">
-            <label for="experiencia">Experiência (anos):</label>
+            <label for="experiencia">Experiï¿½ncia (anos):</label>
             <select id="experiencia" name="experiencia" required>
-              <option value="">Selecione sua experiência</option>
+              <option value="">Selecione sua experiï¿½ncia</option>
               <option value="0-1">0-1 ano</option>
               <option value="1-3">1-3 anos</option>
               <option value="3-5">3-5 anos</option>
@@ -717,12 +724,12 @@
           </div>
 
           <div class="form-group">
-            <label for="habilidades">Habilidades específicas:</label>
+            <label for="habilidades">Habilidades especï¿½ficas:</label>
             <textarea
               id="habilidades"
               name="habilidades"
               rows="4"
-              placeholder="Descreva suas principais habilidades e especializações"
+              placeholder="Descreva suas principais habilidades e especializaï¿½ï¿½es"
               required
               minlength="10"
               maxlength="500"
@@ -737,15 +744,15 @@
               <option value="imediata">Imediata</option>
               <option value="1-semana">1 semana</option>
               <option value="2-semanas">2 semanas</option>
-              <option value="1-mes">1 mês</option>
-              <option value="negociavel">Negociável</option>
+              <option value="1-mes">1 mï¿½s</option>
+              <option value="negociavel">Negociï¿½vel</option>
             </select>
             <div class="error-message" id="disponibilidade-error"></div>
           </div>
 
           <div class="checkbox-group">
             <input type="checkbox" id="termos" name="termos" required />
-            <label for="termos">Aceito os termos e condições de uso</label>
+            <label for="termos">Aceito os termos e condiï¿½ï¿½es de uso</label>
             <div class="error-message" id="termos-error"></div>
           </div>
 
@@ -851,15 +858,15 @@
       }
 
       function validateName(name) {
-        const namePattern = /^[A-Za-zÀ-ÿ\s]{3,50}$/;
+        const namePattern = /^[A-Za-zï¿½-ï¿½\s]{3,50}$/;
         if (!name.trim()) {
-          return "Nome é obrigatório";
+          return "Nome ï¿½ obrigatï¿½rio";
         }
         if (name.trim().length < 3) {
           return "Nome deve ter pelo menos 3 caracteres";
         }
         if (!namePattern.test(name.trim())) {
-          return "Nome deve conter apenas letras e espaços";
+          return "Nome deve conter apenas letras e espaï¿½os";
         }
         return null;
       }
@@ -867,10 +874,10 @@
       function validateEmail(email) {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!email.trim()) {
-          return "E-mail é obrigatório";
+          return "E-mail ï¿½ obrigatï¿½rio";
         }
         if (!emailPattern.test(email.trim())) {
-          return "E-mail inválido";
+          return "E-mail invï¿½lido";
         }
         return null;
       }
@@ -878,7 +885,7 @@
       function validatePhone(phone) {
         const phonePattern = /^\(\d{2}\)\s\d{4,5}-\d{4}$/;
         if (!phone.trim()) {
-          return "Telefone é obrigatório";
+          return "Telefone ï¿½ obrigatï¿½rio";
         }
         if (!phonePattern.test(phone.trim())) {
           return "Telefone deve estar no formato (XX) XXXXX-XXXX";
@@ -889,7 +896,7 @@
       function validateCEP(cep) {
         const cepPattern = /^\d{5}-?\d{3}$/;
         if (!cep.trim()) {
-          return "CEP é obrigatório";
+          return "CEP ï¿½ obrigatï¿½rio";
         }
         if (!cepPattern.test(cep.trim())) {
           return "CEP deve estar no formato XXXXX-XXX";
@@ -899,20 +906,20 @@
 
       function validateRequired(value, fieldName) {
         if (!value.trim()) {
-          return `${fieldName} é obrigatório`;
+          return `${fieldName} ï¿½ obrigatï¿½rio`;
         }
         return null;
       }
 
       function validateHabilidades(text) {
         if (!text.trim()) {
-          return "Habilidades são obrigatórias";
+          return "Habilidades sï¿½o obrigatï¿½rias";
         }
         if (text.trim().length < 10) {
           return "Descreva suas habilidades com pelo menos 10 caracteres";
         }
         if (text.trim().length > 500) {
-          return "Descrição deve ter no máximo 500 caracteres";
+          return "Descriï¿½ï¿½o deve ter no mï¿½ximo 500 caracteres";
         }
         return null;
       }
@@ -945,7 +952,7 @@
             error = validatePhone(value);
             break;
           case "endereco":
-            error = validateRequired(value, "Endereço");
+            error = validateRequired(value, "Endereï¿½o");
             break;
           case "cidade":
             error = validateRequired(value, "Cidade");
@@ -954,10 +961,10 @@
             error = validateCEP(value);
             break;
           case "profissao":
-            error = validateRequired(value, "Profissão");
+            error = validateRequired(value, "Profissï¿½o");
             break;
           case "experiencia":
-            error = validateRequired(value, "Experiência");
+            error = validateRequired(value, "Experiï¿½ncia");
             break;
           case "habilidades":
             error = validateHabilidades(value);
@@ -967,7 +974,7 @@
             break;
           case "termos":
             if (!field.checked) {
-              error = "Você deve aceitar os termos e condições";
+              error = "Vocï¿½ deve aceitar os termos e condiï¿½ï¿½es";
             }
             break;
         }
@@ -994,7 +1001,7 @@
         });
 
         if (isValid) {
-          // Redireciona para a página de validação
+          // Redireciona para a pï¿½gina de validaï¿½ï¿½o
           window.location.href = "validacao.html";
         } else {
           // Scroll to first error
@@ -1008,7 +1015,7 @@
       });
 
       // ========================================
-      // CONSULTA DE CEP - VIA CEP API - VERSÃO FINAL
+      // CONSULTA DE CEP - VIA CEP API - VERSï¿½O FINAL
       // ========================================
 
       // Aguardar DOM carregar
@@ -1024,7 +1031,7 @@
         const ufInput = document.getElementById("uf");
 
         if (!cepInput) {
-          console.error("Campo CEP não encontrado!");
+          console.error("Campo CEP nï¿½o encontrado!");
           return;
         }
 
@@ -1093,14 +1100,14 @@
         // Buscar CEP
         async function consultarCEP(cep) {
           if (buscando) {
-            console.log("Já existe uma busca em andamento");
+            console.log("Jï¿½ existe uma busca em andamento");
             return;
           }
 
           const cepLimpo = cep.replace(/\D/g, "");
 
           if (!validarCEP(cep)) {
-            exibirMensagem("? CEP inválido! Digite 8 dígitos", "error");
+            exibirMensagem("? CEP invï¿½lido! Digite 8 dï¿½gitos", "error");
             return;
           }
 
@@ -1122,12 +1129,12 @@
             console.log("Dados recebidos da API:", dados);
 
             if (dados.erro) {
-              exibirMensagem("? CEP não encontrado!", "error");
+              exibirMensagem("? CEP nï¿½o encontrado!", "error");
               limparCampos();
               return;
             }
 
-            // Preencher endereço
+            // Preencher endereï¿½o
             let enderecoCompleto = "";
             if (dados.logradouro) {
               enderecoCompleto = dados.logradouro;
@@ -1146,7 +1153,7 @@
 
             if (enderecoInput) {
               enderecoInput.value = enderecoCompleto;
-              console.log("Endereço preenchido:", enderecoInput.value);
+              console.log("Endereï¿½o preenchido:", enderecoInput.value);
             }
 
             if (cidadeInput) {
@@ -1159,7 +1166,7 @@
               console.log("UF preenchida:", ufInput.value);
             }
 
-            // Limpar erros de validação
+            // Limpar erros de validaï¿½ï¿½o
             if (enderecoCompleto && enderecoInput) {
               const formGroup = enderecoInput.closest(".form-group");
               if (formGroup) formGroup.classList.remove("error");
@@ -1175,7 +1182,7 @@
 
             exibirMensagem(`? ${dados.localidade} - ${dados.uf}`, "success");
 
-            // Focar próximo campo
+            // Focar prï¿½ximo campo
             setTimeout(() => {
               const profissao = document.getElementById("profissao");
               if (profissao) profissao.focus();
@@ -1183,7 +1190,7 @@
           } catch (erro) {
             console.error("Erro completo:", erro);
             exibirMensagem(
-              "? Erro ao consultar. Verifique sua conexão.",
+              "? Erro ao consultar. Verifique sua conexï¿½o.",
               "error"
             );
             limparCampos();
@@ -1244,3 +1251,4 @@
     </script>
   </body>
 </html>
+

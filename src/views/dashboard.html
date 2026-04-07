@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -99,7 +99,7 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="../../public/css/style.css">
 </head>
 <body>
     <!-- Sidebar -->
@@ -111,7 +111,7 @@
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link active" href="#overview">
-                    <i class="bi bi-house"></i> Visão Geral
+                    <i class="bi bi-house"></i> Visï¿½o Geral
                 </a>
             </li>
             <li class="nav-item">
@@ -126,7 +126,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#users">
-                    <i class="bi bi-people"></i> Usuários
+                    <i class="bi bi-people"></i> Usuï¿½rios
                 </a>
             </li>
             <li class="nav-item">
@@ -152,8 +152,8 @@
                 </div>
                 <div class="col-md-10">
                     <h3 id="userName">Carregando...</h3>
-                    <p id="userType" class="mb-0">Tipo de usuário</p>
-                    <small id="lastLogin">Último login: Carregando...</small>
+                    <p id="userType" class="mb-0">Tipo de usuï¿½rio</p>
+                    <small id="lastLogin">ï¿½ltimo login: Carregando...</small>
                 </div>
             </div>
         </div>
@@ -166,7 +166,7 @@
                         <i class="bi bi-people"></i>
                     </div>
                     <h5 id="totalUsers">0</h5>
-                    <p class="text-muted">Total de Usuários</p>
+                    <p class="text-muted">Total de Usuï¿½rios</p>
                 </div>
             </div>
             <div class="col-md-3">
@@ -175,7 +175,7 @@
                         <i class="bi bi-person-check"></i>
                     </div>
                     <h5 id="activeUsers">0</h5>
-                    <p class="text-muted">Usuários Ativos</p>
+                    <p class="text-muted">Usuï¿½rios Ativos</p>
                 </div>
             </div>
             <div class="col-md-3">
@@ -193,7 +193,7 @@
                         <i class="bi bi-briefcase"></i>
                     </div>
                     <h5 id="totalJobs">10</h5>
-                    <p class="text-muted">Vagas Disponíveis</p>
+                    <p class="text-muted">Vagas Disponï¿½veis</p>
                 </div>
             </div>
         </div>
@@ -228,9 +228,9 @@
             
             <div class="row mt-3">
                 <div class="col-md-6">
-                    <h6>Citações Motivacionais</h6>
+                    <h6>Citaï¿½ï¿½es Motivacionais</h6>
                     <button class="btn btn-warning w-100" onclick="testarAPicitacao()">
-                        <i class="bi bi-chat-quote"></i> Obter Citação
+                        <i class="bi bi-chat-quote"></i> Obter Citaï¿½ï¿½o
                     </button>
                     <div id="quoteResult" class="api-result" style="display: none;"></div>
                 </div>
@@ -248,15 +248,15 @@
         <!-- Local Storage Info -->
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title"><i class="bi bi-database"></i> Informações do Local Storage</h5>
+                <h5 class="card-title"><i class="bi bi-database"></i> Informaï¿½ï¿½es do Local Storage</h5>
                 
                 <div class="row">
                     <div class="col-md-6">
-                        <h6>Usuários Cadastrados</h6>
+                        <h6>Usuï¿½rios Cadastrados</h6>
                         <div id="usersList"></div>
                     </div>
                     <div class="col-md-6">
-                        <h6>Sessões Ativas</h6>
+                        <h6>Sessï¿½es Ativas</h6>
                         <div id="sessionsList"></div>
                     </div>
                 </div>
@@ -275,20 +275,20 @@
             </div>
         </div>
 
-        <!-- Gerenciamento de Sessões Remotas -->
+        <!-- Gerenciamento de Sessï¿½es Remotas -->
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title"><i class="bi bi-devices"></i> Sessões Ativas em Outros Dispositivos</h5>
-                <p class="text-muted">Gerencie suas sessões ativas em diferentes dispositivos</p>
+                <h5 class="card-title"><i class="bi bi-devices"></i> Sessï¿½es Ativas em Outros Dispositivos</h5>
+                <p class="text-muted">Gerencie suas sessï¿½es ativas em diferentes dispositivos</p>
                 
                 <div id="activeSessionsList"></div>
                 
                 <div class="mt-3">
                     <button class="btn btn-outline-warning" onclick="atualizarSessoesAtivas()">
-                        <i class="bi bi-arrow-clockwise"></i> Atualizar Sessões
+                        <i class="bi bi-arrow-clockwise"></i> Atualizar Sessï¿½es
                     </button>
                     <button class="btn btn-outline-danger" onclick="encerrarTodasSessoes()">
-                        <i class="bi bi-power"></i> Encerrar Todas as Outras Sessões
+                        <i class="bi bi-power"></i> Encerrar Todas as Outras Sessï¿½es
                     </button>
                 </div>
             </div>
@@ -302,33 +302,33 @@
     <script src="/js/APIs.js"></script>
 
     <script>
-        // Verificar autenticação ao carregar
+        // Verificar autenticaï¿½ï¿½o ao carregar
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Dashboard carregando...');
             setTimeout(() => {
-                console.log('Verificando autenticação...');
+                console.log('Verificando autenticaï¿½ï¿½o...');
                 if (typeof authSystem === 'undefined') {
-                    console.error('Sistema de autenticação não encontrado');
-                    alert('Sistema de autenticação não carregou. Redirecionando para login.');
+                    console.error('Sistema de autenticaï¿½ï¿½o nï¿½o encontrado');
+                    alert('Sistema de autenticaï¿½ï¿½o nï¿½o carregou. Redirecionando para login.');
                     window.location.href = 'login.html';
                     return;
                 }
                 
                 if (!authSystem.isAuthenticated()) {
-                    console.log('Usuário não autenticado');
-                    alert('Você precisa estar logado para acessar o dashboard');
+                    console.log('Usuï¿½rio nï¿½o autenticado');
+                    alert('Vocï¿½ precisa estar logado para acessar o dashboard');
                     window.location.href = 'login.html';
                     return;
                 }
                 
-                console.log('Usuário autenticado, carregando dashboard...');
+                console.log('Usuï¿½rio autenticado, carregando dashboard...');
                 carregarDadosUsuario();
                 atualizarDashboard();
                 atualizarSessoesAtivas();
             }, 1000);
         });
 
-        // Carregar dados do usuário
+        // Carregar dados do usuï¿½rio
         function carregarDadosUsuario() {
             const user = authSystem.getCurrentUser();
             
@@ -338,7 +338,7 @@
             
             if (user.lastLogin) {
                 const lastLogin = new Date(user.lastLogin).toLocaleString('pt-BR');
-                document.getElementById('lastLogin').textContent = `Último login: ${lastLogin}`;
+                document.getElementById('lastLogin').textContent = `ï¿½ltimo login: ${lastLogin}`;
             } else {
                 document.getElementById('lastLogin').textContent = 'Primeiro login';
             }
@@ -349,12 +349,12 @@
             const users = authSystem.db.getAllUsers();
             const sessions = JSON.parse(localStorage.getItem('fastwork_sessions') || '[]');
             
-            // Estatísticas
+            // Estatï¿½sticas
             document.getElementById('totalUsers').textContent = users.length;
             document.getElementById('activeUsers').textContent = sessions.filter(s => s.expiresAt > Date.now()).length;
             document.getElementById('totalCompanies').textContent = users.filter(u => u.type === 'empresa').length;
             
-            // Lista de usuários
+            // Lista de usuï¿½rios
             const usersList = document.getElementById('usersList');
             usersList.innerHTML = users.map(user => `
                 <div class="d-flex align-items-center mb-2 p-2 bg-light rounded">
@@ -366,7 +366,7 @@
                 </div>
             `).join('');
             
-            // Lista de sessões
+            // Lista de sessï¿½es
             const sessionsList = document.getElementById('sessionsList');
             const activeSessions = sessions.filter(s => s.expiresAt > Date.now());
             sessionsList.innerHTML = activeSessions.map(session => {
@@ -374,11 +374,11 @@
                 const expires = new Date(session.expiresAt).toLocaleString('pt-BR');
                 return `
                     <div class="mb-2 p-2 bg-light rounded">
-                        <small><strong>${user ? user.name : 'Usuário não encontrado'}</strong></small><br>
+                        <small><strong>${user ? user.name : 'Usuï¿½rio nï¿½o encontrado'}</strong></small><br>
                         <small class="text-muted">Expira em: ${expires}</small>
                     </div>
                 `;
-            }).join('') || '<p class="text-muted">Nenhuma sessão ativa</p>';
+            }).join('') || '<p class="text-muted">Nenhuma sessï¿½o ativa</p>';
         }
 
         // Testar APIs
@@ -395,7 +395,7 @@
                 resultDiv.innerHTML = `
                     <strong>? Sucesso!</strong><br>
                     <strong>CEP:</strong> ${resultado.data.cep}<br>
-                    <strong>Endereço:</strong> ${resultado.data.logradouro}<br>
+                    <strong>Endereï¿½o:</strong> ${resultado.data.logradouro}<br>
                     <strong>Bairro:</strong> ${resultado.data.bairro}<br>
                     <strong>Cidade:</strong> ${resultado.data.localidade} - ${resultado.data.uf}
                 `;
@@ -439,7 +439,7 @@
             
             if (resultado.success) {
                 resultDiv.innerHTML = `
-                    <strong>? Citação:</strong><br>
+                    <strong>? Citaï¿½ï¿½o:</strong><br>
                     <em>"${resultado.data.content}"</em><br>
                     <small>- ${resultado.data.author}</small>
                 `;
@@ -493,12 +493,12 @@
         }
 
         function limparDados() {
-            if (confirm('Tem certeza que deseja limpar todos os dados? Esta ação não pode ser desfeita.')) {
+            if (confirm('Tem certeza que deseja limpar todos os dados? Esta aï¿½ï¿½o nï¿½o pode ser desfeita.')) {
                 localStorage.removeItem('fastwork_users');
                 localStorage.removeItem('fastwork_sessions');
                 localStorage.removeItem('fastwork_session_token');
                 
-                alert('Dados limpos com sucesso! Você será redirecionado para a página de login.');
+                alert('Dados limpos com sucesso! Vocï¿½ serï¿½ redirecionado para a pï¿½gina de login.');
                 window.location.href = 'login.html';
             }
         }
@@ -509,25 +509,25 @@
             }
         }
 
-        // Gerenciar sessões ativas
+        // Gerenciar sessï¿½es ativas
         function atualizarSessoesAtivas() {
             const sessoesList = document.getElementById('activeSessionsList');
             if (!authSystem.isAuthenticated()) {
-                sessoesList.innerHTML = '<p class="text-muted">Faça login para ver suas sessões ativas</p>';
+                sessoesList.innerHTML = '<p class="text-muted">Faï¿½a login para ver suas sessï¿½es ativas</p>';
                 return;
             }
 
             const sessoes = authSystem.getActiveSessions();
             
             if (sessoes.length === 0) {
-                sessoesList.innerHTML = '<p class="text-muted">Nenhuma sessão ativa encontrada</p>';
+                sessoesList.innerHTML = '<p class="text-muted">Nenhuma sessï¿½o ativa encontrada</p>';
                 return;
             }
 
             let html = '<div class="row">';
             sessoes.forEach((sessao, index) => {
                 const badgeClass = sessao.isCurrent ? 'bg-success' : 'bg-secondary';
-                const badgeText = sessao.isCurrent ? 'Sessão Atual' : 'Remoto';
+                const badgeText = sessao.isCurrent ? 'Sessï¿½o Atual' : 'Remoto';
                 
                 html += `
                     <div class="col-md-6 mb-3">
@@ -545,9 +545,9 @@
                                 <p class="card-text">
                                     <small class="text-muted">
                                         <strong>Navegador:</strong> ${sessao.device.browser}<br>
-                                        <strong>Resolução:</strong> ${sessao.device.screen}<br>
+                                        <strong>Resoluï¿½ï¿½o:</strong> ${sessao.device.screen}<br>
                                         <strong>Login:</strong> ${sessao.createdAt}<br>
-                                        <strong>Última Atividade:</strong> ${sessao.lastActivity}
+                                        <strong>ï¿½ltima Atividade:</strong> ${sessao.lastActivity}
                                         ${sessao.rememberDevice ? '<br><i class="bi bi-check-circle text-success"></i> Dispositivo Lembrado' : ''}
                                     </small>
                                 </p>
@@ -567,18 +567,18 @@
         }
 
         function encerrarSessao(sessionToken) {
-            if (confirm('Tem certeza que deseja encerrar esta sessão?')) {
+            if (confirm('Tem certeza que deseja encerrar esta sessï¿½o?')) {
                 authSystem.terminateSession(sessionToken);
                 atualizarSessoesAtivas();
-                alert('Sessão encerrada com sucesso!');
+                alert('Sessï¿½o encerrada com sucesso!');
             }
         }
 
         function encerrarTodasSessoes() {
-            if (confirm('Tem certeza que deseja encerrar todas as outras sessões? Isso desconectará este usuário de todos os outros dispositivos.')) {
+            if (confirm('Tem certeza que deseja encerrar todas as outras sessï¿½es? Isso desconectarï¿½ este usuï¿½rio de todos os outros dispositivos.')) {
                 authSystem.terminateAllOtherSessions();
                 atualizarSessoesAtivas();
-                alert('Todas as outras sessões foram encerradas com sucesso!');
+                alert('Todas as outras sessï¿½es foram encerradas com sucesso!');
             }
         }
     </script>

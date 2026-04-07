@@ -1,25 +1,25 @@
 {
-  "name": "projeto.github.io",
+  "name": "fast-work",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "FastWork - Plataforma conectando profissionais e empresas",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch ./src/server.js"
+    "start": "python -m http.server 3000 || npx http-server -p 3000",
+    "serve": "npx http-server -p 3000 -c-1",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DiegoOliveiraz/Projeto.github.io.git"
+    "url": "git+https://github.com/FastWork/FastWork.github.io.git"
   },
-  "keywords": [],
+  "keywords": ["profissionais", "empresas", "jobs", "trabalho"],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DiegoOliveiraz/Projeto.github.io/issues"
+    "url": "https://github.com/FastWork/FastWork.github.io/issues"
   },
-  "homepage": "https://github.com/DiegoOliveiraz/Projeto.github.io#readme",
-  "description": "",
-  "dependencies": {
-    "express": "^5.2.1"
+  "homepage": "https://diegooliveiraz.github.io/FastWork.github.io/",
+  "devDependencies": {
+    "http-server": "^14.1.1"
   }
 }

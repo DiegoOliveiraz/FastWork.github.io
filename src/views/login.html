@@ -1,4 +1,4 @@
-<!doctype html>
+ï»¿<!doctype html>
 <html lang="pt-br" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
@@ -6,7 +6,7 @@
     <title>Login - FastWork</title>
     <link
       rel="shortcut icon"
-      href="/images/Logo_FAVICON.png"
+      href="../../public/images/Logo_FAVICON.png"
       type="image/x-icon"
     />
 
@@ -40,7 +40,7 @@
         --border-color: #1976d2;
         --card-bg: rgba(0, 0, 0, 0.8);
         --input-bg: rgba(0, 0, 0, 0.7);
-        --bg-image: url("/images/textured-black-background-vector.jpg");
+        --bg-image: url("../../public/images/textured-black-background-vector.jpg");
       }
 
       [data-theme="light"] {
@@ -51,7 +51,7 @@
         --border-color: #ffc107;
         --card-bg: rgba(255, 255, 255, 0.9);
         --input-bg: rgba(255, 255, 255, 0.8);
-        --bg-image: url("/images/novo-backgroundclaro.png");
+        --bg-image: url("../../public/images/novo-backgroundclaro.png");
         --title-color: #000000;
         --card-text-color: #000000;
         --footer-text-color: #000000;
@@ -553,7 +553,7 @@
         }
       }
 
-      /* ===== RF04 & RF05 – Painel de sessão ativa ===== */
+      /* ===== RF04 & RF05 ï¿½ Painel de sessï¿½o ativa ===== */
       .profile-panel {
         background: var(--card-bg);
         border: 2px solid var(--border-color);
@@ -829,7 +829,7 @@
         background: rgba(66, 165, 245, 0.08) !important;
       }
     </style>
-      <link rel="stylesheet" href="/css/style.css">
+      <link rel="stylesheet" href="../../public/css/style.css">
 </head>
   <body>
     <button class="theme-toggle" onclick="toggleTheme()">
@@ -847,7 +847,7 @@
         <div class="alert alert-danger" id="alertError"></div>
         <div class="alert alert-success" id="alertSuccess"></div>
 
-        <!-- Seletor de tipo de usuário -->
+        <!-- Seletor de tipo de usuï¿½rio -->
         <div class="user-type-selector">
           <button
             type="button"
@@ -908,7 +908,7 @@
           </button>
         </form>
 
-        <!-- Contas de Teste Disponíveis -->
+        <!-- Contas de Teste Disponï¿½veis -->
         <div
           style="
             margin-top: 30px;
@@ -928,11 +928,11 @@
               gap: 8px;
             "
           >
-            <i class="bi bi-key-fill"></i> Contas de Teste Disponíveis
+            <i class="bi bi-key-fill"></i> Contas de Teste Disponï¿½veis
           </h3>
 
           <div id="testAccountsContainer">
-            <!-- Contas serão inseridas aqui via JavaScript -->
+            <!-- Contas serï¿½o inseridas aqui via JavaScript -->
           </div>
 
           <p
@@ -950,14 +950,14 @@
 
         <div class="register-link">
           <p id="registerText">
-            Ainda não tem conta?
+            Ainda nï¿½o tem conta?
             <a href="formu.html">Cadastre-se como Profissional</a>
           </p>
         </div>
       </div>
     </div>
 
-    <!-- ===== PAINEL DE SESSÃO ATIVA (RF04 / RF05) ===== -->
+    <!-- ===== PAINEL DE SESSï¿½O ATIVA (RF04 / RF05) ===== -->
     <div class="login-container" id="profileContainer" style="display: none">
       <div class="profile-panel" id="profilePanel">
         <div class="profile-avatar" id="profileAvatar">
@@ -971,7 +971,7 @@
           "
           id="profileName"
         >
-          —
+          ï¿½
         </h2>
         <p
           style="
@@ -983,7 +983,7 @@
           "
           id="profileBadge"
         >
-          —
+          ï¿½
         </p>
 
         <div id="profileInfoRows"></div>
@@ -1002,7 +1002,7 @@
       </div>
     </div>
 
-    <!-- ===== MODAL RF04 – EDITAR DADOS CADASTRAIS ===== -->
+    <!-- ===== MODAL RF04 ï¿½ EDITAR DADOS CADASTRAIS ===== -->
     <dialog
       class="fw-modal"
       id="modalEdicao"
@@ -1013,7 +1013,7 @@
         Editar dados cadastrais
       </h2>
       <p class="modal-subtitle">
-        Campos em azul foram alterados. A senha atual é obrigatória para salvar.
+        Campos em azul foram alterados. A senha atual ï¿½ obrigatï¿½ria para salvar.
       </p>
 
       <div id="editFieldsContainer"></div>
@@ -1048,12 +1048,12 @@
           Cancelar
         </button>
         <button class="btn fw-btn-primary" onclick="salvarEdicaoCadastral()">
-          <i class="bi bi-check2"></i> Salvar alterações
+          <i class="bi bi-check2"></i> Salvar alteraï¿½ï¿½es
         </button>
       </div>
     </dialog>
 
-    <!-- ===== MODAL RF05 – EXCLUIR CONTA ===== -->
+    <!-- ===== MODAL RF05 ï¿½ EXCLUIR CONTA ===== -->
     <dialog
       class="fw-modal"
       id="modalExclusao"
@@ -1063,13 +1063,13 @@
         <i class="bi bi-exclamation-triangle-fill"></i> Excluir conta
       </h2>
       <p class="modal-subtitle">
-        Esta ação é permanente e não pode ser desfeita.
+        Esta aï¿½ï¿½o ï¿½ permanente e nï¿½o pode ser desfeita.
       </p>
 
       <div class="delete-warning">
-        Ao confirmar, <strong>todos os seus dados serão apagados</strong> e você
-        será desconectado imediatamente. Não será possível recuperar as
-        informações após a exclusão.
+        Ao confirmar, <strong>todos os seus dados serï¿½o apagados</strong> e vocï¿½
+        serï¿½ desconectado imediatamente. Nï¿½o serï¿½ possï¿½vel recuperar as
+        informaï¿½ï¿½es apï¿½s a exclusï¿½o.
       </div>
 
       <div class="form-group">
@@ -1111,20 +1111,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-      // ========== SISTEMA DE AUTENTICAÇÃO COM LOCAL STORAGE ==========
+      // ========== SISTEMA DE AUTENTICAï¿½ï¿½O COM LOCAL STORAGE ==========
 
-      // Classe para gerenciar usuários
+      // Classe para gerenciar usuï¿½rios
       class UserDatabase {
         constructor() {
           this.initializeDB();
         }
 
         initializeDB() {
-          // FORÇAR ATUALIZAÇÃO DOS DADOS - Remover após primeira execução
+          // FORï¿½AR ATUALIZAï¿½ï¿½O DOS DADOS - Remover apï¿½s primeira execuï¿½ï¿½o
           const forceUpdate = true; // Mude para false depois de testar
 
           if (!localStorage.getItem("fastwork_users") || forceUpdate) {
-            // Criar usuários de exemplo
+            // Criar usuï¿½rios de exemplo
             const exampleUsers = {
               profissionais: [
                 {
@@ -1168,7 +1168,7 @@
                 {
                   id: 1,
                   razaoSocial: "Construtora ABC Ltda",
-                  nomeFantasia: "ABC Construções",
+                  nomeFantasia: "ABC Construï¿½ï¿½es",
                   email: "contato@abc.com",
                   senha: "123456",
                   cnpj: "12.345.678/0001-90",
@@ -1187,8 +1187,8 @@
                 },
                 {
                   id: 3,
-                  razaoSocial: "Serviços Gerais Master Ltda",
-                  nomeFantasia: "Master Serviços",
+                  razaoSocial: "Serviï¿½os Gerais Master Ltda",
+                  nomeFantasia: "Master Serviï¿½os",
                   email: "contato@master.com",
                   senha: "123456",
                   cnpj: "45.678.901/0001-23",
@@ -1222,13 +1222,13 @@
           );
 
           if (user) {
-            // Salvar sessão
+            // Salvar sessï¿½o
             const session = {
               user: { ...user },
               userType: userType,
               loginTime: new Date().toISOString(),
             };
-            delete session.user.senha; // Não salvar senha na sessão
+            delete session.user.senha; // Nï¿½o salvar senha na sessï¿½o
             localStorage.setItem("fastwork_session", JSON.stringify(session));
             return { success: true, user: session };
           }
@@ -1241,12 +1241,12 @@
           const userList =
             userType === "profissional" ? users.profissionais : users.empresas;
 
-          // Verificar se email já existe
+          // Verificar se email jï¿½ existe
           if (userList.find((u) => u.email === userData.email)) {
-            return { success: false, message: "E-mail já cadastrado" };
+            return { success: false, message: "E-mail jï¿½ cadastrado" };
           }
 
-          // Adicionar novo usuário
+          // Adicionar novo usuï¿½rio
           const newUser = {
             id: userList.length + 1,
             ...userData,
@@ -1272,7 +1272,7 @@
           return session ? JSON.parse(session) : null;
         }
 
-        // RF04 – Atualizar dados cadastrais
+        // RF04 ï¿½ Atualizar dados cadastrais
         updateUser(id, updatedData, userType) {
           const users = this.getUsers();
           const lista =
@@ -1280,16 +1280,16 @@
           const idx = lista.findIndex((u) => u.id === id);
 
           if (idx === -1)
-            return { success: false, message: "Usuário não encontrado." };
+            return { success: false, message: "Usuï¿½rio nï¿½o encontrado." };
 
-          // Verificar conflito de e-mail com outro usuário
+          // Verificar conflito de e-mail com outro usuï¿½rio
           const emailConflito = lista.find(
             (u) => u.email === updatedData.email && u.id !== id,
           );
           if (emailConflito)
-            return { success: false, message: "Este e-mail já está em uso." };
+            return { success: false, message: "Este e-mail jï¿½ estï¿½ em uso." };
 
-          // Mesclar dados preservando campos imutáveis
+          // Mesclar dados preservando campos imutï¿½veis
           const userAtualizado = {
             ...lista[idx],
             ...updatedData,
@@ -1305,7 +1305,7 @@
 
           this.saveUsers(users);
 
-          // Atualizar sessão ativa sem a senha
+          // Atualizar sessï¿½o ativa sem a senha
           const session = this.getSession();
           if (session) {
             session.user = { ...userAtualizado };
@@ -1316,7 +1316,7 @@
           return { success: true, user: userAtualizado };
         }
 
-        // RF05 – Excluir conta do usuário
+        // RF05 ï¿½ Excluir conta do usuï¿½rio
         deleteUser(id, userType) {
           const users = this.getUsers();
           const lista =
@@ -1324,7 +1324,7 @@
           const idx = lista.findIndex((u) => u.id === id);
 
           if (idx === -1)
-            return { success: false, message: "Usuário não encontrado." };
+            return { success: false, message: "Usuï¿½rio nï¿½o encontrado." };
 
           lista.splice(idx, 1);
 
@@ -1341,7 +1341,7 @@
       // Inicializar banco de dados
       const db = new UserDatabase();
 
-      // ========== RF04 / RF05 – PAINEL DE PERFIL ==========
+      // ========== RF04 / RF05 ï¿½ PAINEL DE PERFIL ==========
 
       const CAMPOS_PROFISSIONAL = [
         {
@@ -1360,7 +1360,7 @@
         },
         {
           key: "profissao",
-          label: "Profissão",
+          label: "Profissï¿½o",
           icon: "bi-briefcase",
           type: "text",
           required: true,
@@ -1392,7 +1392,7 @@
         },
         {
           key: "razaoSocial",
-          label: "Razão Social",
+          label: "Razï¿½o Social",
           icon: "bi-file-text",
           type: "text",
           required: true,
@@ -1434,7 +1434,7 @@
         document.getElementById("loginContainer") &&
           (document.getElementById("loginContainer").style.display = "none");
 
-        // Ocultar formulário de login
+        // Ocultar formulï¿½rio de login
         const loginCont = document.querySelector(
           ".login-container:not(#profileContainer)",
         );
@@ -1442,7 +1442,7 @@
 
         document.getElementById("profileContainer").style.display = "flex";
 
-        const displayName = user.nome || user.nomeFantasia || "Usuário";
+        const displayName = user.nome || user.nomeFantasia || "Usuï¿½rio";
         const initials = displayName
           .split(" ")
           .map((w) => w[0])
@@ -1454,8 +1454,8 @@
         document.getElementById("profileName").textContent = displayName;
         document.getElementById("profileBadge").textContent =
           userType === "profissional"
-            ? `Profissional${user.profissao ? " · " + user.profissao : ""}`
-            : `Empresa${user.nomeFantasia ? " · " + user.nomeFantasia : ""}`;
+            ? `Profissional${user.profissao ? " ï¿½ " + user.profissao : ""}`
+            : `Empresa${user.nomeFantasia ? " ï¿½ " + user.nomeFantasia : ""}`;
 
         const campos =
           userType === "profissional" ? CAMPOS_PROFISSIONAL : CAMPOS_EMPRESA;
@@ -1467,7 +1467,7 @@
             <div class="profile-info-row">
               <i class="bi ${c.icon}"></i>
               <span class="profile-info-label">${c.label}</span>
-              <span>${c.key === "senha" ? "••••••" : user[c.key] || "—"}</span>
+              <span>${c.key === "senha" ? "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" : user[c.key] || "ï¿½"}</span>
             </div>
           `,
           )
@@ -1485,7 +1485,7 @@
         showAlert("success", "Logout realizado com sucesso.");
       }
 
-      // ---- RF04: Abrir modal de edição ----
+      // ---- RF04: Abrir modal de ediï¿½ï¿½o ----
       function abrirModalEdicao() {
         const session = db.getSession();
         if (!session) return;
@@ -1550,7 +1550,7 @@
           pulsarCampo("editConfirmSenha");
           showAlert(
             "error",
-            "Informe sua senha atual para salvar as alterações.",
+            "Informe sua senha atual para salvar as alteraï¿½ï¿½es.",
           );
           return;
         }
@@ -1575,7 +1575,7 @@
 
           if (campo.required && !val) {
             pulsarCampo("edit_" + campo.key);
-            showAlert("error", `O campo "${campo.label}" é obrigatório.`);
+            showAlert("error", `O campo "${campo.label}" ï¿½ obrigatï¿½rio.`);
             return;
           }
 
@@ -1585,7 +1585,7 @@
             !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)
           ) {
             pulsarCampo("edit_" + campo.key);
-            showAlert("error", "Informe um e-mail válido.");
+            showAlert("error", "Informe um e-mail vï¿½lido.");
             return;
           }
 
@@ -1598,7 +1598,7 @@
               );
               return;
             }
-            // Só atualiza a senha se o campo foi preenchido
+            // Sï¿½ atualiza a senha se o campo foi preenchido
             if (val) dadosAtualizados.senha = val;
           } else if (val) {
             dadosAtualizados[campo.key] = val;
@@ -1618,7 +1618,7 @@
         }
       }
 
-      // ---- RF05: Abrir modal de exclusão ----
+      // ---- RF05: Abrir modal de exclusï¿½o ----
       function abrirModalExclusao() {
         document.getElementById("deleteConfirmSenha").value = "";
         abrirModal("modalExclusao");
@@ -1635,7 +1635,7 @@
 
         if (!senhaDigitada) {
           pulsarCampo("deleteConfirmSenha");
-          showAlert("error", "Digite sua senha para confirmar a exclusão.");
+          showAlert("error", "Digite sua senha para confirmar a exclusï¿½o.");
           return;
         }
 
@@ -1646,7 +1646,7 @@
         const userBanco = lista.find((u) => u.id === user.id);
         if (!userBanco || userBanco.senha !== senhaDigitada) {
           pulsarCampo("deleteConfirmSenha");
-          showAlert("error", "Senha incorreta. Exclusão cancelada.");
+          showAlert("error", "Senha incorreta. Exclusï¿½o cancelada.");
           return;
         }
 
@@ -1660,7 +1660,7 @@
             ".login-container:not(#profileContainer)",
           );
           if (loginCont) loginCont.style.display = "flex";
-          showAlert("success", "Conta excluída permanentemente. Até mais!");
+          showAlert("success", "Conta excluï¿½da permanentemente. Atï¿½ mais!");
           displayTestAccounts();
         } else {
           showAlert("error", resultado.message);
@@ -1829,11 +1829,11 @@
         }
       });
 
-      // ========== GERENCIAMENTO DO FORMULÁRIO ==========
+      // ========== GERENCIAMENTO DO FORMULï¿½RIO ==========
 
       let selectedUserType = "profissional";
 
-      // Seletor de tipo de usuário
+      // Seletor de tipo de usuï¿½rio
       document.querySelectorAll(".user-type-btn").forEach((btn) => {
         btn.addEventListener("click", function () {
           document
@@ -1849,15 +1849,15 @@
           const registerLink = document.getElementById("registerText");
           if (selectedUserType === "profissional") {
             registerLink.innerHTML =
-              'Ainda não tem conta? <a href="formu.html">Cadastre-se como Profissional</a>';
+              'Ainda nï¿½o tem conta? <a href="formu.html">Cadastre-se como Profissional</a>';
           } else {
             registerLink.innerHTML =
-              'Ainda não tem conta? <a href="cadastroem.html">Cadastre-se como Empresa</a>';
+              'Ainda nï¿½o tem conta? <a href="cadastroem.html">Cadastre-se como Empresa</a>';
           }
         });
       });
 
-      // Validação de campos
+      // Validaï¿½ï¿½o de campos
       function showError(field, message) {
         const formGroup = field.closest(".form-group");
         const errorDiv = formGroup.querySelector(".error-message");
@@ -1887,10 +1887,10 @@
         }, 5000);
       }
 
-      // Validação em tempo real
+      // Validaï¿½ï¿½o em tempo real
       document.getElementById("email").addEventListener("input", function () {
         if (this.value && !this.validity.valid) {
-          showError(this, "E-mail inválido");
+          showError(this, "E-mail invï¿½lido");
         } else {
           clearError(this);
         }
@@ -1906,7 +1906,7 @@
           }
         });
 
-      // Submit do formulário
+      // Submit do formulï¿½rio
       document
         .getElementById("loginForm")
         .addEventListener("submit", function (e) {
@@ -1920,21 +1920,21 @@
           clearError(document.getElementById("password"));
           document.getElementById("alertError").style.display = "none";
 
-          // Validações
+          // Validaï¿½ï¿½es
           let hasError = false;
 
           if (!email) {
-            showError(document.getElementById("email"), "E-mail é obrigatório");
+            showError(document.getElementById("email"), "E-mail ï¿½ obrigatï¿½rio");
             hasError = true;
           } else if (!document.getElementById("email").validity.valid) {
-            showError(document.getElementById("email"), "E-mail inválido");
+            showError(document.getElementById("email"), "E-mail invï¿½lido");
             hasError = true;
           }
 
           if (!senha) {
             showError(
               document.getElementById("password"),
-              "Senha é obrigatória",
+              "Senha ï¿½ obrigatï¿½ria",
             );
             hasError = true;
           } else if (senha.length < 6) {
@@ -1956,7 +1956,7 @@
               "Login realizado com sucesso! Redirecionando...",
             );
 
-            // Redirecionar após 1 segundo para a página principal
+            // Redirecionar apï¿½s 1 segundo para a pï¿½gina principal
             setTimeout(() => {
               window.location.href = "/";
             }, 1000);
@@ -1965,7 +1965,7 @@
           }
         });
 
-      // Inicialização
+      // Inicializaï¿½ï¿½o
       document.addEventListener("DOMContentLoaded", () => {
         const storedTheme = getStoredTheme();
         setTheme(storedTheme);
@@ -1973,7 +1973,7 @@
         // Exibir contas de teste ao carregar
         displayTestAccounts();
 
-        // Verificar se já está logado e exibir painel de perfil
+        // Verificar se jï¿½ estï¿½ logado e exibir painel de perfil
         const session = db.getSession();
         if (session) {
           exibirPainelPerfil(session);
@@ -1986,12 +1986,12 @@
       src="/js/APIs.js"
       onerror="
         console.error('Erro ao carregar APIs.js');
-        showAlert('error', 'Erro ao carregar sistema de autenticação');
+        showAlert('error', 'Erro ao carregar sistema de autenticaï¿½ï¿½o');
       "
     ></script>
 
     <script>
-      // Integração com o novo sistema de APIs
+      // Integraï¿½ï¿½o com o novo sistema de APIs
       let authSystemIntegrated = false;
 
       // Aguardar carregamento do sistema de APIs
@@ -2001,31 +2001,31 @@
           authSystemIntegrated = true;
           console.log("Sistema de APIs carregado com sucesso");
 
-          // Verificar se já está logado no novo sistema
+          // Verificar se jï¿½ estï¿½ logado no novo sistema
           if (authSystem.isAuthenticated()) {
             const user = authSystem.getCurrentUser();
-            console.log("Usuário já logado detectado:", user);
-            showAlert("info", `Você já está logado como ${user.name}`);
+            console.log("Usuï¿½rio jï¿½ logado detectado:", user);
+            showAlert("info", `Vocï¿½ jï¿½ estï¿½ logado como ${user.name}`);
 
             setTimeout(() => {
               console.log(
-                "Redirecionando usuário logado para página principal...",
+                "Redirecionando usuï¿½rio logado para pï¿½gina principal...",
               );
               window.location.href = "/";
             }, 2000);
           }
 
-          // Adicionar usuários de demonstração
+          // Adicionar usuï¿½rios de demonstraï¿½ï¿½o
           adicionarUsuariosDemonstracao();
         } else {
           console.log(
-            "Sistema de APIs ainda não carregado, tentando novamente...",
+            "Sistema de APIs ainda nï¿½o carregado, tentando novamente...",
           );
           setTimeout(aguardarSistemaAPIs, 100);
         }
       }
 
-      // Adicionar seção de usuários de demonstração
+      // Adicionar seï¿½ï¿½o de usuï¿½rios de demonstraï¿½ï¿½o
       function adicionarUsuariosDemonstracao() {
         const loginCard = document.querySelector(".login-card");
         if (loginCard && !document.querySelector(".demo-users")) {
@@ -2033,7 +2033,7 @@
           demoSection.className = "demo-users";
           demoSection.innerHTML = `
             <h6 class="text-center mb-3" style="color: var(--text-color);">
-              <i class="bi bi-person-gear"></i> Usuários de Teste
+              <i class="bi bi-person-gear"></i> Usuï¿½rios de Teste
             </h6>
             
             <div class="demo-user" onclick="preencherLogin('admin@fastwork.com', 'admin123')">
@@ -2055,9 +2055,9 @@
             </div>
             
             <div class="demo-user" onclick="preencherLogin('joao@email.com', 'joao123')">
-              <img src="https://ui-avatars.com/api/?name=João+Silva&background=dc3545&color=fff" alt="João">
+              <img src="https://ui-avatars.com/api/?name=Joï¿½o+Silva&background=dc3545&color=fff" alt="Joï¿½o">
               <div class="demo-user-info">
-                <strong>João Silva</strong>
+                <strong>Joï¿½o Silva</strong>
                 <small>joao@email.com</small>
               </div>
               <span class="badge bg-danger">Profissional</span>
@@ -2074,14 +2074,14 @@
 
             <div style="margin-top: 20px; padding: 15px; background: rgba(13, 110, 253, 0.1); border-radius: 10px;">
               <h6 style="color: var(--text-color); margin-bottom: 10px;">
-                <i class="bi bi-cloud"></i> Demonstração de APIs
+                <i class="bi bi-cloud"></i> Demonstraï¿½ï¿½o de APIs
               </h6>
               <div style="display: flex; flex-wrap: wrap; gap: 5px;">
                 <button class="btn btn-outline-primary btn-sm" onclick="testarCEP()" style="flex: 1; min-width: 80px;">
                   <i class="bi bi-geo-alt"></i> CEP
                 </button>
                 <button class="btn btn-outline-success btn-sm" onclick="testarCitacao()" style="flex: 1; min-width: 80px;">
-                  <i class="bi bi-chat-quote"></i> Citação
+                  <i class="bi bi-chat-quote"></i> Citaï¿½ï¿½o
                 </button>
                 <button class="btn btn-outline-warning btn-sm" onclick="testarGitHub()" style="flex: 1; min-width: 80px;">
                   <i class="bi bi-github"></i> GitHub
@@ -2093,7 +2093,7 @@
             </div>
           `;
 
-          // Adicionar estilos para os usuários demo
+          // Adicionar estilos para os usuï¿½rios demo
           const demoStyles = document.createElement("style");
           demoStyles.textContent = `
             .demo-users {
@@ -2158,7 +2158,7 @@
         }
       }
 
-      // Função para preencher formulário de login
+      // Funï¿½ï¿½o para preencher formulï¿½rio de login
       window.preencherLogin = function (email, senha) {
         document.getElementById("email").value = email;
         document.getElementById("password").value = senha;
@@ -2176,10 +2176,10 @@
         );
       };
 
-      // Funções para demonstração de APIs
+      // Funï¿½ï¿½es para demonstraï¿½ï¿½o de APIs
       window.testarCEP = async function () {
         if (!authSystemIntegrated)
-          return showAlert("error", "Sistema de APIs não carregado");
+          return showAlert("error", "Sistema de APIs nï¿½o carregado");
 
         try {
           showAlert("info", "Buscando CEP 01310-100...");
@@ -2200,10 +2200,10 @@
 
       window.testarCitacao = async function () {
         if (!authSystemIntegrated)
-          return showAlert("error", "Sistema de APIs não carregado");
+          return showAlert("error", "Sistema de APIs nï¿½o carregado");
 
         try {
-          showAlert("info", "Buscando citação motivacional...");
+          showAlert("info", "Buscando citaï¿½ï¿½o motivacional...");
           const result = await apiService.obterCitacaoMotivacional();
 
           if (result.success) {
@@ -2215,37 +2215,37 @@
             showAlert("error", result.message);
           }
         } catch (error) {
-          showAlert("error", "Erro ao obter citação");
+          showAlert("error", "Erro ao obter citaï¿½ï¿½o");
         }
       };
 
       window.testarGitHub = async function () {
         if (!authSystemIntegrated)
-          return showAlert("error", "Sistema de APIs não carregado");
+          return showAlert("error", "Sistema de APIs nï¿½o carregado");
 
         try {
-          showAlert("info", "Buscando usuário octocat no GitHub...");
+          showAlert("info", "Buscando usuï¿½rio octocat no GitHub...");
           const result = await apiService.buscarUsuarioGitHub("octocat");
 
           if (result.success) {
             showAlert(
               "success",
-              `GitHub: ${result.data.name} (@${result.data.login}) - ${result.data.public_repos} repositórios`,
+              `GitHub: ${result.data.name} (@${result.data.login}) - ${result.data.public_repos} repositï¿½rios`,
             );
           } else {
             showAlert("error", result.message);
           }
         } catch (error) {
-          showAlert("error", "Erro ao buscar usuário GitHub");
+          showAlert("error", "Erro ao buscar usuï¿½rio GitHub");
         }
       };
 
       window.testarVagas = async function () {
         if (!authSystemIntegrated)
-          return showAlert("error", "Sistema de APIs não carregado");
+          return showAlert("error", "Sistema de APIs nï¿½o carregado");
 
         try {
-          showAlert("info", "Carregando vagas disponíveis...");
+          showAlert("info", "Carregando vagas disponï¿½veis...");
           const result = await apiService.buscarVagas();
 
           if (result.success) {
@@ -2261,7 +2261,7 @@
         }
       };
 
-      // Modificar função de login para usar novo sistema
+      // Modificar funï¿½ï¿½o de login para usar novo sistema
       const originalLoginForm = document.getElementById("loginForm");
       if (originalLoginForm) {
         originalLoginForm.addEventListener("submit", async function (e) {
@@ -2270,14 +2270,14 @@
           const email = document.getElementById("email").value.trim();
           const senha = document.getElementById("password").value;
 
-          // Validações básicas
+          // Validaï¿½ï¿½es bï¿½sicas
           if (!email || !senha) {
             showAlert("error", "Por favor, preencha todos os campos");
             return;
           }
 
           if (!document.getElementById("email").validity.valid) {
-            showAlert("error", "E-mail inválido");
+            showAlert("error", "E-mail invï¿½lido");
             return;
           }
 
@@ -2286,7 +2286,7 @@
             return;
           }
 
-          // Tentar login com o novo sistema se disponível
+          // Tentar login com o novo sistema se disponï¿½vel
           if (authSystemIntegrated) {
             console.log("Tentando login com sistema integrado...");
             showAlert("info", "Fazendo login...");
@@ -2295,13 +2295,13 @@
                 document.getElementById("rememberDevice")?.checked ?? true;
               const result = await fazerLogin(email, senha, rememberDevice);
               console.log("Resultado do login:", result);
-              // O resultado já é tratado na função fazerLogin
+              // O resultado jï¿½ ï¿½ tratado na funï¿½ï¿½o fazerLogin
             } catch (error) {
               console.error("Erro no login integrado:", error);
               showAlert("error", "Erro no sistema de login: " + error.message);
             }
           } else {
-            console.log("Sistema integrado não disponível, usando fallback...");
+            console.log("Sistema integrado nï¿½o disponï¿½vel, usando fallback...");
             // Fallback para sistema antigo
             const result = db.authenticate(email, senha, selectedUserType);
             console.log("Resultado do fallback:", result);
@@ -2312,8 +2312,8 @@
                 "Login realizado com sucesso! Redirecionando...",
               );
               setTimeout(() => {
-                // Redirecionar todos os usuários para a página principal
-                console.log("Redirecionando para página principal...");
+                // Redirecionar todos os usuï¿½rios para a pï¿½gina principal
+                console.log("Redirecionando para pï¿½gina principal...");
                 window.location.href = "/";
               }, 1000);
             } else {
@@ -2323,7 +2323,7 @@
         });
       }
 
-      // Inicializar integração
+      // Inicializar integraï¿½ï¿½o
       document.addEventListener("DOMContentLoaded", () => {
         console.log("DOM carregado, inicializando sistema...");
 
@@ -2331,10 +2331,10 @@
         const storedTheme = getStoredTheme();
         setTheme(storedTheme);
 
-        // Verificar sessão ativa — exibir painel de perfil (RF04/RF05)
+        // Verificar sessï¿½o ativa ï¿½ exibir painel de perfil (RF04/RF05)
         const session = db.getSession();
         if (session) {
-          console.log("Sessão ativa encontrada:", session.user);
+          console.log("Sessï¿½o ativa encontrada:", session.user);
           exibirPainelPerfil(session);
           console.log(`Tentativa ${tentativas} de carregar sistema de APIs...`);
 
@@ -2343,11 +2343,11 @@
             aguardarSistemaAPIs();
           } else if (tentativas >= maxTentativas) {
             console.warn(
-              "Sistema de APIs não carregou no tempo esperado, usando apenas sistema antigo",
+              "Sistema de APIs nï¿½o carregou no tempo esperado, usando apenas sistema antigo",
             );
             showAlert(
               "warning",
-              "Sistema avançado indisponível, usando sistema básico",
+              "Sistema avanï¿½ado indisponï¿½vel, usando sistema bï¿½sico",
             );
             authSystemIntegrated = false;
           } else {
@@ -2360,3 +2360,4 @@
     </script>
   </body>
 </html>
+

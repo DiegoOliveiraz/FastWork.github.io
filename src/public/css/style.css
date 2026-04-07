@@ -13,6 +13,9 @@
   --card-text-color: #ffffff;
   --footer-text-color: #ffffff;
   --content-text-color: #ffffff;
+  --input-bg: #ffffff;
+  --input-text: #000000;
+  --input-border: #ddd;
 }
 
 [data-theme="light"] {
@@ -27,6 +30,30 @@
   --card-text-color: #000000;
   --footer-text-color: #000000;
   --content-text-color: #000000;
+  --input-bg: #ffffff;
+  --input-text: #000000;
+  --input-border: #ddd;
+}
+
+[data-theme="dark"] {
+  --input-bg: #1a1a1a;
+  --input-text: #ffffff;
+  --input-border: #444;
+}
+
+/* Global Input Styles */
+input,
+textarea,
+select {
+  background-color: var(--input-bg, #ffffff) !important;
+  color: var(--input-text, #000000) !important;
+  border-color: var(--input-border, #ddd) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--input-text, #000000);
+  opacity: 0.6;
 }
 
 /* Theme Toggle Button in Menu */
@@ -863,6 +890,8 @@ body {
   font-size: 13px;
   outline: none;
   caret-color: var(--primary-color);
+  background-color: #ffffff;
+  color: #000000;
 }
 
 .text-box .formatting {
@@ -1359,12 +1388,24 @@ body {
         padding: 9px 12px;
         border: 2px solid var(--border-color, #1976d2);
         border-radius: 8px;
-        background: var(--input-bg, rgba(0, 0, 0, 0.5));
+        background: var(--input-bg, rgba(255, 255, 255, 0.15));
         color: var(--text-color, #fff);
         font-size: 0.93rem;
         transition:
           border-color 0.2s,
           background 0.2s;
+      }
+
+      [data-theme="light"] .epm-field input {
+        background: #f5f5f5;
+        color: #000000;
+        border-color: #ddd;
+      }
+
+      [data-theme="light"] .epm-field input:focus {
+        background: #ffffff;
+        color: #000000;
+        border-color: #ffc107;
       }
 
       .epm-field input:focus {
@@ -1430,10 +1471,22 @@ body {
         font-size: 0.93rem;
       }
 
+      [data-theme="light"] .epm-confirm .pw-wrap input {
+        background: #ffebee;
+        color: #000000;
+        border-color: #e57373;
+      }
+
       .epm-confirm .pw-wrap input:focus {
         outline: none;
         border-color: #e53935;
         background: rgba(229, 57, 53, 0.14);
+      }
+
+      [data-theme="light"] .epm-confirm .pw-wrap input:focus {
+        background: #ffcdd2;
+        color: #000000;
+        border-color: #d32f2f;
       }
 
       .epm-footer {

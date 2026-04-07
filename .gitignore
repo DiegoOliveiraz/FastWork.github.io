@@ -1,0 +1,10 @@
+node_modules/
+.env
+.DS_Store
+*.log
+dist/
+build/
+.vscode/settings.json
+src/server.js
+build.js
+.github/workflows/deploy.yml
