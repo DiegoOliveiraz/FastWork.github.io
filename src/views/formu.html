@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formul�rio - FastWork</title>
+    <title>Formulario - FastWork</title>
     <link
       rel="shortcut icon"
       href="../../public/images/Logo_FAVICON.png"
@@ -557,7 +557,7 @@
       </section>
 
       <div class="form-container">
-        <form action="#" method="post" novalidate>
+        <form id="cadastroForm" novalidate>
           <div class="form-group">
             <label for="nome">Nome Completo:</label>
             <input
@@ -988,34 +988,62 @@
         }
       }
 
-      form.addEventListener("submit", function (e) {
+      form.addEventListener("submit", async function (e) {
         e.preventDefault();
 
         let isValid = true;
 
-        // Validate all fields
         inputs.forEach((input) => {
-          if (!validateField(input)) {
+          if (!validateFieId(input)) {
             isValid = false;
           }
         });
-
         if (isValid) {
-          // Redireciona para a p�gina de valida��o
-          window.location.href = "validacao.html";
-        } else {
-          // Scroll to first error
-          const firstError = document.querySelector(
-            ".form-group.error, .checkbox-group.error"
-          );
-          if (firstError) {
-            firstError.scrollIntoView({ behavior: "smooth", block: "center" });
+          //coleatr dados do formulário
+          const formaData = {
+            nome: document.getElementById("nome").value,
+            email: document.getElementById("email").value,
+            cpf:document.getElementById("cpf").value,
+            telefone: document.getElementById("telefone").value,
+            endereco: document.getElementById("endereco").value,
+            cidade: document.getElementById("cidade").value,
+            uf:document.getElementById("uf").value,
+            cep: document.getElementById("cep").value,
+            profissao: document.getElementById("profissao").value,
+            experiencia: document.getElementById("experiencia").value,
+            habilidades: document.getElementById("habilidades").value,
+            disponibilidade: document.getElementById("disponibilidade").value,
+          };
+
+          try {
+            // Enviar para backend
+            const response = await fetch('http://localhost:3000/api/usuarios', {
+              method: 'POST',
+              headers: {
+                'Content-Type' : 'application/json'
+              },
+              body: JSON.stringify(FormData)
+            });
+
+            const resultado = await response.json();
+
+            if (resultado.ok) {
+              //sucesso!
+              alert('cadastro realizado com sucesso!');
+              window.location.href = "validacao.html";
+            } else {
+              //erro
+              alert('Erro:', resultado.erro);
+            }
+          } catch (erro) {
+            console.error('Erro:', erro);
+            alert('Erro ao enviar formulário')
           }
         }
       });
 
       // ========================================
-      // CONSULTA DE CEP - VIA CEP API - VERS�O FINAL
+      // CONSULTA DE CEP - VIA CEP API - VERSÃO FINAL
       // ========================================
 
       // Aguardar DOM carregar

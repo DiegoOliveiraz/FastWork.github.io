@@ -1,0 +1,19 @@
+[
+  {
+    "id": "user_1712000000",
+    "nome": "João Silva",
+    "email": "joao@email.com",
+    "cpf": "12345678901",
+    "telefone": "(11) 98765-4321",
+    "endereco": "Rua A, 123",
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "cep": "01234-567",
+    "profissao": "Pedreiro",
+    "experiencia": "5-10",
+    "habilidades": "Construção, alvenaria",
+    "disponibilidade": "imediata",
+    "dataCadastro": "2026-04-08T10:00:00Z",
+    "ativo": true
+  }
+]

@@ -1,13 +1,28 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import usuarioRoutes from './routes/usuarioRoutes.js';
+import empresaRoutes from './routes/empresaRoutes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+
 const app = express();
 const PORT = 3000;
 
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+app.use('/api', usuarioRoutes);
+app.use('/api', empresaRoutes);
+
+app.listen(3000, () => {
+  console.log(`Servidor rodando na porta ${PORT}`)
+});
 // Configuração
 // Middleware para garantir charset UTF-8 em arquivos estáticos
 app.use(express.static(path.join(__dirname, 'public'), {
