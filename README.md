@@ -59,8 +59,6 @@
 
 ###
 
-<br clear="both">
-
 <img src="https://raw.githubusercontent.com/DiegoOliveiraz/DiegoOliveiraz/output/snake.svg" alt="Snake animation" />
 
 ###
