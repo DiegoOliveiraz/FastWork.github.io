@@ -1,4 +1,4 @@
-import empresas from '../database/empresa.json' with { type: 'json'};
+import empresas from '../database/empresas.json' with { type: 'json'};
 import fs from 'fs';
 import path from 'path';
 
@@ -25,7 +25,7 @@ const empresaRepository = {
         return novaEmpresa;
     },
     salvarEmArquivo() {
-        const caminhoDb = path.join(process.cwd(), 'src', 'database', 'empresa.json');
+        const caminhoDb = path.join(process.cwd(), 'src', 'database', 'empresas.json');
         fs.writeFileSync(caminhoDb, JSON.stringify(empresas, null, 2));
     }
 };
