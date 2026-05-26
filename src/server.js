@@ -25,7 +25,8 @@ app.listen(3000, () => {
 });
 // Configuração
 // Middleware para garantir charset UTF-8 em arquivos estáticos
-app.use(express.static(path.join(__dirname, 'public'), {
+// Serve arquivos da pasta public com prefixo /
+app.use(express.static(path.join(__dirname, '..'), {
   setHeaders: (res, path) => {
     if (path.endsWith('.html')) {
       res.setHeader('Content-Type', 'text/html; charset=utf-8');
