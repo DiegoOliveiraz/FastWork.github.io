@@ -6,7 +6,7 @@
     <title>Login - FastWork</title>
     <link
       rel="shortcut icon"
-      href="/src/public/images/Logo_FAVICON.png"
+      href="../public/images/Logo_FAVICON.png"
       type="image/x-icon"
     />
 
@@ -40,7 +40,7 @@
         --border-color: #1976d2;
         --card-bg: rgba(0, 0, 0, 0.8);
         --input-bg: rgba(0, 0, 0, 0.7);
-        --bg-image: url("/src/public/images/textured-black-background-vector.jpg");
+        --bg-image: url("../public/images/textured-black-background-vector.jpg");
       }
 
       [data-theme="light"] {
@@ -51,7 +51,7 @@
         --border-color: #ffc107;
         --card-bg: rgba(255, 255, 255, 0.9);
         --input-bg: rgba(255, 255, 255, 0.8);
-        --bg-image: url("/src/public/images/novo-backgroundclaro.png");
+        --bg-image: url("../public/images/backgroundclaro.png");
         --title-color: #000000;
         --card-text-color: #000000;
         --footer-text-color: #000000;
@@ -928,11 +928,11 @@
               gap: 8px;
             "
           >
-            <i class="bi bi-key-fill"></i> Contas de Teste Dispon�veis
+            <i class="bi bi-key-fill"></i> Contas de Teste Disponíveis
           </h3>
 
           <div id="testAccountsContainer">
-            <!-- Contas ser�o inseridas aqui via JavaScript -->
+            <!-- Contas serão inseridas aqui via JavaScript -->
           </div>
 
           <p
@@ -950,14 +950,14 @@
 
         <div class="register-link">
           <p id="registerText">
-            Ainda n�o tem conta?
+            Ainda não tem conta?
             <a href="formu.html">Cadastre-se como Profissional</a>
           </p>
         </div>
       </div>
     </div>
 
-    <!-- ===== PAINEL DE SESS�O ATIVA (RF04 / RF05) ===== -->
+    <!-- ===== PAINEL DE SESSÃO ATIVA (RF04 / RF05) ===== -->
     <div class="login-container" id="profileContainer" style="display: none">
       <div class="profile-panel" id="profilePanel">
         <div class="profile-avatar" id="profileAvatar">
@@ -1002,7 +1002,7 @@
       </div>
     </div>
 
-    <!-- ===== MODAL RF04 � EDITAR DADOS CADASTRAIS ===== -->
+    <!-- ===== MODAL RF04 - EDITAR DADOS CADASTRAIS ===== -->
     <dialog
       class="fw-modal"
       id="modalEdicao"
@@ -1013,7 +1013,7 @@
         Editar dados cadastrais
       </h2>
       <p class="modal-subtitle">
-        Campos em azul foram alterados. A senha atual � obrigat�ria para salvar.
+        Campos em azul foram alterados. A senha atual é obrigatória para salvar.
       </p>
 
       <div id="editFieldsContainer"></div>
@@ -1111,16 +1111,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-      // ========== SISTEMA DE AUTENTICA��O COM LOCAL STORAGE ==========
+      // ========== SISTEMA DE AUTENTICAÇÃO COM LOCAL STORAGE ==========
 
-      // Classe para gerenciar usu�rios
+      // Classe para gerenciar usuários
       class UserDatabase {
         constructor() {
           this.initializeDB();
         }
 
         initializeDB() {
-          // FOR�AR ATUALIZA��O DOS DADOS - Remover ap�s primeira execu��o
+          // FORÇAR ATUALIZAÇÃO DOS DADOS - Remover após primeira execução
           const forceUpdate = true; // Mude para false depois de testar
 
           if (!localStorage.getItem("fastwork_users") || forceUpdate) {
@@ -1222,13 +1222,13 @@
           );
 
           if (user) {
-            // Salvar sess�o
+            // Salvar sessão
             const session = {
               user: { ...user },
               userType: userType,
               loginTime: new Date().toISOString(),
             };
-            delete session.user.senha; // N�o salvar senha na sess�o
+            delete session.user.senha; // Não salvar senha na sessão
             localStorage.setItem("fastwork_session", JSON.stringify(session));
             return { success: true, user: session };
           }
@@ -1241,12 +1241,12 @@
           const userList =
             userType === "profissional" ? users.profissionais : users.empresas;
 
-          // Verificar se email j� existe
+          // Verificar se email já existe
           if (userList.find((u) => u.email === userData.email)) {
-            return { success: false, message: "E-mail j� cadastrado" };
+            return { success: false, message: "E-mail já cadastrado" };
           }
 
-          // Adicionar novo usu�rio
+          // Adicionar novo usuário
           const newUser = {
             id: userList.length + 1,
             ...userData,
@@ -1305,7 +1305,7 @@
 
           this.saveUsers(users);
 
-          // Atualizar sess�o ativa sem a senha
+          // Atualizar sessão ativa sem a senha
           const session = this.getSession();
           if (session) {
             session.user = { ...userAtualizado };
@@ -1316,7 +1316,7 @@
           return { success: true, user: userAtualizado };
         }
 
-        // RF05 � Excluir conta do usu�rio
+        // RF05 - Excluir conta do usuário
         deleteUser(id, userType) {
           const users = this.getUsers();
           const lista =
@@ -1324,7 +1324,7 @@
           const idx = lista.findIndex((u) => u.id === id);
 
           if (idx === -1)
-            return { success: false, message: "Usu�rio n�o encontrado." };
+            return { success: false, message: "Usuário não encontrado." };
 
           lista.splice(idx, 1);
 
@@ -1341,7 +1341,7 @@
       // Inicializar banco de dados
       const db = new UserDatabase();
 
-      // ========== RF04 / RF05 � PAINEL DE PERFIL ==========
+      // ========== RF04 / RF05 - PAINEL DE PERFIL ==========
 
       const CAMPOS_PROFISSIONAL = [
         {
@@ -1434,7 +1434,7 @@
         document.getElementById("loginContainer") &&
           (document.getElementById("loginContainer").style.display = "none");
 
-        // Ocultar formul�rio de login
+        // Ocultar formulário de login
         const loginCont = document.querySelector(
           ".login-container:not(#profileContainer)",
         );
@@ -1442,7 +1442,7 @@
 
         document.getElementById("profileContainer").style.display = "flex";
 
-        const displayName = user.nome || user.nomeFantasia || "Usu�rio";
+        const displayName = user.nome || user.nomeFantasia || "Usuário";
         const initials = displayName
           .split(" ")
           .map((w) => w[0])
@@ -1598,7 +1598,7 @@
               );
               return;
             }
-            // S� atualiza a senha se o campo foi preenchido
+            // Só atualiza a senha se o campo foi preenchido
             if (val) dadosAtualizados.senha = val;
           } else if (val) {
             dadosAtualizados[campo.key] = val;
@@ -1618,7 +1618,7 @@
         }
       }
 
-      // ---- RF05: Abrir modal de exclus�o ----
+      // ---- RF05: Abrir modal de exclusão ----
       function abrirModalExclusao() {
         document.getElementById("deleteConfirmSenha").value = "";
         abrirModal("modalExclusao");
@@ -1635,7 +1635,7 @@
 
         if (!senhaDigitada) {
           pulsarCampo("deleteConfirmSenha");
-          showAlert("error", "Digite sua senha para confirmar a exclus�o.");
+          showAlert("error", "Digite sua senha para confirmar a exclusão.");
           return;
         }
 
@@ -1646,7 +1646,7 @@
         const userBanco = lista.find((u) => u.id === user.id);
         if (!userBanco || userBanco.senha !== senhaDigitada) {
           pulsarCampo("deleteConfirmSenha");
-          showAlert("error", "Senha incorreta. Exclus�o cancelada.");
+          showAlert("error", "Senha incorreta. Exclusão cancelada.");
           return;
         }
 
@@ -1829,11 +1829,11 @@
         }
       });
 
-      // ========== GERENCIAMENTO DO FORMUL�RIO ==========
+      // ========== GERENCIAMENTO DO FORMULÁRIO ==========
 
       let selectedUserType = "profissional";
 
-      // Seletor de tipo de usu�rio
+      // Seletor de tipo de usuário
       document.querySelectorAll(".user-type-btn").forEach((btn) => {
         btn.addEventListener("click", function () {
           document

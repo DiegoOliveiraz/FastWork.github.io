@@ -8,7 +8,7 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-image: url(Imagens/textured-black-background-vector.jpg);
+  background-image: url("./Imagens/textured-black-background-vector.jpg");
   background-position: center;
   background-attachment: fixed;
   background-size: cover;

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
@@ -6,7 +6,7 @@
     <title>Formulario - FastWork</title>
     <link
       rel="shortcut icon"
-      href="/src/public/images/Logo_FAVICON.png"
+      href="../public/images/Logo_FAVICON.png"
       type="image/x-icon"
     />
     <link
@@ -31,7 +31,7 @@
         --input-bg: #1a1a1a;
         --input-text: #ffffff;
         --input-border: #444;
-        --bg-image: url("/src/public/images/textured-black-background-vector.jpg");
+        --bg-image: url("../public/images/textured-black-background-vector.jpg");
       }
 
       [data-theme="light"] {
@@ -44,7 +44,7 @@
         --input-bg: #ffffff;
         --input-text: #000000;
         --input-border: #ddd;
-        --bg-image: url("/src/public/images/novo-backgroundclaro.png");
+        --bg-image: url("../public/images/backgroundclaro.png");
         --title-color: #000000;
         --card-text-color: #000000;
         --footer-text-color: #000000;
@@ -411,7 +411,7 @@
         }
       }
 
-      /* Estilos para bot�o buscar CEP */
+      /* Estilos para botão buscar CEP */
       #btnBuscar:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(25, 118, 210, 0.4);
@@ -527,9 +527,9 @@
         }
       }
     </style>
-      <link rel="stylesheet" href="/src/public/css/style.css">
-    <link rel="stylesheet" href="/src/public/css/formu.css">
-</head>
+    <link rel="stylesheet" href="/src/public/css/style.css" />
+    <link rel="stylesheet" href="/src/public/css/formu.css" />
+  </head>
   <body>
     <button class="theme-toggle" onclick="toggleTheme()">
       <span class="theme-text">Modo Claro</span>
@@ -545,8 +545,8 @@
             font-size: 14px;
             transition: all 0.3s ease;
           "
-          onmouseover="this.style.opacity='0.8'"
-          onmouseout="this.style.opacity='1'"
+          onmouseover="this.style.opacity = '0.8'"
+          onmouseout="this.style.opacity = '1'"
         >
           ← Voltar ao FastWork
         </a>
@@ -600,12 +600,12 @@
           </div>
 
           <div class="form-group">
-            <label for="endereco">Endere�o:</label>
+            <label for="endereco">Endereço:</label>
             <input
               type="text"
               id="endereco"
               name="endereco"
-              placeholder="Digite seu endere�o completo"
+              placeholder="Digite seu endereço completo"
               required
             />
             <div class="error-message" id="endereco-error"></div>
@@ -665,7 +665,7 @@
                     white-space: nowrap;
                   "
                 >
-                  ?? Buscar
+                  🔍 Buscar
                 </button>
               </div>
               <div
@@ -677,7 +677,7 @@
                   margin-top: 8px;
                 "
               >
-                ? Buscando CEP...
+                ⏳ Buscando CEP...
               </div>
               <div
                 id="message"
@@ -694,9 +694,9 @@
           </div>
 
           <div class="form-group">
-            <label for="profissao">Profiss�o:</label>
+            <label for="profissao">Profissão:</label>
             <select id="profissao" name="profissao" required>
-              <option value="">Selecione sua profiss�o</option>
+              <option value="">Selecione sua profissão</option>
               <option value="pedreiro">Pedreiro</option>
               <option value="servente">Servente</option>
               <option value="eletricista">Eletricista</option>
@@ -704,16 +704,16 @@
               <option value="pintor">Pintor</option>
               <option value="carpinteiro">Carpinteiro</option>
               <option value="soldador">Soldador</option>
-              <option value="mecanico">Mec�nico</option>
+              <option value="mecanico">Mecânico</option>
               <option value="outro">Outro</option>
             </select>
             <div class="error-message" id="profissao-error"></div>
           </div>
 
           <div class="form-group">
-            <label for="experiencia">Experi�ncia (anos):</label>
+            <label for="experiencia">Experiência (anos):</label>
             <select id="experiencia" name="experiencia" required>
-              <option value="">Selecione sua experi�ncia</option>
+              <option value="">Selecione sua experiência</option>
               <option value="0-1">0-1 ano</option>
               <option value="1-3">1-3 anos</option>
               <option value="3-5">3-5 anos</option>
@@ -724,12 +724,12 @@
           </div>
 
           <div class="form-group">
-            <label for="habilidades">Habilidades espec�ficas:</label>
+            <label for="habilidades">Habilidades especializadas:</label>
             <textarea
               id="habilidades"
               name="habilidades"
               rows="4"
-              placeholder="Descreva suas principais habilidades e especializa��es"
+              placeholder="Descreva suas principais habilidades e especialidades"
               required
               minlength="10"
               maxlength="500"
@@ -744,15 +744,15 @@
               <option value="imediata">Imediata</option>
               <option value="1-semana">1 semana</option>
               <option value="2-semanas">2 semanas</option>
-              <option value="1-mes">1 m�s</option>
-              <option value="negociavel">Negoci�vel</option>
+              <option value="1-mes">1 mês</option>
+              <option value="negociavel">Negocivel</option>
             </select>
             <div class="error-message" id="disponibilidade-error"></div>
           </div>
 
           <div class="checkbox-group">
             <input type="checkbox" id="termos" name="termos" required />
-            <label for="termos">Aceito os termos e condi��es de uso</label>
+            <label for="termos">Aceito os termos e condições de uso</label>
             <div class="error-message" id="termos-error"></div>
           </div>
 
@@ -858,15 +858,15 @@
       }
 
       function validateName(name) {
-        const namePattern = /^[A-Za-z�-�\s]{3,50}$/;
+        const namePattern = /^[A-Za-zã-ú\s]{3,50}$/;
         if (!name.trim()) {
-          return "Nome � obrigat�rio";
+          return "Nome é obrigatório";
         }
         if (name.trim().length < 3) {
           return "Nome deve ter pelo menos 3 caracteres";
         }
         if (!namePattern.test(name.trim())) {
-          return "Nome deve conter apenas letras e espa�os";
+          return "Nome deve conter apenas letras e espaços";
         }
         return null;
       }
@@ -874,10 +874,10 @@
       function validateEmail(email) {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!email.trim()) {
-          return "E-mail � obrigat�rio";
+          return "E-mail é obrigatório";
         }
         if (!emailPattern.test(email.trim())) {
-          return "E-mail inv�lido";
+          return "E-mail inválido";
         }
         return null;
       }
@@ -885,7 +885,7 @@
       function validatePhone(phone) {
         const phonePattern = /^\(\d{2}\)\s\d{4,5}-\d{4}$/;
         if (!phone.trim()) {
-          return "Telefone � obrigat�rio";
+          return "Telefone é obrigatório";
         }
         if (!phonePattern.test(phone.trim())) {
           return "Telefone deve estar no formato (XX) XXXXX-XXXX";
@@ -896,7 +896,7 @@
       function validateCEP(cep) {
         const cepPattern = /^\d{5}-?\d{3}$/;
         if (!cep.trim()) {
-          return "CEP � obrigat�rio";
+          return "CEP é obrigatório";
         }
         if (!cepPattern.test(cep.trim())) {
           return "CEP deve estar no formato XXXXX-XXX";
@@ -906,20 +906,20 @@
 
       function validateRequired(value, fieldName) {
         if (!value.trim()) {
-          return `${fieldName} � obrigat�rio`;
+          return `${fieldName} é obrigatório`;
         }
         return null;
       }
 
       function validateHabilidades(text) {
         if (!text.trim()) {
-          return "Habilidades s�o obrigat�rias";
+          return "Habilidades são obrigatórias";
         }
         if (text.trim().length < 10) {
           return "Descreva suas habilidades com pelo menos 10 caracteres";
         }
         if (text.trim().length > 500) {
-          return "Descri��o deve ter no m�ximo 500 caracteres";
+          return "Descrição deve ter no máximo 500 caracteres";
         }
         return null;
       }
@@ -952,7 +952,7 @@
             error = validatePhone(value);
             break;
           case "endereco":
-            error = validateRequired(value, "Endere�o");
+            error = validateRequired(value, "Endereço");
             break;
           case "cidade":
             error = validateRequired(value, "Cidade");
@@ -961,10 +961,10 @@
             error = validateCEP(value);
             break;
           case "profissao":
-            error = validateRequired(value, "Profiss�o");
+            error = validateRequired(value, "Profissão");
             break;
           case "experiencia":
-            error = validateRequired(value, "Experi�ncia");
+            error = validateRequired(value, "Experiência");
             break;
           case "habilidades":
             error = validateHabilidades(value);
@@ -974,7 +974,7 @@
             break;
           case "termos":
             if (!field.checked) {
-              error = "Voc� deve aceitar os termos e condi��es";
+              error = "Você deve aceitar os termos e condições";
             }
             break;
         }
@@ -1003,11 +1003,11 @@
           const formaData = {
             nome: document.getElementById("nome").value,
             email: document.getElementById("email").value,
-            cpf:document.getElementById("cpf").value,
+            cpf: document.getElementById("cpf").value,
             telefone: document.getElementById("telefone").value,
             endereco: document.getElementById("endereco").value,
             cidade: document.getElementById("cidade").value,
-            uf:document.getElementById("uf").value,
+            uf: document.getElementById("uf").value,
             cep: document.getElementById("cep").value,
             profissao: document.getElementById("profissao").value,
             experiencia: document.getElementById("experiencia").value,
@@ -1017,27 +1017,27 @@
 
           try {
             // Enviar para backend
-            const response = await fetch('http://localhost:3000/api/usuarios', {
-              method: 'POST',
+            const response = await fetch("http://localhost:3000/api/usuarios", {
+              method: "POST",
               headers: {
-                'Content-Type' : 'application/json'
+                "Content-Type": "application/json",
               },
-              body: JSON.stringify(FormData)
+              body: JSON.stringify(FormData),
             });
 
             const resultado = await response.json();
 
             if (resultado.ok) {
               //sucesso!
-              alert('cadastro realizado com sucesso!');
+              alert("cadastro realizado com sucesso!");
               window.location.href = "validacao.html";
             } else {
               //erro
-              alert('Erro:', resultado.erro);
+              alert("Erro:", resultado.erro);
             }
           } catch (erro) {
-            console.error('Erro:', erro);
-            alert('Erro ao enviar formulário')
+            console.error("Erro:", erro);
+            alert("Erro ao enviar formulário");
           }
         }
       });
@@ -1059,7 +1059,7 @@
         const ufInput = document.getElementById("uf");
 
         if (!cepInput) {
-          console.error("Campo CEP n�o encontrado!");
+          console.error("Campo CEP não encontrado!");
           return;
         }
 
@@ -1128,14 +1128,14 @@
         // Buscar CEP
         async function consultarCEP(cep) {
           if (buscando) {
-            console.log("J� existe uma busca em andamento");
+            console.log("Já existe uma busca em andamento");
             return;
           }
 
           const cepLimpo = cep.replace(/\D/g, "");
 
           if (!validarCEP(cep)) {
-            exibirMensagem("? CEP inv�lido! Digite 8 d�gitos", "error");
+            exibirMensagem("CEP inválido! Digite 8 dígitos", "error");
             return;
           }
 
@@ -1157,12 +1157,12 @@
             console.log("Dados recebidos da API:", dados);
 
             if (dados.erro) {
-              exibirMensagem("? CEP n�o encontrado!", "error");
+              exibirMensagem("CEP não encontrado!", "error");
               limparCampos();
               return;
             }
 
-            // Preencher endere�o
+            // Preencher endereço
             let enderecoCompleto = "";
             if (dados.logradouro) {
               enderecoCompleto = dados.logradouro;
@@ -1181,7 +1181,7 @@
 
             if (enderecoInput) {
               enderecoInput.value = enderecoCompleto;
-              console.log("Endere�o preenchido:", enderecoInput.value);
+              console.log("Endereço preenchido:", enderecoInput.value);
             }
 
             if (cidadeInput) {
@@ -1194,7 +1194,7 @@
               console.log("UF preenchida:", ufInput.value);
             }
 
-            // Limpar erros de valida��o
+            // Limpar erros de validação
             if (enderecoCompleto && enderecoInput) {
               const formGroup = enderecoInput.closest(".form-group");
               if (formGroup) formGroup.classList.remove("error");
@@ -1208,9 +1208,9 @@
               if (formGroup) formGroup.classList.remove("error");
             }
 
-            exibirMensagem(`? ${dados.localidade} - ${dados.uf}`, "success");
+            exibirMensagem(`✓ ${dados.localidade} - ${dados.uf}`, "success");
 
-            // Focar pr�ximo campo
+            // Focar próximo campo
             setTimeout(() => {
               const profissao = document.getElementById("profissao");
               if (profissao) profissao.focus();
@@ -1218,8 +1218,8 @@
           } catch (erro) {
             console.error("Erro completo:", erro);
             exibirMensagem(
-              "? Erro ao consultar. Verifique sua conex�o.",
-              "error"
+              "Erro ao consultar. Verifique sua conexão.",
+              "error",
             );
             limparCampos();
           } finally {
@@ -1254,12 +1254,12 @@
             if (valor) {
               consultarCEP(valor);
             } else {
-              exibirMensagem("?? Digite um CEP", "error");
+              exibirMensagem("Digite um CEP", "error");
             }
           });
         }
 
-        console.log("? Sistema de CEP ativado com sucesso!");
+        console.log("✓ Sistema de CEP ativado com sucesso!");
       });
 
       // Phone formatting
@@ -1279,4 +1279,3 @@
     </script>
   </body>
 </html>
-
