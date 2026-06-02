@@ -1,43 +1,43 @@
 const listaServicos = [
   {
     nome: "Pedreiro",
-    img: "/images/pedreiro.jpg",
+    img: "./src/public/images/pedreiro.jpg",
   },
   {
     nome: "Babá",
-    img: "/images/Babá.jpeg",
+    img: "./src/public/images/Babá.jpeg",
   },
   {
     nome: "Cuidadora",
-    img: "/images/cudadora.jpg",
+    img: "./src/public/images/cudadora.jpg",
   },
   {
     nome: "Faxineira",
-    img: "/images/faxineira.jpg",
+    img: "./src/public/images/faxineira.jpg",
   },
   {
     nome: "Garçom",
-    img: "/images/Garçom.jpg",
+    img: "./src/public/images/Garçom.jpg",
   },
   {
     nome: "Limpador de Piscina",
-    img: "/images/LDP.jpg",
+    img: "./src/public/images/LDP.jpg",
   },
   {
     nome: "Entregador",
-    img: "/images/entregadorcria.jpeg",
+    img: "./src/public/images/entregadorcria.jpeg",
   },
   {
     nome: "Pintor",
-    img: "/images/pintor.jpg",
+    img: "./src/public/images/pintor.jpg",
   },
   {
     nome: "Jardineiro",
-    img: "/images/corrtador de grama.jpg",
+    img: "./src/public/images/corrtador de grama.jpg",
   },
   {
     nome: "Marceneiro",
-    img: "/images/marceneirocria.avif",
+    img: "./src/public/images/marceneirocria.avif",
   },
 ];
 
