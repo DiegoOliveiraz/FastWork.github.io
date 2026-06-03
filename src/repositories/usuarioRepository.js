@@ -3,26 +3,26 @@ import fs from "fs";
 import path from "path";
 
 const usuarioRepository = {
-  //Buscar todos
   readAll() {
-    return usuarios;
+    return usuarios.filter(u => u.ativo);
   },
-  //buscar por ID
+
   readById(id) {
-    return usuarios.find((u) => u.id === id);
+    return usuarios.find((u) => u.id === id && u.ativo);
   },
 
-  //verificar email duplicado
   emailExiste(email) {
-    return usuarios.some((u) => u.email.toLowerCase() === email.toLowerCase());
+    return usuarios.some((u) => u.email.toLowerCase() === email.toLowerCase() && u.ativo);
   },
 
-  //verificar cpf duplicado
   cpfExiste(cpf) {
-    return usuarios.some((u) => u.cpf === cpf);
+    return usuarios.some((u) => u.cpf === cpf && u.ativo);
   },
 
-  //criar novo usúario
+  buscaPorEmail(email) {
+    return usuarios.find((u) => u.email.toLowerCase() === email.toLowerCase());
+  },
+
   create(usuario) {
     const novoUsuario = {
       id: `user_${Date.now()}`,
@@ -35,14 +35,25 @@ const usuarioRepository = {
     return novoUsuario;
   },
 
-  // salvar em arquivo
+  update(id, dados) {
+    const indice = usuarios.findIndex((u) => u.id === id);
+    if (indice === -1) return null;
+    usuarios[indice] = { ...usuarios[indice], ...dados };
+    this.salvarEmArquivo();
+    const { senha, ...dadosSemSenha } = usuarios[indice];
+    return dadosSemSenha;
+  },
+
+  deactivate(id) {
+    const indice = usuarios.findIndex((u) => u.id === id);
+    if (indice === -1) return false;
+    usuarios[indice].ativo = false;
+    this.salvarEmArquivo();
+    return true;
+  },
+
   salvarEmArquivo() {
-    const caminhoDb = path.join(
-      process.cwd(),
-      "src",
-      "database",
-      "usuario.json",
-    );
+    const caminhoDb = path.join(process.cwd(), "src", "database", "usuarios.json");
     fs.writeFileSync(caminhoDb, JSON.stringify(usuarios, null, 2));
   }
 };

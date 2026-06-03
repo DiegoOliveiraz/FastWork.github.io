@@ -5,6 +5,7 @@
     "email": "joao@email.com",
     "cpf": "12345678901",
     "telefone": "(11) 98765-4321",
+    "senha": "$2a$10$placeholder_hash_para_atualizar",
     "endereco": "Rua A, 123",
     "cidade": "São Paulo",
     "uf": "SP",
@@ -14,6 +15,24 @@
     "habilidades": "Construção, alvenaria",
     "disponibilidade": "imediata",
     "dataCadastro": "2026-04-08T10:00:00Z",
+    "ativo": true
+  },
+  {
+    "id": "user_1780519310797",
+    "nome": "elias topera",
+    "email": "elias@email.com",
+    "cpf": "99999999999",
+    "telefone": "(11) 99999-9999",
+    "senha": "$2b$10$jatWeVqp2xavktotWiv5KOTcMeYRkZrqp7nPhYIofWYpHi3csRqLq",
+    "endereco": "Rua A, 123",
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "cep": "01234-567",
+    "profissao": "pedreiro",
+    "experiencia": "5-10",
+    "habilidades": "Construção civil",
+    "disponibilidade": "imediata",
+    "dataCadastro": "2026-06-03T20:41:50.797Z",
     "ativo": true
   }
 ]

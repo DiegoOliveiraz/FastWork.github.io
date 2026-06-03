@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 
 <html lang="pt-br" data-theme="dark">
 
@@ -1108,7 +1108,7 @@
 
 
 
-      /* ===== RF04 & RF05 ï¿½ Painel de sessÃ£o ativa ===== */
+      /* ===== RF04 & RF05 ? Painel de sessão ativa ===== */
 
       .profile-panel {
 
@@ -1696,7 +1696,7 @@
 
 
 
-        <!-- Seletor de tipo de usuï¿½rio -->
+        <!-- Seletor de tipo de usu?rio -->
 
         <div class="user-type-selector">
 
@@ -1818,7 +1818,7 @@
 
 
 
-        <!-- Contas de Teste Disponï¿½veis -->
+        <!-- Contas de Teste Dispon?veis -->
 
         <div
 
@@ -1858,7 +1858,7 @@
 
           >
 
-            <i class="bi bi-key-fill"></i> Contas de Teste DisponÃ­veis
+            <i class="bi bi-key-fill"></i> Contas de Teste Disponíveis
 
           </h3>
 
@@ -1866,7 +1866,7 @@
 
           <div id="testAccountsContainer">
 
-            <!-- Contas serÃ£o inseridas aqui via JavaScript -->
+            <!-- Contas serão inseridas aqui via JavaScript -->
 
           </div>
 
@@ -1902,7 +1902,7 @@
 
           <p id="registerText">
 
-            Ainda nÃ£o tem conta?
+            Ainda não tem conta?
 
             <a href="formu.html">Cadastre-se como Profissional</a>
 
@@ -1916,7 +1916,7 @@
 
 
 
-    <!-- ===== PAINEL DE SESSÃƒO ATIVA (RF04 / RF05) ===== -->
+    <!-- ===== PAINEL DE SESSÃO ATIVA (RF04 / RF05) ===== -->
 
     <div class="login-container" id="profileContainer" style="display: none">
 
@@ -1944,7 +1944,7 @@
 
         >
 
-          ï¿½
+          ?
 
         </h2>
 
@@ -1968,7 +1968,7 @@
 
         >
 
-          ï¿½
+          ?
 
         </p>
 
@@ -2028,7 +2028,7 @@
 
       <p class="modal-subtitle">
 
-        Campos em azul foram alterados. A senha atual Ã© obrigatÃ³ria para salvar.
+        Campos em azul foram alterados. A senha atual é obrigatória para salvar.
 
       </p>
 
@@ -2098,7 +2098,7 @@
 
         <button class="btn fw-btn-primary" onclick="salvarEdicaoCadastral()">
 
-          <i class="bi bi-check2"></i> Salvar alteraÃ§Ãµes
+          <i class="bi bi-check2"></i> Salvar alterações
 
         </button>
 
@@ -2108,7 +2108,7 @@
 
 
 
-    <!-- ===== MODAL RF05 ï¿½ EXCLUIR CONTA ===== -->
+    <!-- ===== MODAL RF05 ? EXCLUIR CONTA ===== -->
 
     <dialog
 
@@ -2128,7 +2128,7 @@
 
       <p class="modal-subtitle">
 
-        Esta aï¿½ï¿½o ï¿½ permanente e nï¿½o pode ser desfeita.
+        Esta a??o ? permanente e n?o pode ser desfeita.
 
       </p>
 
@@ -2136,11 +2136,11 @@
 
       <div class="delete-warning">
 
-        Ao confirmar, <strong>todos os seus dados serï¿½o apagados</strong> e vocï¿½
+        Ao confirmar, <strong>todos os seus dados ser?o apagados</strong> e voc?
 
-        serï¿½ desconectado imediatamente. Nï¿½o serï¿½ possï¿½vel recuperar as
+        ser? desconectado imediatamente. N?o ser? poss?vel recuperar as
 
-        informaï¿½ï¿½es apï¿½s a exclusï¿½o.
+        informa??es ap?s a exclus?o.
 
       </div>
 
@@ -2224,11 +2224,11 @@
 
     <script>
 
-      // ========== SISTEMA DE AUTENTICAÃ‡ÃƒO COM LOCAL STORAGE ==========
+      // ========== SISTEMA DE AUTENTICAÇÃO COM LOCAL STORAGE ==========
 
 
 
-      // Classe para gerenciar usuÃ¡rios
+      // Classe para gerenciar usuários
 
       class UserDatabase {
 
@@ -2242,7 +2242,7 @@
 
         initializeDB() {
 
-          // FORÃ‡AR ATUALIZAÃ‡ÃƒO DOS DADOS - Remover apÃ³s primeira execuÃ§Ã£o
+          // FORÇAR ATUALIZAÇÃO DOS DADOS - Remover após primeira execução
 
           const forceUpdate = true; // Mude para false depois de testar
 
@@ -2250,7 +2250,7 @@
 
           if (!localStorage.getItem("fastwork_users") || forceUpdate) {
 
-            // Criar usuï¿½rios de exemplo
+            // Criar usu?rios de exemplo
 
             const exampleUsers = {
 
@@ -2336,9 +2336,9 @@
 
                   id: 1,
 
-                  razaoSocial: "ConstruÃ§Ã£ora ABC Ltda",
+                  razaoSocial: "Construçãora ABC Ltda",
 
-                  nomeFantasia: "ABC Construï¿½ï¿½es",
+                  nomeFantasia: "ABC Constru??es",
 
                   email: "contato@abc.com",
 
@@ -2376,9 +2376,9 @@
 
                   id: 3,
 
-                  razaoSocial: "ServiÃ§os Gerais Master Ltda",
+                  razaoSocial: "Serviços Gerais Master Ltda",
 
-                  nomeFantasia: "Master ServiÃ§os",
+                  nomeFantasia: "Master Serviços",
 
                   email: "contato@master.com",
 
@@ -2446,9 +2446,9 @@
 
           if (user) {
 
-            // Salvar sessÃ£o
+            // Salvar sessão
 
-            const sessÃ£on = {
+            const sessãon = {
 
               user: { ...user },
 
@@ -2458,11 +2458,11 @@
 
             };
 
-            delete sessÃ£on.user.senha; // NÃ£o salvar senha na sessÃ£o
+            delete sessãon.user.senha; // Não salvar senha na sessão
 
-            localStorage.setItem("fastwork_sessÃ£on", JSON.stringify(sessÃ£on));
+            localStorage.setItem("fastwork_sessãon", JSON.stringify(sessãon));
 
-            return { success: true, user: sessÃ£on };
+            return { success: true, user: sessãon };
 
           }
 
@@ -2484,17 +2484,17 @@
 
 
 
-          // Verificar se email jÃ¡ existe
+          // Verificar se email já existe
 
           if (userList.find((u) => u.email === userData.email)) {
 
-            return { success: false, message: "E-mail jÃ¡ cadastrado" };
+            return { success: false, message: "E-mail já cadastrado" };
 
           }
 
 
 
-          // Adicionar novo usuÃ¡rio
+          // Adicionar novo usuário
 
           const newUser = {
 
@@ -2530,7 +2530,7 @@
 
         logout() {
 
-          localStorage.removeItem("fastwork_sessÃ£on");
+          localStorage.removeItem("fastwork_sessãon");
 
         }
 
@@ -2538,15 +2538,15 @@
 
         getSession() {
 
-          const sessÃ£on = localStorage.getItem("fastwork_sessÃ£on");
+          const sessãon = localStorage.getItem("fastwork_sessãon");
 
-          return sessÃ£on ? JSON.parse(sessÃ£on) : null;
+          return sessãon ? JSON.parse(sessãon) : null;
 
         }
 
 
 
-        // RF04 ï¿½ Atualizar dados cadastrais
+        // RF04 ? Atualizar dados cadastrais
 
         updateUser(id, updatedData, userType) {
 
@@ -2562,11 +2562,11 @@
 
           if (idx === -1)
 
-            return { success: false, message: "Usuï¿½rio nï¿½o encontrado." };
+            return { success: false, message: "Usu?rio n?o encontrado." };
 
 
 
-          // Verificar conflito de e-mail com outro usuï¿½rio
+          // Verificar conflito de e-mail com outro usu?rio
 
           const emailConflito = lista.find(
 
@@ -2576,11 +2576,11 @@
 
           if (emailConflito)
 
-            return { success: false, message: "Este e-mail jï¿½ estï¿½ em uso." };
+            return { success: false, message: "Este e-mail j? est? em uso." };
 
 
 
-          // Mesclar dados preservando campos imutï¿½veis
+          // Mesclar dados preservando campos imut?veis
 
           const userAtualizado = {
 
@@ -2612,17 +2612,17 @@
 
 
 
-          // Atualizar sessÃ£o ativa sem a senha
+          // Atualizar sessão ativa sem a senha
 
-          const sessÃ£on = this.getSession();
+          const sessãon = this.getSession();
 
-          if (sessÃ£on) {
+          if (sessãon) {
 
-            sessÃ£on.user = { ...userAtualizado };
+            sessãon.user = { ...userAtualizado };
 
-            delete sessÃ£on.user.senha;
+            delete sessãon.user.senha;
 
-            localStorage.setItem("fastwork_sessÃ£on", JSON.stringify(sessÃ£on));
+            localStorage.setItem("fastwork_sessãon", JSON.stringify(sessãon));
 
           }
 
@@ -2634,7 +2634,7 @@
 
 
 
-        // RF05 - Excluir conta do usuÃ¡rio
+        // RF05 - Excluir conta do usuário
 
         deleteUser(id, userType) {
 
@@ -2650,7 +2650,7 @@
 
           if (idx === -1)
 
-            return { success: false, message: "UsuÃ¡rio nÃ£o encontrado." };
+            return { success: false, message: "Usuário não encontrado." };
 
 
 
@@ -2722,7 +2722,7 @@
 
           key: "profissao",
 
-          label: "ProfissÃ£o",
+          label: "Profissão",
 
           icon: "bi-briefcase",
 
@@ -2786,7 +2786,7 @@
 
           key: "razaoSocial",
 
-          label: "Razï¿½o Social",
+          label: "Raz?o Social",
 
           icon: "bi-file-text",
 
@@ -2858,135 +2858,72 @@
 
 
 
-      function exibirPainelPerfil(sessÃ£on) {
+function exibirPainelPerfil(usuario) {
+        document.querySelector(".login-container:not(#profileContainer)") &&
+          (document.querySelector(".login-container:not(#profileContainer)").style.display = "none");
 
-        const { user, userType } = sessÃ£on;
-
-
-
-        document.getElementById("loginContainer") &&
-
-          (document.getElementById("loginContainer").style.display = "none");
-
-
-
-        // Ocultar formulÃ¡rio de login
-
+        // Ocultar formulário de login
         const loginCont = document.querySelector(
-
           ".login-container:not(#profileContainer)",
-
         );
-
         if (loginCont) loginCont.style.display = "none";
-
-
 
         document.getElementById("profileContainer").style.display = "flex";
 
-
-
-        const displayName = user.nome || user.nomeFantasia || "UsuÃ¡rio";
-
+        const displayName = usuario.nome || usuario.nomeFantasia || "Usuário";
         const initials = displayName
-
           .split(" ")
-
           .map((w) => w[0])
-
           .slice(0, 2)
-
           .join("");
-
-
 
         document.getElementById("profileAvatar").innerHTML =
-
           initials || '<i class="bi bi-person-fill"></i>';
-
         document.getElementById("profileName").textContent = displayName;
-
         document.getElementById("profileBadge").textContent =
-
-          userType === "profissional"
-
-            ? `Profissional${user.profissao ? " ï¿½ " + user.profissao : ""}`
-
-            : `Empresa${user.nomeFantasia ? " ï¿½ " + user.nomeFantasia : ""}`;
-
-
+          usuario.tipo === "empresa" 
+            ? `Empresa${usuario.nomeFantasia ? " - " + usuario.nomeFantasia : ""}`
+            : `Profissional`;
 
         const campos =
-
-          userType === "profissional" ? CAMPOS_PROFISSIONAL : CAMPOS_EMPRESA;
-
+          usuario.tipo === "empresa" ? CAMPOS_EMPRESA : CAMPOS_PROFISSIONAL;
         const rowsEl = document.getElementById("profileInfoRows");
-
         rowsEl.innerHTML = campos
-
-          .filter((c) => c.key !== "senha" && user[c.key])
-
+          .filter((c) => c.key !== "senha" && usuario[c.key])
           .map(
-
             (c) => `
-
             <div class="profile-info-row">
-
               <i class="bi ${c.icon}"></i>
-
               <span class="profile-info-label">${c.label}</span>
-
-              <span>${c.key === "senha" ? "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" : user[c.key] || "ï¿½"}</span>
-
+              <span>${usuario[c.key] || ""}</span>
             </div>
-
           `,
-
           )
-
           .join("");
-
       }
 
 
 
-      function fazerLogoutPerfil() {
-
-        db.logout();
-
+function fazerLogoutPerfil() {
+        localStorage.removeItem("token");
+        localStorage.removeItem("usuarioLogado");
         const profileCont = document.getElementById("profileContainer");
-
         if (profileCont) profileCont.style.display = "none";
-
         const loginCont = document.querySelector(
-
           ".login-container:not(#profileContainer)",
-
         );
-
         if (loginCont) loginCont.style.display = "flex";
-
         showAlert("success", "Logout realizado com sucesso.");
-
       }
 
 
 
-      // ---- RF04: Abrir modal de ediï¿½ï¿½o ----
-
+// ---- RF04: Abrir modal de edição ----
       function abrirModalEdicao() {
+        const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado") || "{}");
+        if (!usuarioLogado) return;
 
-        const sessÃ£on = db.getSession();
-
-        if (!sessÃ£on) return;
-
-
-
-        const { user, userType } = sessÃ£on;
-
-        const campos =
-
-          userType === "profissional" ? CAMPOS_PROFISSIONAL : CAMPOS_EMPRESA;
+        const campos = usuarioLogado.tipo === "empresa" ? CAMPOS_EMPRESA : CAMPOS_PROFISSIONAL;
 
 
 
@@ -2996,7 +2933,7 @@
 
           .map((campo) => {
 
-            const valor = campo.key === "senha" ? "" : user[campo.key] || "";
+            const valor = campo.key === "senha" ? "" : usuarioLogado[campo.key] || "";
 
             const isPw = campo.type === "password";
 
@@ -3052,7 +2989,7 @@
 
           if (!input) return;
 
-          const original = campo.key === "senha" ? "" : user[campo.key] || "";
+          const original = campo.key === "senha" ? "" : usuarioLogado[campo.key] || "";
 
           input.addEventListener("input", () => {
 
@@ -3074,13 +3011,13 @@
 
       function salvarEdicaoCadastral() {
 
-        const sessÃ£on = db.getSession();
+        const sessãon = db.getSession();
 
-        if (!sessÃ£on) return;
+        if (!sessãon) return;
 
 
 
-        const { user, userType } = sessÃ£on;
+        const { user, userType } = sessãon;
 
         const campos =
 
@@ -3102,7 +3039,7 @@
 
             "error",
 
-            "Informe sua senha atual para salvar as alteraÃ§Ãµes.",
+            "Informe sua senha atual para salvar as alterações.",
 
           );
 
@@ -3152,7 +3089,7 @@
 
             pulsarCampo("edit_" + campo.key);
 
-            showAlert("error", `O campo "${campo.label}" ï¿½ obrigatÃ³rio.`);
+            showAlert("error", `O campo "${campo.label}" ? obrigatório.`);
 
             return;
 
@@ -3172,7 +3109,7 @@
 
             pulsarCampo("edit_" + campo.key);
 
-            showAlert("error", "Informe um e-mail vï¿½lido.");
+            showAlert("error", "Informe um e-mail v?lido.");
 
             return;
 
@@ -3198,7 +3135,7 @@
 
             }
 
-            // SÃ³ atualiza a senha se o campo foi preenchido
+            // Só atualiza a senha se o campo foi preenchido
 
             if (val) dadosAtualizados.senha = val;
 
@@ -3222,9 +3159,9 @@
 
           showAlert("success", "Dados cadastrais atualizados com sucesso!");
 
-          const sessÃ£oAtualizada = db.getSession();
+          const sessãoAtualizada = db.getSession();
 
-          if (sessÃ£oAtualizada) exibirPainelPerfil(sessÃ£oAtualizada);
+          if (sessãoAtualizada) exibirPainelPerfil(sessãoAtualizada);
 
           displayTestAccounts();
 
@@ -3238,7 +3175,7 @@
 
 
 
-      // ---- RF05: Abrir modal de exclusÃ£o ----
+      // ---- RF05: Abrir modal de exclusão ----
 
       function abrirModalExclusao() {
 
@@ -3252,13 +3189,13 @@
 
       function confirmarExclusaoConta() {
 
-        const sessÃ£on = db.getSession();
+        const sessãon = db.getSession();
 
-        if (!sessÃ£on) return;
+        if (!sessãon) return;
 
 
 
-        const { user, userType } = sessÃ£on;
+        const { user, userType } = sessãon;
 
         const senhaDigitada = document
 
@@ -3272,7 +3209,7 @@
 
           pulsarCampo("deleteConfirmSenha");
 
-          showAlert("error", "Digite sua senha para confirmar a exclusÃ£o.");
+          showAlert("error", "Digite sua senha para confirmar a exclusão.");
 
           return;
 
@@ -3294,7 +3231,7 @@
 
           pulsarCampo("deleteConfirmSenha");
 
-          showAlert("error", "Senha incorreta. ExclusÃ£o cancelada.");
+          showAlert("error", "Senha incorreta. Exclusão cancelada.");
 
           return;
 
@@ -3322,7 +3259,7 @@
 
           if (loginCont) loginCont.style.display = "flex";
 
-          showAlert("success", "Conta excluï¿½da permanentemente. Atï¿½ mais!");
+          showAlert("success", "Conta exclu?da permanentemente. At? mais!");
 
           displayTestAccounts();
 
@@ -3660,7 +3597,7 @@
 
 
 
-      // ========== GERENCIAMENTO DO FORMULÃRIO ==========
+      // ========== GERENCIAMENTO DO FORMULÁRIO ==========
 
 
 
@@ -3668,7 +3605,7 @@
 
 
 
-      // Seletor de tipo de usuÃ¡rio
+      // Seletor de tipo de usuário
 
       document.querySelectorAll(".user-type-btn").forEach((btn) => {
 
@@ -3700,13 +3637,13 @@
 
             registerLink.innerHTML =
 
-              'Ainda nï¿½o tem conta? <a href="formu.html">Cadastre-se como Profissional</a>';
+              'Ainda n?o tem conta? <a href="formu.html">Cadastre-se como Profissional</a>';
 
           } else {
 
             registerLink.innerHTML =
 
-              'Ainda nï¿½o tem conta? <a href="cadastroem.html">Cadastre-se como Empresa</a>';
+              'Ainda n?o tem conta? <a href="cadastroem.html">Cadastre-se como Empresa</a>';
 
           }
 
@@ -3716,7 +3653,7 @@
 
 
 
-      // Validaï¿½ï¿½o de campos
+      // Valida??o de campos
 
       function showError(field, message) {
 
@@ -3776,13 +3713,13 @@
 
 
 
-      // Validaï¿½ï¿½o em tempo real
+      // Valida??o em tempo real
 
       document.getElementById("email").addEventListener("input", function () {
 
         if (this.value && !this.validity.valid) {
 
-          showError(this, "E-mail invÃ¡lido");
+          showError(this, "E-mail inválido");
 
         } else {
 
@@ -3814,913 +3751,111 @@
 
 
 
-      // Submit do formulÃ¡rio
-
+// Submit do formulário
       document
-
         .getElementById("loginForm")
-
-        .addEventListener("submit", function (e) {
-
+        .addEventListener("submit", async function (e) {
           e.preventDefault();
 
-
-
           const email = document.getElementById("email").value.trim();
-
           const senha = document.getElementById("password").value;
 
-
-
           // Limpar erros anteriores
-
           clearError(document.getElementById("email"));
-
           clearError(document.getElementById("password"));
-
           document.getElementById("alertError").style.display = "none";
 
-
-
-          // Validaï¿½ï¿½es
-
+          // Validações
           let hasError = false;
 
-
-
           if (!email) {
-
-            showError(document.getElementById("email"), "E-mail ï¿½ obrigatÃ³rio");
-
+            showError(document.getElementById("email"), "E-mail é obrigatório");
             hasError = true;
-
           } else if (!document.getElementById("email").validity.valid) {
-
-            showError(document.getElementById("email"), "E-mail invÃ¡lido");
-
+            showError(document.getElementById("email"), "E-mail inválido");
             hasError = true;
-
           }
-
-
 
           if (!senha) {
-
             showError(
-
               document.getElementById("password"),
-
-              "Senha ï¿½ obrigatÃ³ria",
-
+              "Senha é obrigatória",
             );
-
             hasError = true;
-
           } else if (senha.length < 6) {
-
             showError(
-
               document.getElementById("password"),
-
               "Senha deve ter pelo menos 6 caracteres",
-
             );
-
             hasError = true;
-
           }
-
-
 
           if (hasError) return;
 
+          // Fazer requisição para API
+          const endpoint = selectedUserType === "profissional" 
+            ? "http://localhost:3000/api/login"
+            : "http://localhost:3000/api/login/empresa";
 
+          try {
+            const response = await fetch(endpoint, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ email, senha }),
+            });
 
-          // Tentar autenticar
+            const resultado = await response.json();
 
-          const result = db.authenticate(email, senha, selectedUserType);
+            if (resultado.ok) {
+              showAlert(
+                "success",
+                "Login realizado com sucesso! Redirecionando...",
+              );
 
+              // Salvar token e dados do usuário
+              localStorage.setItem("token", resultado.token);
+              localStorage.setItem("usuarioLogado", JSON.stringify(resultado.usuario || resultado.empresa));
 
-
-          if (result.success) {
-
-            showAlert(
-
-              "success",
-
-              "Login realizado com sucesso! Redirecionando...",
-
-            );
-
-
-
-            // Redirecionar apï¿½s 1 segundo para a pï¿½gina principal
-
-            setTimeout(() => {
-
-              window.location.href = "/";
-
-            }, 1000);
-
-          } else {
-
-            showAlert("error", result.message);
-
+              // Redirecionar após 1 segundo
+              setTimeout(() => {
+                window.location.href = "/";
+              }, 1000);
+            } else {
+              showAlert("error", resultado.erro || "Erro no login");
+            }
+          } catch (error) {
+            showAlert("error", "Erro ao conectar com servidor");
           }
-
         });
 
 
 
-      // Inicializaï¿½ï¿½o
-
+// Inicialização
       document.addEventListener("DOMContentLoaded", () => {
-
         const storedTheme = getStoredTheme();
-
         setTheme(storedTheme);
-
-
 
         // Exibir contas de teste ao carregar
-
         displayTestAccounts();
 
-
-
-        // Verificar se jï¿½ estï¿½ logado e exibir painel de perfil
-
-        const sessÃ£on = db.getSession();
-
-        if (sessÃ£on) {
-
-          exibirPainelPerfil(sessÃ£on);
-
+        // Verificar se já está logado e exibir painel de perfil
+        const usuarioLogado = localStorage.getItem("usuarioLogado");
+        const token = localStorage.getItem("token");
+        
+        if (usuarioLogado && token) {
+          try {
+            const usuario = JSON.parse(usuarioLogado);
+            exibirPainelPerfil(usuario);
+          } catch (e) {
+            console.error("Erro ao parsear dados do usuário:", e);
+          }
         }
-
       });
 
-    </script>
-
-
-
-    <!-- Sistema de APIs -->
-
-    <script
-
-      src="/js/APIs.js"
-
-      onerror="
-
-        console.error('Erro ao carregar APIs.js');
-
-        showAlert('error', 'Erro ao carregar sistema de autenticaï¿½ï¿½o');
-
-      "
-
-    ></script>
-
-
-
-    <script>
-
-      // Integraï¿½ï¿½o com o novo sistema de APIs
-
-      let authSystemIntegrated = false;
-
-
-
-      // Aguardar carregamento do sistema de APIs
-
-      function aguardarSistemaAPIs() {
-
-        console.log("Verificando sistema de APIs...");
-
-        if (typeof authSystem !== "undefined") {
-
-          authSystemIntegrated = true;
-
-          console.log("Sistema de APIs carregado com sucesso");
-
-
-
-          // Verificar se jï¿½ estï¿½ logado no novo sistema
-
-          if (authSystem.isAuthenticated()) {
-
-            const user = authSystem.getCurrentUser();
-
-            console.log("Usuï¿½rio jï¿½ logado detectado:", user);
-
-            showAlert("info", `Vocï¿½ jï¿½ estï¿½ logado como ${user.name}`);
-
-
-
-            setTimeout(() => {
-
-              console.log(
-
-                "Redirecionando usuï¿½rio logado para pï¿½gina principal...",
-
-              );
-
-              window.location.href = "/";
-
-            }, 2000);
-
-          }
-
-
-
-          // Adicionar usuï¿½rios de demonstraï¿½ï¿½o
-
-          adicionarUsuariosDemonstracao();
-
-        } else {
-
-          console.log(
-
-            "Sistema de APIs ainda nï¿½o carregado, tentando novamente...",
-
-          );
-
-          setTimeout(aguardarSistemaAPIs, 100);
-
-        }
-
-      }
-
-
-
-      // Adicionar seï¿½ï¿½o de usuï¿½rios de demonstraï¿½ï¿½o
-
-      function adicionarUsuariosDemonstracao() {
-
-        const loginCard = document.querySelector(".login-card");
-
-        if (loginCard && !document.querySelector(".demo-users")) {
-
-          const demoSection = document.createElement("div");
-
-          demoSection.className = "demo-users";
-
-          demoSection.innerHTML = `
-
-            <h6 class="text-center mb-3" style="color: var(--text-color);">
-
-              <i class="bi bi-person-gear"></i> Usuï¿½rios de Teste
-
-            </h6>
-
-            
-
-            <div class="demo-user" onclick="preencherLogin('admin@fastwork.com', 'admin123')">
-
-              <img src="https://ui-avatars.com/api/?name=Admin&background=1976d2&color=fff" alt="Admin">
-
-              <div class="demo-user-info">
-
-                <strong>Administrador</strong>
-
-                <small>admin@fastwork.com</small>
-
-              </div>
-
-              <span class="badge bg-primary">Admin</span>
-
-            </div>
-
-            
-
-            <div class="demo-user" onclick="preencherLogin('empresa@exemplo.com', 'empresa123')">
-
-              <img src="https://ui-avatars.com/api/?name=TechCorp&background=28a745&color=fff" alt="Empresa">
-
-              <div class="demo-user-info">
-
-                <strong>TechCorp Solutions</strong>
-
-                <small>empresa@exemplo.com</small>
-
-              </div>
-
-              <span class="badge bg-success">Empresa</span>
-
-            </div>
-
-            
-
-            <div class="demo-user" onclick="preencherLogin('joao@email.com', 'joao123')">
-
-              <img src="https://ui-avatars.com/api/?name=JoÃ£o+Silva&background=dc3545&color=fff" alt="JoÃ£o">
-
-              <div class="demo-user-info">
-
-                <strong>JoÃ£o Silva</strong>
-
-                <small>joao@email.com</small>
-
-              </div>
-
-              <span class="badge bg-danger">Profissional</span>
-
-            </div>
-
-            
-
-            <div class="demo-user" onclick="preencherLogin('maria@email.com', 'maria123')">
-
-              <img src="https://ui-avatars.com/api/?name=Maria+Santos&background=6f42c1&color=fff" alt="Maria">
-
-              <div class="demo-user-info">
-
-                <strong>Maria Santos</strong>
-
-                <small>maria@email.com</small>
-
-              </div>
-
-              <span class="badge bg-secondary">Profissional</span>
-
-            </div>
-
-
-
-            <div style="margin-top: 20px; padding: 15px; background: rgba(13, 110, 253, 0.1); border-radius: 10px;">
-
-              <h6 style="color: var(--text-color); margin-bottom: 10px;">
-
-                <i class="bi bi-cloud"></i> Demonstraï¿½ï¿½o de APIs
-
-              </h6>
-
-              <div style="display: flex; flex-wrap: wrap; gap: 5px;">
-
-                <button class="btn btn-outline-primary btn-sm" onclick="testarCEP()" style="flex: 1; min-width: 80px;">
-
-                  <i class="bi bi-geo-alt"></i> CEP
-
-                </button>
-
-                <button class="btn btn-outline-success btn-sm" onclick="testarCitacao()" style="flex: 1; min-width: 80px;">
-
-                  <i class="bi bi-chat-quote"></i> Citaï¿½ï¿½o
-
-                </button>
-
-                <button class="btn btn-outline-warning btn-sm" onclick="testarGitHub()" style="flex: 1; min-width: 80px;">
-
-                  <i class="bi bi-github"></i> GitHub
-
-                </button>
-
-                <button class="btn btn-outline-info btn-sm" onclick="testarVagas()" style="flex: 1; min-width: 80px;">
-
-                  <i class="bi bi-briefcase"></i> Vagas
-
-                </button>
-
-              </div>
-
-            </div>
-
-          `;
-
-
-
-          // Adicionar estilos para os usuï¿½rios demo
-
-          const demoStyles = document.createElement("style");
-
-          demoStyles.textContent = `
-
-            .demo-users {
-
-              background: var(--card-bg);
-
-              border: 1px solid var(--border-color);
-
-              border-radius: 15px;
-
-              padding: 20px;
-
-              margin-top: 30px;
-
-            }
-
-
-
-            .demo-user {
-
-              display: flex;
-
-              align-items: center;
-
-              gap: 10px;
-
-              padding: 12px;
-
-              margin: 10px 0;
-
-              background: var(--input-bg);
-
-              border-radius: 10px;
-
-              cursor: pointer;
-
-              transition: all 0.3s ease;
-
-              border: 2px solid transparent;
-
-            }
-
-
-
-            .demo-user:hover {
-
-              border-color: var(--primary-color);
-
-              transform: translateX(5px);
-
-              background: rgba(25, 118, 210, 0.1);
-
-            }
-
-
-
-            .demo-user img {
-
-              width: 40px;
-
-              height: 40px;
-
-              border-radius: 50%;
-
-              object-fit: cover;
-
-            }
-
-
-
-            .demo-user-info {
-
-              flex: 1;
-
-            }
-
-
-
-            .demo-user-info strong {
-
-              display: block;
-
-              font-size: 14px;
-
-              color: var(--text-color);
-
-              font-weight: 600;
-
-            }
-
-
-
-            .demo-user-info small {
-
-              color: var(--text-color);
-
-              opacity: 0.7;
-
-              font-size: 12px;
-
-            }
-
-
-
-            .demo-user .badge {
-
-              font-size: 10px;
-
-              padding: 4px 8px;
-
-            }
-
-          `;
-
-          document.head.appendChild(demoStyles);
-
-
-
-          loginCard.appendChild(demoSection);
-
-        }
-
-      }
-
-
-
-      // Funï¿½ï¿½o para preencher formulÃ¡rio de login
-
-      window.preencherLogin = function (email, senha) {
-
-        document.getElementById("email").value = email;
-
-        document.getElementById("password").value = senha;
-
-
-
-        // Feedback visual
-
-        document.querySelectorAll(".demo-user").forEach((user) => {
-
-          user.style.borderColor = "transparent";
-
-        });
-
-        event.target.closest(".demo-user").style.borderColor =
-
-          "var(--primary-color)";
-
-
-
-        showAlert(
-
-          "info",
-
-          'Dados preenchidos! Clique em "Entrar" para fazer login.',
-
-        );
-
-      };
-
-
-
-      // Funï¿½ï¿½es para demonstraï¿½ï¿½o de APIs
-
-      window.testarCEP = async function () {
-
-        if (!authSystemIntegrated)
-
-          return showAlert("error", "Sistema de APIs nï¿½o carregado");
-
-
-
-        try {
-
-          showAlert("info", "Buscando CEP 01310-100...");
-
-          const result = await apiService.buscarCEP("01310-100");
-
-
-
-          if (result.success) {
-
-            showAlert(
-
-              "success",
-
-              `CEP encontrado: ${result.data.logradouro}, ${result.data.bairro} - ${result.data.localidade}/${result.data.uf}`,
-
-            );
-
-          } else {
-
-            showAlert("error", result.message);
-
-          }
-
-        } catch (error) {
-
-          showAlert("error", "Erro ao testar API de CEP");
-
-        }
-
-      };
-
-
-
-      window.testarCitacao = async function () {
-
-        if (!authSystemIntegrated)
-
-          return showAlert("error", "Sistema de APIs nï¿½o carregado");
-
-
-
-        try {
-
-          showAlert("info", "Buscando citaï¿½ï¿½o motivacional...");
-
-          const result = await apiService.obterCitacaoMotivacional();
-
-
-
-          if (result.success) {
-
-            showAlert(
-
-              "success",
-
-              `"${result.data.content}" - ${result.data.author}`,
-
-            );
-
-          } else {
-
-            showAlert("error", result.message);
-
-          }
-
-        } catch (error) {
-
-          showAlert("error", "Erro ao obter citaï¿½ï¿½o");
-
-        }
-
-      };
-
-
-
-      window.testarGitHub = async function () {
-
-        if (!authSystemIntegrated)
-
-          return showAlert("error", "Sistema de APIs nï¿½o carregado");
-
-
-
-        try {
-
-          showAlert("info", "Buscando usuï¿½rio octocat no GitHub...");
-
-          const result = await apiService.buscarUsuarioGitHub("octocat");
-
-
-
-          if (result.success) {
-
-            showAlert(
-
-              "success",
-
-              `GitHub: ${result.data.name} (@${result.data.login}) - ${result.data.public_repos} repositï¿½rios`,
-
-            );
-
-          } else {
-
-            showAlert("error", result.message);
-
-          }
-
-        } catch (error) {
-
-          showAlert("error", "Erro ao buscar usuï¿½rio GitHub");
-
-        }
-
-      };
-
-
-
-      window.testarVagas = async function () {
-
-        if (!authSystemIntegrated)
-
-          return showAlert("error", "Sistema de APIs nï¿½o carregado");
-
-
-
-        try {
-
-          showAlert("info", "Carregando vagas disponï¿½veis...");
-
-          const result = await apiService.buscarVagas();
-
-
-
-          if (result.success) {
-
-            showAlert(
-
-              "success",
-
-              `${result.data.length} vagas encontradas! Primeira: ${result.data[0].titulo} na ${result.data[0].empresa}`,
-
-            );
-
-          } else {
-
-            showAlert("error", result.message);
-
-          }
-
-        } catch (error) {
-
-          showAlert("error", "Erro ao buscar vagas");
-
-        }
-
-      };
-
-
-
-      // Modificar funï¿½ï¿½o de login para usar novo sistema
-
-      const originalLoginForm = document.getElementById("loginForm");
-
-      if (originalLoginForm) {
-
-        originalLoginForm.addEventListener("submit", async function (e) {
-
-          e.preventDefault();
-
-
-
-          const email = document.getElementById("email").value.trim();
-
-          const senha = document.getElementById("password").value;
-
-
-
-          // Validaï¿½ï¿½es bï¿½sicas
-
-          if (!email || !senha) {
-
-            showAlert("error", "Por favor, preencha todos os campos");
-
-            return;
-
-          }
-
-
-
-          if (!document.getElementById("email").validity.valid) {
-
-            showAlert("error", "E-mail invÃ¡lido");
-
-            return;
-
-          }
-
-
-
-          if (senha.length < 6) {
-
-            showAlert("error", "Senha deve ter pelo menos 6 caracteres");
-
-            return;
-
-          }
-
-
-
-          // Tentar login com o novo sistema se disponï¿½vel
-
-          if (authSystemIntegrated) {
-
-            console.log("Tentando login com sistema integrado...");
-
-            showAlert("info", "Fazendo login...");
-
-            try {
-
-              const rememberDevice =
-
-                document.getElementById("rememberDevice")?.checked ?? true;
-
-              const result = await fazerLogin(email, senha, rememberDevice);
-
-              console.log("Resultado do login:", result);
-
-              // O resultado jï¿½ ï¿½ tratado na funï¿½ï¿½o fazerLogin
-
-            } catch (error) {
-
-              console.error("Erro no login integrado:", error);
-
-              showAlert("error", "Erro no sistema de login: " + error.message);
-
-            }
-
-          } else {
-
-            console.log("Sistema integrado nï¿½o disponï¿½vel, usando fallback...");
-
-            // Fallback para sistema antigo
-
-            const result = db.authenticate(email, senha, selectedUserType);
-
-            console.log("Resultado do fallback:", result);
-
-
-
-            if (result.success) {
-
-              showAlert(
-
-                "success",
-
-                "Login realizado com sucesso! Redirecionando...",
-
-              );
-
-              setTimeout(() => {
-
-                // Redirecionar todos os usuï¿½rios para a pï¿½gina principal
-
-                console.log("Redirecionando para pï¿½gina principal...");
-
-                window.location.href = "/";
-
-              }, 1000);
-
-            } else {
-
-              showAlert("error", result.message);
-
-            }
-
-          }
-
-        });
-
-      }
-
-
-
-      // Inicializar integraï¿½ï¿½o
-
-      document.addEventListener("DOMContentLoaded", () => {
-
-        console.log("DOM carregado, inicializando sistema...");
-
-
-
-        // Inicializar tema como antes
-
-        const storedTheme = getStoredTheme();
-
-        setTheme(storedTheme);
-
-
-
-        // Verificar sessÃ£o ativa ï¿½ exibir painel de perfil (RF04/RF05)
-
-        const sessÃ£on = db.getSession();
-
-        if (sessÃ£on) {
-
-          console.log("Sessï¿½o ativa encontrada:", sessÃ£on.user);
-
-          exibirPainelPerfil(sessÃ£on);
-
-          console.log(`Tentativa ${tentativas} de carregar sistema de APIs...`);
-
-
-
-          if (typeof authSystem !== "undefined") {
-
-            console.log("Sistema de APIs encontrado!");
-
-            aguardarSistemaAPIs();
-
-          } else if (tentativas >= maxTentativas) {
-
-            console.warn(
-
-              "Sistema de APIs nï¿½o carregou no tempo esperado, usando apenas sistema antigo",
-
-            );
-
-            showAlert(
-
-              "warning",
-
-              "Sistema avanï¿½ado indisponï¿½vel, usando sistema bï¿½sico",
-
-            );
-
-            authSystemIntegrated = false;
-
-          } else {
-
-            setTimeout(verificarSistemaComTimeout, 100);
-
-          }
-
-        }
-
-
-
-        setTimeout(verificarSistemaComTimeout, 500);
-
-      });
-
-    </script>
+</script>
 
   </body>
 
 </html>
-
-
-
