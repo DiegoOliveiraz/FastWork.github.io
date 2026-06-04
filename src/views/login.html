@@ -1,4 +1,4 @@
-<!doctype html>
+ï»¿<!DOCTYPE html>
 
 <html lang="pt-br" data-theme="dark">
 
@@ -1108,7 +1108,7 @@
 
 
 
-      /* ===== RF04 & RF05 ? Painel de sessão ativa ===== */
+      /* ===== RF04 & RF05 ? Painel de sessï¿½o ativa ===== */
 
       .profile-panel {
 
@@ -1660,12 +1660,16 @@
 
     </style>
 
-      <link rel="stylesheet" href="/src/public/css/style.css">
+      <link rel="stylesheet" href="../public/css/style.css">
 
 </head>
-
   <body>
-
+    <script>
+      (function() {
+        const storedTheme = localStorage.getItem("theme") || "dark";
+        document.documentElement.setAttribute("data-theme", storedTheme);
+      })();
+    </script>
     <button class="theme-toggle" onclick="toggleTheme()">
 
       <span class="theme-text">Modo Claro</span>
@@ -1858,7 +1862,7 @@
 
           >
 
-            <i class="bi bi-key-fill"></i> Contas de Teste Disponíveis
+            <i class="bi bi-key-fill"></i> Contas de Teste Disponï¿½veis
 
           </h3>
 
@@ -1866,7 +1870,7 @@
 
           <div id="testAccountsContainer">
 
-            <!-- Contas serão inseridas aqui via JavaScript -->
+            <!-- Contas serï¿½o inseridas aqui via JavaScript -->
 
           </div>
 
@@ -1902,7 +1906,7 @@
 
           <p id="registerText">
 
-            Ainda não tem conta?
+            Ainda nï¿½o tem conta?
 
             <a href="formu.html">Cadastre-se como Profissional</a>
 
@@ -1916,7 +1920,7 @@
 
 
 
-    <!-- ===== PAINEL DE SESSÃO ATIVA (RF04 / RF05) ===== -->
+    <!-- ===== PAINEL DE SESSï¿½O ATIVA (RF04 / RF05) ===== -->
 
     <div class="login-container" id="profileContainer" style="display: none">
 
@@ -2028,7 +2032,7 @@
 
       <p class="modal-subtitle">
 
-        Campos em azul foram alterados. A senha atual é obrigatória para salvar.
+        Campos em azul foram alterados. A senha atual ï¿½ obrigatï¿½ria para salvar.
 
       </p>
 
@@ -2098,7 +2102,7 @@
 
         <button class="btn fw-btn-primary" onclick="salvarEdicaoCadastral()">
 
-          <i class="bi bi-check2"></i> Salvar alterações
+          <i class="bi bi-check2"></i> Salvar alteraï¿½ï¿½es
 
         </button>
 
@@ -2222,463 +2226,139 @@
 
 
 
-    <script>
+<script>
+      // ========== SISTEMA DE AUTENTICAï¿½+ÃƒO COM LOCAL STORAGE ==========
+      // Chaves padronizadas
+      const STORAGE_KEY = "fastwork_users";
+      const SESSION_KEY = "fastwork_session";
 
-      // ========== SISTEMA DE AUTENTICAÇÃO COM LOCAL STORAGE ==========
-
-
-
-      // Classe para gerenciar usuários
-
+      // Classe para gerenciar usuÃ¡rios
       class UserDatabase {
-
         constructor() {
-
           this.initializeDB();
-
         }
-
-
 
         initializeDB() {
-
-          // FORÇAR ATUALIZAÇÃO DOS DADOS - Remover após primeira execução
-
-          const forceUpdate = true; // Mude para false depois de testar
-
-
-
-          if (!localStorage.getItem("fastwork_users") || forceUpdate) {
-
-            // Criar usu?rios de exemplo
-
+          const forceUpdate = true;
+          if (!localStorage.getItem(STORAGE_KEY) || forceUpdate) {
             const exampleUsers = {
-
               profissionais: [
-
                 {
-
                   id: 1,
-
-                  nome: "Diego Silva",
-
+                  nome: "JoÃ£o Silva",
                   email: "joao@email.com",
-
                   senha: "123456",
-
                   profissao: "Pedreiro",
-
                   telefone: "(11) 98765-4321",
-
                   created_at: new Date().toISOString(),
-
                 },
-
                 {
-
                   id: 2,
-
                   nome: "Maria Santos",
-
                   email: "maria@email.com",
-
                   senha: "123456",
-
                   profissao: "Eletricista",
-
                   telefone: "(11) 99876-5432",
-
                   created_at: new Date().toISOString(),
-
                 },
-
-                {
-
-                  id: 3,
-
-                  nome: "Carlos Oliveira",
-
-                  email: "carlos@email.com",
-
-                  senha: "123456",
-
-                  profissao: "Pintor",
-
-                  telefone: "(11) 97654-3210",
-
-                  created_at: new Date().toISOString(),
-
-                },
-
-                {
-
-                  id: 4,
-
-                  nome: "Ana Paula",
-
-                  email: "ana@email.com",
-
-                  senha: "123456",
-
-                  profissao: "Jardineiro",
-
-                  telefone: "(11) 96543-2109",
-
-                  created_at: new Date().toISOString(),
-
-                },
-
               ],
-
               empresas: [
-
                 {
-
                   id: 1,
-
-                  razaoSocial: "Construçãora ABC Ltda",
-
-                  nomeFantasia: "ABC Constru??es",
-
+                  nomeFantasia: "ABC ConstruÃ§Ãµes",
+                  razaoSocial: "ConstruÃ§Ã£o ABC Ltda",
                   email: "contato@abc.com",
-
                   senha: "123456",
-
                   cnpj: "12.345.678/0001-90",
-
                   telefone: "(11) 3456-7890",
-
                   created_at: new Date().toISOString(),
-
                 },
-
                 {
-
                   id: 2,
-
-                  razaoSocial: "Tech Solutions Brasil Ltda",
-
                   nomeFantasia: "Tech Solutions",
-
+                  razaoSocial: "Tech Solutions Brasil Ltda",
                   email: "contato@tech.com",
-
                   senha: "123456",
-
                   cnpj: "98.765.432/0001-10",
-
                   telefone: "(11) 3210-9876",
-
                   created_at: new Date().toISOString(),
-
                 },
-
-                {
-
-                  id: 3,
-
-                  razaoSocial: "Serviços Gerais Master Ltda",
-
-                  nomeFantasia: "Master Serviços",
-
-                  email: "contato@master.com",
-
-                  senha: "123456",
-
-                  cnpj: "45.678.901/0001-23",
-
-                  telefone: "(11) 3987-6543",
-
-                  created_at: new Date().toISOString(),
-
-                },
-
               ],
-
             };
-
-            localStorage.setItem(
-
-              "fastwork_users",
-
-              JSON.stringify(exampleUsers),
-
-            );
-
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(exampleUsers));
           }
-
         }
-
-
 
         getUsers() {
-
-          return JSON.parse(localStorage.getItem("fastwork_users"));
-
+          return JSON.parse(localStorage.getItem(STORAGE_KEY));
         }
-
-
 
         saveUsers(users) {
-
-          localStorage.setItem("fastwork_users", JSON.stringify(users));
-
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
         }
-
-
-
-        authenticate(email, senha, userType) {
-
-          const users = this.getUsers();
-
-          const userList =
-
-            userType === "profissional" ? users.profissionais : users.empresas;
-
-
-
-          const user = userList.find(
-
-            (u) => u.email === email && u.senha === senha,
-
-          );
-
-
-
-          if (user) {
-
-            // Salvar sessão
-
-            const sessãon = {
-
-              user: { ...user },
-
-              userType: userType,
-
-              loginTime: new Date().toISOString(),
-
-            };
-
-            delete sessãon.user.senha; // Não salvar senha na sessão
-
-            localStorage.setItem("fastwork_sessãon", JSON.stringify(sessãon));
-
-            return { success: true, user: sessãon };
-
-          }
-
-
-
-          return { success: false, message: "E-mail ou senha incorretos" };
-
-        }
-
-
-
-        register(userData, userType) {
-
-          const users = this.getUsers();
-
-          const userList =
-
-            userType === "profissional" ? users.profissionais : users.empresas;
-
-
-
-          // Verificar se email já existe
-
-          if (userList.find((u) => u.email === userData.email)) {
-
-            return { success: false, message: "E-mail já cadastrado" };
-
-          }
-
-
-
-          // Adicionar novo usuário
-
-          const newUser = {
-
-            id: userList.length + 1,
-
-            ...userData,
-
-            created_at: new Date().toISOString(),
-
-          };
-
-
-
-          if (userType === "profissional") {
-
-            users.profissionais.push(newUser);
-
-          } else {
-
-            users.empresas.push(newUser);
-
-          }
-
-
-
-          this.saveUsers(users);
-
-          return { success: true, user: newUser };
-
-        }
-
-
-
-        logout() {
-
-          localStorage.removeItem("fastwork_sessãon");
-
-        }
-
-
 
         getSession() {
-
-          const sessãon = localStorage.getItem("fastwork_sessãon");
-
-          return sessãon ? JSON.parse(sessãon) : null;
-
+          const session = localStorage.getItem(SESSION_KEY);
+          return session ? JSON.parse(session) : null;
         }
 
+        saveSession(session) {
+          localStorage.setItem(SESSION_KEY, JSON.stringify(session));
+        }
 
-
-        // RF04 ? Atualizar dados cadastrais
-
-        updateUser(id, updatedData, userType) {
-
+        authenticate(email, senha, userType) {
           const users = this.getUsers();
-
-          const lista =
-
-            userType === "profissional" ? users.profissionais : users.empresas;
-
-          const idx = lista.findIndex((u) => u.id === id);
-
-
-
-          if (idx === -1)
-
-            return { success: false, message: "Usu?rio n?o encontrado." };
-
-
-
-          // Verificar conflito de e-mail com outro usu?rio
-
-          const emailConflito = lista.find(
-
-            (u) => u.email === updatedData.email && u.id !== id,
-
-          );
-
-          if (emailConflito)
-
-            return { success: false, message: "Este e-mail j? est? em uso." };
-
-
-
-          // Mesclar dados preservando campos imut?veis
-
-          const userAtualizado = {
-
-            ...lista[idx],
-
-            ...updatedData,
-
-            id: lista[idx].id,
-
-            created_at: lista[idx].created_at,
-
-            updated_at: new Date().toISOString(),
-
-          };
-
-
-
-          lista[idx] = userAtualizado;
-
-
-
-          if (userType === "profissional") users.profissionais = lista;
-
-          else users.empresas = lista;
-
-
-
-          this.saveUsers(users);
-
-
-
-          // Atualizar sessão ativa sem a senha
-
-          const sessãon = this.getSession();
-
-          if (sessãon) {
-
-            sessãon.user = { ...userAtualizado };
-
-            delete sessãon.user.senha;
-
-            localStorage.setItem("fastwork_sessãon", JSON.stringify(sessãon));
-
+          const userList = userType === "profissional" ? users.profissionais : users.empresas;
+          const user = userList.find((u) => u.email === email && u.senha === senha);
+          if (user) {
+            const session = {
+              user: { ...user },
+              userType: userType,
+              loginTime: new Date().toISOString(),
+            };
+            delete session.user.senha;
+            this.saveSession(session);
+            return { success: true, user: session };
           }
-
-
-
-          return { success: true, user: userAtualizado };
-
+          return { success: false, message: "E-mail ou senha incorretos" };
         }
 
+        logout() {
+          localStorage.removeItem(SESSION_KEY);
+        }
 
-
-        // RF05 - Excluir conta do usuário
+        updateUser(id, updates, userType) {
+          const users = this.getUsers();
+          const list = userType === "profissional" ? users.profissionais : users.empresas;
+          const idx = list.findIndex((u) => u.id === id);
+          if (idx === -1) return { success: false, message: "UsuÃ¡rio nÃ£o encontrado." };
+          const updated = { ...list[idx], ...updates, id: list[idx].id, created_at: list[idx].created_at, updated_at: new Date().toISOString() };
+          list[idx] = updated;
+          if (userType === "profissional") users.profissionais = list;
+          else users.empresas = list;
+          this.saveUsers(users);
+          const session = this.getSession();
+          if (session) {
+            session.user = { ...updated };
+            delete session.user.senha;
+            this.saveSession(session);
+          }
+          return { success: true, user: updated };
+        }
 
         deleteUser(id, userType) {
-
           const users = this.getUsers();
-
-          const lista =
-
-            userType === "profissional" ? users.profissionais : users.empresas;
-
-          const idx = lista.findIndex((u) => u.id === id);
-
-
-
-          if (idx === -1)
-
-            return { success: false, message: "Usuário não encontrado." };
-
-
-
-          lista.splice(idx, 1);
-
-
-
-          if (userType === "profissional") users.profissionais = lista;
-
-          else users.empresas = lista;
-
-
-
+          const list = userType === "profissional" ? users.profissionais : users.empresas;
+          const idx = list.findIndex((u) => u.id === id);
+          if (idx === -1) return { success: false, message: "UsuÃ¡rio nÃ£o encontrado." };
+          list.splice(idx, 1);
+          if (userType === "profissional") users.profissionais = list;
+          else users.empresas = list;
           this.saveUsers(users);
-
           this.logout();
-
-
-
           return { success: true };
-
         }
-
       }
-
-
-
-      // Inicializar banco de dados
 
       const db = new UserDatabase();
 
@@ -2722,7 +2402,7 @@
 
           key: "profissao",
 
-          label: "Profissão",
+          label: "Profissï¿½o",
 
           icon: "bi-briefcase",
 
@@ -2858,19 +2538,25 @@
 
 
 
-function exibirPainelPerfil(usuario) {
-        document.querySelector(".login-container:not(#profileContainer)") &&
-          (document.querySelector(".login-container:not(#profileContainer)").style.display = "none");
-
-        // Ocultar formulário de login
-        const loginCont = document.querySelector(
-          ".login-container:not(#profileContainer)",
-        );
+function exibirPainelPerfil(session) {
+        const usuario = session.user || session;
+        const userType = session.userType || "profissional";
+        const loginCont = document.querySelector(".login-container:not(#profileContainer)");
         if (loginCont) loginCont.style.display = "none";
+        document.getElementById("profileContainer").style.display = "flex";
+        const displayName = usuario.nome || usuario.nomeFantasia || "UsuÃ¡rio";
+        const initials = displayName.split(" ").map((w) => w[0]).slice(0, 2).join("");
+        document.getElementById("profileAvatar").innerHTML = initials || '<i class="bi bi-person-fill"></i>';
+        document.getElementById("profileName").textContent = displayName;
+        document.getElementById("profileBadge").textContent = userType === "empresa" ? `Empresa${usuario.nomeFantasia ? " - " + usuario.nomeFantasia : ""}` : `Profissional`;
+        const campos = userType === "empresa" ? CAMPOS_EMPRESA : CAMPOS_PROFISSIONAL;
+        const rowsEl = document.getElementById("profileInfoRows");
+        rowsEl.innerHTML = campos.filter((c) => c.key !== "senha" && usuario[c.key]).map((c) => `<div class="profile-info-row"><i class="bi ${c.icon}"></i><span class="profile-info-label">${c.label}</span><span>${usuario[c.key] || ""}</span></div>`).join("");
+      }
 
         document.getElementById("profileContainer").style.display = "flex";
 
-        const displayName = usuario.nome || usuario.nomeFantasia || "Usuário";
+        const displayName = usuario.nome || usuario.nomeFantasia || "Usuï¿½rio";
         const initials = displayName
           .split(" ")
           .map((w) => w[0])
@@ -2905,8 +2591,7 @@ function exibirPainelPerfil(usuario) {
 
 
 function fazerLogoutPerfil() {
-        localStorage.removeItem("token");
-        localStorage.removeItem("usuarioLogado");
+        localStorage.removeItem(SESSION_KEY);
         const profileCont = document.getElementById("profileContainer");
         if (profileCont) profileCont.style.display = "none";
         const loginCont = document.querySelector(
@@ -2918,12 +2603,13 @@ function fazerLogoutPerfil() {
 
 
 
-// ---- RF04: Abrir modal de edição ----
+// ---- RF04: Abrir modal de ediï¿½ï¿½o ----
       function abrirModalEdicao() {
-        const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado") || "{}");
-        if (!usuarioLogado) return;
-
-        const campos = usuarioLogado.tipo === "empresa" ? CAMPOS_EMPRESA : CAMPOS_PROFISSIONAL;
+        const session = db.getSession();
+        if (!session) return;
+        const usuarioLogado = session.user;
+        const userType = session.userType;
+        const campos = userType === "empresa" ? CAMPOS_EMPRESA : CAMPOS_PROFISSIONAL;
 
 
 
@@ -3011,13 +2697,13 @@ function fazerLogoutPerfil() {
 
       function salvarEdicaoCadastral() {
 
-        const sessãon = db.getSession();
+        const session = db.getSession();
 
-        if (!sessãon) return;
+        if (!session) return;
 
 
 
-        const { user, userType } = sessãon;
+        const { user, userType } = session;
 
         const campos =
 
@@ -3039,7 +2725,7 @@ function fazerLogoutPerfil() {
 
             "error",
 
-            "Informe sua senha atual para salvar as alterações.",
+            "Informe sua senha atual para salvar as alteraï¿½ï¿½es.",
 
           );
 
@@ -3089,7 +2775,7 @@ function fazerLogoutPerfil() {
 
             pulsarCampo("edit_" + campo.key);
 
-            showAlert("error", `O campo "${campo.label}" ? obrigatório.`);
+            showAlert("error", `O campo "${campo.label}" ? obrigatï¿½rio.`);
 
             return;
 
@@ -3135,7 +2821,7 @@ function fazerLogoutPerfil() {
 
             }
 
-            // Só atualiza a senha se o campo foi preenchido
+            // Sï¿½ atualiza a senha se o campo foi preenchido
 
             if (val) dadosAtualizados.senha = val;
 
@@ -3159,9 +2845,9 @@ function fazerLogoutPerfil() {
 
           showAlert("success", "Dados cadastrais atualizados com sucesso!");
 
-          const sessãoAtualizada = db.getSession();
+          const sessï¿½oAtualizada = db.getSession();
 
-          if (sessãoAtualizada) exibirPainelPerfil(sessãoAtualizada);
+          if (sessï¿½oAtualizada) exibirPainelPerfil(sessï¿½oAtualizada);
 
           displayTestAccounts();
 
@@ -3175,7 +2861,7 @@ function fazerLogoutPerfil() {
 
 
 
-      // ---- RF05: Abrir modal de exclusão ----
+      // ---- RF05: Abrir modal de exclusï¿½o ----
 
       function abrirModalExclusao() {
 
@@ -3189,13 +2875,13 @@ function fazerLogoutPerfil() {
 
       function confirmarExclusaoConta() {
 
-        const sessãon = db.getSession();
+        const session = db.getSession();
 
-        if (!sessãon) return;
+        if (!session) return;
 
 
 
-        const { user, userType } = sessãon;
+        const { user, userType } = session;
 
         const senhaDigitada = document
 
@@ -3209,7 +2895,7 @@ function fazerLogoutPerfil() {
 
           pulsarCampo("deleteConfirmSenha");
 
-          showAlert("error", "Digite sua senha para confirmar a exclusão.");
+          showAlert("error", "Digite sua senha para confirmar a exclusï¿½o.");
 
           return;
 
@@ -3231,7 +2917,7 @@ function fazerLogoutPerfil() {
 
           pulsarCampo("deleteConfirmSenha");
 
-          showAlert("error", "Senha incorreta. Exclusão cancelada.");
+          showAlert("error", "Senha incorreta. Exclusï¿½o cancelada.");
 
           return;
 
@@ -3597,7 +3283,7 @@ function fazerLogoutPerfil() {
 
 
 
-      // ========== GERENCIAMENTO DO FORMULÁRIO ==========
+      // ========== GERENCIAMENTO DO FORMULï¿½RIO ==========
 
 
 
@@ -3605,121 +3291,62 @@ function fazerLogoutPerfil() {
 
 
 
-      // Seletor de tipo de usuário
+// InicializaÃ§Ã£o
+      document.addEventListener("DOMContentLoaded", () => {
+        const storedTheme = getStoredTheme();
+        setTheme(storedTheme);
+        displayTestAccounts();
+        const session = db.getSession();
+        if (session) {
+          exibirPainelPerfil(session);
+        }
 
-      document.querySelectorAll(".user-type-btn").forEach((btn) => {
-
-        btn.addEventListener("click", function () {
-
-          document
-
-            .querySelectorAll(".user-type-btn")
-
-            .forEach((b) => b.classList.remove("active"));
-
-          this.classList.add("active");
-
-          selectedUserType = this.dataset.type;
-
-
-
-          // Atualizar contas de teste
-
-          displayTestAccounts();
-
-
-
-          // Atualizar link de cadastro
-
-          const registerLink = document.getElementById("registerText");
-
-          if (selectedUserType === "profissional") {
-
-            registerLink.innerHTML =
-
-              'Ainda n?o tem conta? <a href="formu.html">Cadastre-se como Profissional</a>';
-
-          } else {
-
-            registerLink.innerHTML =
-
-              'Ainda n?o tem conta? <a href="cadastroem.html">Cadastre-se como Empresa</a>';
-
-          }
-
+        // Seletor de tipo de usuÃ¡rio
+        document.querySelectorAll(".user-type-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            document.querySelectorAll(".user-type-btn").forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+            selectedUserType = this.dataset.type;
+            displayTestAccounts();
+            const registerLink = document.getElementById("registerText");
+            if (registerLink) {
+              if (selectedUserType === "profissional") {
+                registerLink.innerHTML = 'Ainda nï¿½o tem conta? <a href="formu.html">Cadastre-se como Profissional</a>';
+              } else {
+                registerLink.innerHTML = 'Ainda nï¿½o tem conta? <a href="cadastroem.html">Cadastre-se como Empresa</a>';
+              }
+            }
+          });
         });
-
       });
 
-
-
-      // Valida??o de campos
-
-      function showError(field, message) {
-
-        const formGroup = field.closest(".form-group");
-
-        const errorDiv = formGroup.querySelector(".error-message");
-
-
-
-        formGroup.classList.add("error");
-
-        errorDiv.textContent = message;
-
-        errorDiv.style.display = "block";
-
+      function showError(input, message) {
+        const errorDiv = document.getElementById(input.id + "-error");
+        if (errorDiv) errorDiv.textContent = message;
+        input.classList.add("is-invalid");
       }
 
-
-
-      function clearError(field) {
-
-        const formGroup = field.closest(".form-group");
-
-        const errorDiv = formGroup.querySelector(".error-message");
-
-
-
-        formGroup.classList.remove("error");
-
-        errorDiv.style.display = "none";
-
+      function clearError(input) {
+        const errorDiv = document.getElementById(input.id + "-error");
+        if (errorDiv) errorDiv.textContent = "";
+        input.classList.remove("is-invalid");
       }
-
-
 
       function showAlert(type, message) {
-
-        const alertElement = document.getElementById(
-
-          type === "error" ? "alertError" : "alertSuccess",
-
-        );
-
+        const alertElement = document.getElementById(`alert${type === "success" ? "Success" : "Error"}`);
         alertElement.textContent = message;
-
         alertElement.style.display = "block";
 
-
-
         setTimeout(() => {
-
           alertElement.style.display = "none";
-
         }, 5000);
-
       }
-
-
-
-      // Valida??o em tempo real
 
       document.getElementById("email").addEventListener("input", function () {
 
         if (this.value && !this.validity.valid) {
 
-          showError(this, "E-mail inválido");
+          showError(this, "E-mail invÃ¡lido");
 
         } else {
 
@@ -3728,8 +3355,6 @@ function fazerLogoutPerfil() {
         }
 
       });
-
-
 
       document
 
@@ -3749,11 +3374,10 @@ function fazerLogoutPerfil() {
 
         });
 
-
-
-// Submit do formulário
+      // Submit do formulÃ¡rio
       document
         .getElementById("loginForm")
+
         .addEventListener("submit", async function (e) {
           e.preventDefault();
 
@@ -3765,21 +3389,21 @@ function fazerLogoutPerfil() {
           clearError(document.getElementById("password"));
           document.getElementById("alertError").style.display = "none";
 
-          // Validações
+          // Validaï¿½ï¿½es
           let hasError = false;
 
           if (!email) {
-            showError(document.getElementById("email"), "E-mail é obrigatório");
+            showError(document.getElementById("email"), "E-mail ï¿½ obrigatï¿½rio");
             hasError = true;
           } else if (!document.getElementById("email").validity.valid) {
-            showError(document.getElementById("email"), "E-mail inválido");
+            showError(document.getElementById("email"), "E-mail invï¿½lido");
             hasError = true;
           }
 
           if (!senha) {
             showError(
               document.getElementById("password"),
-              "Senha é obrigatória",
+              "Senha ï¿½ obrigatï¿½ria",
             );
             hasError = true;
           } else if (senha.length < 6) {
@@ -3792,7 +3416,7 @@ function fazerLogoutPerfil() {
 
           if (hasError) return;
 
-          // Fazer requisição para API
+          // Fazer requisiï¿½ï¿½o para API
           const endpoint = selectedUserType === "profissional" 
             ? "http://localhost:3000/api/login"
             : "http://localhost:3000/api/login/empresa";
@@ -3814,43 +3438,22 @@ function fazerLogoutPerfil() {
                 "Login realizado com sucesso! Redirecionando...",
               );
 
-              // Salvar token e dados do usuário
+              // Salvar token e dados do usuÃ¡rio
               localStorage.setItem("token", resultado.token);
-              localStorage.setItem("usuarioLogado", JSON.stringify(resultado.usuario || resultado.empresa));
+              const userData = resultado.usuario || resultado.empresa;
+              localStorage.setItem("usuarioLogado", JSON.stringify(userData));
+              // Salvar sessÃ£o padronizada
+              db.saveSession({ user: userData, userType: userData.tipo || "profissional" });
 
-              // Redirecionar após 1 segundo
+              // Redirecionar apï¿½s 1 segundo
               setTimeout(() => {
                 window.location.href = "/";
               }, 1000);
             } else {
               showAlert("error", resultado.erro || "Erro no login");
             }
-          } catch (error) {
-            showAlert("error", "Erro ao conectar com servidor");
-          }
-        });
-
-
-
-// Inicialização
-      document.addEventListener("DOMContentLoaded", () => {
-        const storedTheme = getStoredTheme();
-        setTheme(storedTheme);
-
-        // Exibir contas de teste ao carregar
-        displayTestAccounts();
-
-        // Verificar se já está logado e exibir painel de perfil
-        const usuarioLogado = localStorage.getItem("usuarioLogado");
-        const token = localStorage.getItem("token");
-        
-        if (usuarioLogado && token) {
-          try {
-            const usuario = JSON.parse(usuarioLogado);
-            exibirPainelPerfil(usuario);
-          } catch (e) {
-            console.error("Erro ao parsear dados do usuário:", e);
-          }
+        } catch (error) {
+          showAlert("error", "Erro ao conectar com servidor");
         }
       });
 
@@ -3859,3 +3462,5 @@ function fazerLogoutPerfil() {
   </body>
 
 </html>
+
+

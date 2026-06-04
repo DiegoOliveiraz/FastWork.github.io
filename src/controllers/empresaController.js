@@ -48,7 +48,7 @@ export function cadastrarEmpresa(req, res) {
   res.status(201).json({
     ok: true,
     msg: "Empresa cadastrada com sucesso",
-    empresa: { id: novaEmpresa.id, nome: novaEmpresa.nome, email: novaEmpresa.email }
+    empresa: { id: novaEmpresa.id, nome: novaEmpresa.nome, email: novaEmpresa.email, tipo: "empresa" }
   });
 }
 
@@ -90,7 +90,7 @@ export function loginEmpresa(req, res) {
     ok: true,
     msg: "Login realizado com sucesso",
     token,
-    empresa: { id: empresa.id, nome: empresa.nome, email: empresa.email }
+    empresa: { id: empresa.id, nome: empresa.nome, email: empresa.email, tipo: "empresa" }
   });
 }
 

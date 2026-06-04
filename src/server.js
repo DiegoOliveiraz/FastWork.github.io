@@ -22,6 +22,7 @@ app.use('/api', empresaRoutes);
 // Rotas HTML
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, '..', 'index.html')));
 app.get('/formu.html', (req, res) => res.sendFile(path.join(__dirname, 'views', 'formu.html')));
+app.get('/cadastroem.html', (req, res) => res.sendFile(path.join(__dirname, 'views', 'cadastroem.html')));
 app.get('/login', (req, res) => res.sendFile(path.join(__dirname, 'views', 'login.html')));
 app.get('/validacao.html', (req, res) => res.sendFile(path.join(__dirname, 'views', 'validacao.html')));
 
