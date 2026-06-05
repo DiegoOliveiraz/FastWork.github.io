@@ -547,7 +547,7 @@ class AuthenticationSystem {
             switch (this.currentUser.type) {
                 case 'admin':
                     menuItems = `
-                        <a href="ts1.html"><i class="bi bi-house"></i> Página Principal</a>
+                        <a href="/index.html"><i class="bi bi-house"></i> Página Principal</a>
                         <a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
                         <a href="empregos.html"><i class="bi bi-briefcase"></i> Gerenciar Vagas</a>
                         <a href="sobre.html"><i class="bi bi-people"></i> Gerenciar Usuários</a>
@@ -555,7 +555,7 @@ class AuthenticationSystem {
                     break;
                 case 'empresa':
                     menuItems = `
-                        <a href="ts1.html"><i class="bi bi-house"></i> Página Principal</a>
+                        <a href="/index.html"><i class="bi bi-house"></i> Página Principal</a>
                         <a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
                         <a href="empregos.html"><i class="bi bi-plus-circle"></i> Publicar Vaga</a>
                         <a href="cadastroem.html"><i class="bi bi-building"></i> Perfil da Empresa</a>
@@ -563,7 +563,7 @@ class AuthenticationSystem {
                     break;
                 case 'profissional':
                     menuItems = `
-                        <a href="ts1.html"><i class="bi bi-house"></i> Página Principal</a>
+                        <a href="/index.html"><i class="bi bi-house"></i> Página Principal</a>
                         <a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
                         <a href="empregos.html"><i class="bi bi-search"></i> Buscar Vagas</a>
                         <a href="formu.html"><i class="bi bi-person-gear"></i> Meu Perfil</a>
@@ -1049,7 +1049,7 @@ async function fazerLogin(email, password, rememberDevice = true) {
         
         // Redirecionar todos os usuários para a página principal
         setTimeout(() => {
-            window.location.href = 'ts1.html';
+            window.location.href = '/index.html';
         }, 1500);
     } else {
         UIUtils.showAlert(result.message, 'danger');

@@ -1,9 +1,7 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 
 <html lang="pt-br" data-theme="dark">
-
   <head>
-
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,49 +9,30 @@
     <title>Login - FastWork</title>
 
     <link
-
       rel="shortcut icon"
-
       href="../public/images/Logo_FAVICON.png"
-
       type="image/x-icon"
-
     />
-
-
 
     <!-- Bootstrap CSS -->
 
     <link
-
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-
       rel="stylesheet"
-
     />
 
     <link
-
       rel="stylesheet"
-
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-
     />
 
-
-
     <link
-
       href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-
       rel="stylesheet"
-
     />
 
     <style>
-
       * {
-
         box-sizing: border-box;
 
         margin: 0;
@@ -61,13 +40,9 @@
         padding: 0;
 
         font-family: "Roboto", "Nunito Sans", sans-serif;
-
       }
 
-
-
       :root {
-
         --primary-color: #1976d2;
 
         --secondary-color: #000000;
@@ -83,13 +58,9 @@
         --input-bg: rgba(0, 0, 0, 0.7);
 
         --bg-image: url("../public/images/textured-black-background-vector.jpg");
-
       }
 
-
-
       [data-theme="light"] {
-
         --primary-color: #ffc107;
 
         --secondary-color: #ffffff;
@@ -113,13 +84,9 @@
         --footer-text-color: #000000;
 
         --content-text-color: #000000;
-
       }
 
-
-
       body {
-
         min-height: 100vh;
 
         background-color: var(--bg-color);
@@ -139,13 +106,9 @@
         flex-direction: column;
 
         transition: all 0.3s ease;
-
       }
 
-
-
       .theme-toggle {
-
         position: fixed;
 
         top: 20px;
@@ -175,41 +138,25 @@
         justify-content: center;
 
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-
       }
 
-
-
       .theme-icon {
-
         font-size: 24px;
 
         transition: transform 0.5s ease;
-
       }
-
-
 
       .moon {
-
         color: white;
-
       }
 
-
-
       .sun {
-
         color: #fff;
 
         transform: rotate(180deg);
-
       }
 
-
-
       .login-container {
-
         flex: 1;
 
         display: flex;
@@ -219,13 +166,9 @@
         align-items: center;
 
         padding: 20px;
-
       }
 
-
-
       .login-card {
-
         background: var(--card-bg);
 
         padding: 40px;
@@ -241,25 +184,17 @@
         max-width: 450px;
 
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-
       }
 
-
-
       .user-type-selector {
-
         display: flex;
 
         gap: 10px;
 
         margin-bottom: 30px;
-
       }
 
-
-
       .user-type-btn {
-
         flex: 1;
 
         padding: 12px;
@@ -277,33 +212,21 @@
         transition: all 0.3s ease;
 
         font-weight: 500;
-
       }
-
-
 
       .user-type-btn:hover {
-
         transform: translateY(-2px);
-
       }
 
-
-
       .user-type-btn.active {
-
         background: var(--primary-color);
 
         color: white;
 
         border-color: var(--primary-color);
-
       }
 
-
-
       .error-message {
-
         color: #ff4444;
 
         font-size: 12px;
@@ -311,23 +234,15 @@
         margin-top: 5px;
 
         display: none;
-
       }
 
-
-
       .form-group.error input {
-
         border-color: #ff4444;
 
         background-color: rgba(255, 68, 68, 0.1);
-
       }
 
-
-
       .alert {
-
         padding: 12px;
 
         border-radius: 8px;
@@ -335,59 +250,39 @@
         margin-bottom: 20px;
 
         display: none;
-
       }
 
-
-
       .alert-danger {
-
         background-color: rgba(255, 68, 68, 0.2);
 
         border: 1px solid #ff4444;
 
         color: #ff4444;
-
       }
 
-
-
       .alert-success {
-
         background-color: rgba(76, 175, 80, 0.2);
 
         border: 1px solid #4caf50;
 
         color: #4caf50;
-
       }
 
-
-
       .login-header {
-
         text-align: center;
 
         margin-bottom: 30px;
-
       }
 
-
-
       .login-title {
-
         font-size: 2.5rem;
 
         margin-bottom: 10px;
 
         background: linear-gradient(
-
           45deg,
-
           var(--primary-color),
-
           var(--text-color)
-
         );
 
         -webkit-background-clip: text;
@@ -395,31 +290,19 @@
         -webkit-text-fill-color: transparent;
 
         background-clip: text;
-
       }
 
-
-
       .login-subtitle {
-
         color: var(--text-color);
 
         opacity: 0.8;
-
       }
-
-
 
       .form-group {
-
         margin-bottom: 20px;
-
       }
 
-
-
       label {
-
         display: block;
 
         margin-bottom: 8px;
@@ -427,13 +310,9 @@
         color: var(--text-color);
 
         font-weight: 500;
-
       }
 
-
-
       input {
-
         width: 100%;
 
         padding: 12px 15px;
@@ -449,13 +328,9 @@
         font-size: 16px;
 
         transition: all 0.3s ease;
-
       }
 
-
-
       input:focus {
-
         outline: none;
 
         border-color: var(--primary-color);
@@ -463,13 +338,9 @@
         transform: translateY(-2px);
 
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-
       }
 
-
-
       .remember-forgot {
-
         display: flex;
 
         justify-content: space-between;
@@ -477,25 +348,17 @@
         align-items: center;
 
         margin-bottom: 20px;
-
       }
 
-
-
       .remember-me {
-
         display: flex;
 
         align-items: center;
 
         gap: 8px;
-
       }
 
-
-
       .forgot-password {
-
         color: var(--primary-color);
 
         text-decoration: none;
@@ -503,21 +366,13 @@
         font-size: 0.9rem;
 
         transition: color 0.3s ease;
-
       }
-
-
 
       .forgot-password:hover {
-
         color: var(--text-color);
-
       }
 
-
-
       .submit-btn {
-
         width: 100%;
 
         padding: 12px;
@@ -537,33 +392,21 @@
         cursor: pointer;
 
         transition: all 0.3s ease;
-
       }
 
-
-
       .submit-btn:hover {
-
         transform: translateY(-2px);
 
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-
       }
 
-
-
       .register-link {
-
         text-align: center;
 
         margin-top: 20px;
-
       }
 
-
-
       .register-link a {
-
         color: var(--primary-color);
 
         text-decoration: none;
@@ -571,21 +414,13 @@
         font-weight: bold;
 
         transition: color 0.3s ease;
-
       }
-
-
 
       .register-link a:hover {
-
         color: var(--text-color);
-
       }
 
-
-
       .back-link {
-
         position: absolute;
 
         top: 20px;
@@ -599,39 +434,22 @@
         font-size: 14px;
 
         transition: color 0.3s ease;
-
       }
-
-
 
       .back-link:hover {
-
         color: var(--text-color);
-
       }
 
-
-
       @media (max-width: 768px) {
-
         .login-card {
-
           padding: 20px;
-
         }
-
-
 
         .login-title {
-
           font-size: 2rem;
-
         }
 
-
-
         .theme-toggle {
-
           width: 50px;
 
           height: 50px;
@@ -639,23 +457,16 @@
           top: 15px;
 
           right: 15px;
-
         }
-
       }
 
       /* Menu Hamburger */
 
       .menu-hamburger {
-
         position: relative;
-
       }
 
-
-
       .hamburger-btn {
-
         position: fixed;
 
         top: 20px;
@@ -691,23 +502,15 @@
         transition: all 0.3s ease;
 
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-
       }
 
-
-
       .hamburger-btn:hover {
-
         transform: scale(1.1);
 
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-
       }
 
-
-
       .hamburger-line {
-
         width: 100%;
 
         height: 4px;
@@ -717,45 +520,25 @@
         border-radius: 2px;
 
         transition: all 0.3s ease;
-
       }
-
-
 
       [data-theme="light"] .hamburger-line {
-
         background: #000000;
-
       }
-
-
 
       .hamburger-btn.active .hamburger-line:nth-child(1) {
-
         transform: translateY(10px) rotate(45deg);
-
       }
-
-
 
       .hamburger-btn.active .hamburger-line:nth-child(2) {
-
         opacity: 0;
-
       }
-
-
 
       .hamburger-btn.active .hamburger-line:nth-child(3) {
-
         transform: translateY(-10px) rotate(-45deg);
-
       }
 
-
-
       .dropdown-menu {
-
         position: fixed;
 
         top: 70px;
@@ -785,27 +568,18 @@
         z-index: 1000;
 
         backdrop-filter: blur(10px);
-
       }
 
-
-
       .dropdown-menu.show {
-
         opacity: 1;
 
         visibility: visible;
 
         transform: translateY(0);
-
       }
 
-
-
       .dropdown-menu a,
-
       .dropdown-menu button {
-
         display: flex;
 
         align-items: center;
@@ -833,61 +607,37 @@
         cursor: pointer;
 
         font-family: "Nunito Sans", sans-serif;
-
       }
 
-
-
       .dropdown-menu a:hover,
-
       .dropdown-menu button:hover {
-
         background: rgba(25, 118, 210, 0.1);
 
         padding-left: 25px;
-
       }
-
-
 
       [data-theme="light"] .dropdown-menu a:hover,
-
       [data-theme="light"] .dropdown-menu button:hover {
-
         background: rgba(255, 193, 7, 0.1);
-
       }
 
-
-
       .dropdown-menu a i,
-
       .dropdown-menu button i {
-
         font-size: 18px;
 
         color: var(--primary-color);
-
       }
 
-
-
       .theme-toggle-menu {
-
         border-top: 1px solid var(--border-color);
 
         margin-top: 8px;
 
         padding-top: 12px !important;
-
       }
 
-
-
       @media (max-width: 768px) {
-
         .dropdown-menu {
-
           left: 10px;
 
           right: 10px;
@@ -895,27 +645,18 @@
           min-width: auto;
 
           max-width: calc(100vw - 20px);
-
         }
 
-
-
         .hamburger-btn {
-
           left: 15px;
 
           top: 15px;
-
         }
-
       }
-
-
 
       /* Footer */
 
       footer {
-
         background: var(--card-bg);
 
         border-top: 2px solid var(--primary-color);
@@ -925,13 +666,9 @@
         margin-top: auto;
 
         backdrop-filter: blur(10px);
-
       }
 
-
-
       .footer-container {
-
         max-width: 1200px;
 
         margin: 0 auto;
@@ -943,13 +680,9 @@
         gap: 30px;
 
         margin-bottom: 30px;
-
       }
 
-
-
       .footer-column h3 {
-
         color: var(--primary-color);
 
         font-size: 16px;
@@ -961,13 +694,9 @@
         text-transform: uppercase;
 
         letter-spacing: 1px;
-
       }
 
-
-
       .footer-column a {
-
         display: block;
 
         color: #ffffff;
@@ -979,43 +708,27 @@
         transition: all 0.3s ease;
 
         font-size: 14px;
-
       }
-
-
 
       [data-theme="light"] .footer-column a {
-
         color: #000000;
-
       }
 
-
-
       .footer-column a:hover {
-
         color: var(--primary-color);
 
         padding-left: 10px;
-
       }
 
-
-
       .social-links {
-
         display: flex;
 
         gap: 15px;
 
         margin-top: 10px;
-
       }
 
-
-
       .social-links a {
-
         width: 40px;
 
         height: 40px;
@@ -1033,43 +746,27 @@
         transition: all 0.3s ease;
 
         padding: 0;
-
       }
 
-
-
       .social-links a:hover {
-
         transform: translateY(-3px);
 
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 
         padding-left: 0;
-
       }
 
-
-
       .social-links i {
-
         color: white;
 
         font-size: 20px;
-
       }
-
-
 
       [data-theme="light"] .social-links i {
-
         color: #000000;
-
       }
 
-
-
       .footer-credits {
-
         text-align: center;
 
         padding-top: 20px;
@@ -1081,37 +778,23 @@
         font-size: 14px;
 
         opacity: 0.8;
-
       }
 
-
-
       @media (max-width: 768px) {
-
         .footer-container {
-
           grid-template-columns: 1fr;
 
           gap: 25px;
-
         }
-
-
 
         footer {
-
           padding: 30px 15px 15px;
-
         }
-
       }
-
-
 
       /* ===== RF04 & RF05 ? Painel de sess�o ativa ===== */
 
       .profile-panel {
-
         background: var(--card-bg);
 
         border: 2px solid var(--border-color);
@@ -1127,13 +810,9 @@
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 
         backdrop-filter: blur(10px);
-
       }
 
-
-
       .profile-avatar {
-
         width: 80px;
 
         height: 80px;
@@ -1153,13 +832,9 @@
         color: #fff;
 
         margin: 0 auto 16px;
-
       }
 
-
-
       .profile-info-row {
-
         display: flex;
 
         align-items: center;
@@ -1171,21 +846,13 @@
         border-bottom: 1px solid var(--border-color);
 
         font-size: 0.9rem;
-
       }
-
-
 
       .profile-info-row:last-of-type {
-
         border-bottom: none;
-
       }
 
-
-
       .profile-info-row i {
-
         color: var(--primary-color);
 
         font-size: 1.1rem;
@@ -1193,37 +860,25 @@
         width: 20px;
 
         flex-shrink: 0;
-
       }
 
-
-
       .profile-info-label {
-
         font-weight: 600;
 
         min-width: 110px;
 
         opacity: 0.8;
-
       }
 
-
-
       .profile-actions {
-
         display: flex;
 
         gap: 12px;
 
         margin-top: 22px;
-
       }
 
-
-
       .profile-actions .btn {
-
         flex: 1;
 
         padding: 11px;
@@ -1239,83 +894,55 @@
         border: 2px solid transparent;
 
         transition: all 0.25s ease;
-
       }
 
-
-
       .btn-edit-profile {
-
         background: var(--primary-color);
 
         color: #fff;
 
         border-color: var(--primary-color);
-
       }
 
-
-
       .btn-edit-profile:hover {
-
         filter: brightness(0.88);
 
         transform: translateY(-2px);
-
       }
 
-
-
       .btn-delete-account {
-
         background: transparent;
 
         color: #e53935;
 
         border-color: #e53935;
-
       }
 
-
-
       .btn-delete-account:hover {
-
         background: #e53935;
 
         color: #fff;
 
         transform: translateY(-2px);
-
       }
 
-
-
       .btn-logout-profile {
-
         background: transparent;
 
         color: var(--text-color);
 
         border-color: var(--border-color);
-
       }
 
-
-
       .btn-logout-profile:hover {
-
         background: rgba(255, 255, 255, 0.08);
 
         transform: translateY(-2px);
-
       }
-
-
 
       /* ===== Modais RF04 / RF05 ===== */
 
       dialog.fw-modal {
-
         border: 2px solid var(--border-color);
 
         border-radius: 16px;
@@ -1335,55 +962,35 @@
         backdrop-filter: blur(16px);
 
         animation: modalIn 0.25s ease;
-
       }
-
-
 
       dialog.fw-modal::backdrop {
-
         background: rgba(0, 0, 0, 0.72);
-
       }
 
-
-
       @keyframes modalIn {
-
         from {
-
           opacity: 0;
 
           transform: translateY(-20px) scale(0.97);
-
         }
 
         to {
-
           opacity: 1;
 
           transform: translateY(0) scale(1);
-
         }
-
       }
 
-
-
       .fw-modal h2 {
-
         font-size: 1.4rem;
 
         margin-bottom: 6px;
 
         color: var(--text-color);
-
       }
 
-
-
       .fw-modal .modal-subtitle {
-
         font-size: 0.88rem;
 
         opacity: 0.7;
@@ -1391,21 +998,13 @@
         margin-bottom: 22px;
 
         color: var(--text-color);
-
       }
-
-
 
       .fw-modal .form-group {
-
         margin-bottom: 14px;
-
       }
 
-
-
       .fw-modal label {
-
         display: block;
 
         margin-bottom: 6px;
@@ -1417,13 +1016,9 @@
         color: var(--text-color);
 
         opacity: 0.85;
-
       }
 
-
-
       .fw-modal input {
-
         width: 100%;
 
         padding: 10px 13px;
@@ -1439,35 +1034,23 @@
         font-size: 0.95rem;
 
         transition: border-color 0.2s;
-
       }
 
-
-
       .fw-modal input:focus {
-
         outline: none;
 
         border-color: var(--primary-color);
-
       }
 
-
-
       .fw-modal .modal-actions {
-
         display: flex;
 
         gap: 10px;
 
         margin-top: 20px;
-
       }
 
-
-
       .fw-modal .modal-actions .btn {
-
         flex: 1;
 
         padding: 11px;
@@ -1483,73 +1066,45 @@
         border: 2px solid transparent;
 
         transition: all 0.2s;
-
       }
 
-
-
       .fw-btn-primary {
-
         background: var(--primary-color);
 
         color: #fff;
 
         border-color: var(--primary-color) !important;
-
       }
-
-
 
       .fw-btn-primary:hover {
-
         filter: brightness(0.88);
-
       }
 
-
-
       .fw-btn-cancel {
-
         background: transparent;
 
         color: var(--text-color);
 
         border-color: var(--border-color) !important;
-
       }
-
-
 
       .fw-btn-cancel:hover {
-
         background: rgba(255, 255, 255, 0.06);
-
       }
 
-
-
       .fw-btn-danger {
-
         background: #e53935;
 
         color: #fff;
 
         border-color: #e53935 !important;
-
       }
-
-
 
       .fw-btn-danger:hover {
-
         filter: brightness(0.88);
-
       }
 
-
-
       .delete-warning {
-
         background: rgba(229, 57, 53, 0.12);
 
         border: 1px solid #e53935;
@@ -1565,57 +1120,33 @@
         color: #ef9a9a;
 
         line-height: 1.5;
-
       }
-
-
 
       .delete-warning strong {
-
         color: #ef5350;
-
       }
-
-
 
       .confirm-delete-input-wrap {
-
         margin-top: 10px;
-
       }
 
-
-
       .confirm-delete-input-wrap label {
-
         font-size: 0.85rem;
 
         color: var(--text-color);
 
         opacity: 0.8;
-
       }
-
-
 
       .pw-toggle {
-
         position: relative;
-
       }
-
-
 
       .pw-toggle input {
-
         padding-right: 42px;
-
       }
 
-
-
       .pw-toggle .eye-btn {
-
         position: absolute;
 
         right: 10px;
@@ -1637,60 +1168,39 @@
         font-size: 1rem;
 
         padding: 0;
-
       }
-
-
 
       .pw-toggle .eye-btn:hover {
-
         opacity: 1;
-
       }
 
-
-
       .field-changed {
-
         border-color: #42a5f5 !important;
 
         background: rgba(66, 165, 245, 0.08) !important;
-
       }
-
     </style>
 
-      <link rel="stylesheet" href="../public/css/style.css">
-
-</head>
+    <link rel="stylesheet" href="../public/css/style.css" />
+  </head>
   <body>
     <script>
-      (function() {
+      (function () {
         const storedTheme = localStorage.getItem("theme") || "dark";
         document.documentElement.setAttribute("data-theme", storedTheme);
       })();
     </script>
     <button class="theme-toggle" onclick="toggleTheme()">
-
       <span class="theme-text">Modo Claro</span>
-
     </button>
 
-
-
     <div class="login-container">
-
       <div class="login-card">
-
         <div class="login-header">
-
           <h1 class="login-title"><i class="bi bi-shield-lock"></i> Login</h1>
 
           <p class="login-subtitle">Bem-vindo(a) de volta!</p>
-
         </div>
-
-
 
         <!-- Alerta de erro/sucesso -->
 
@@ -1698,136 +1208,79 @@
 
         <div class="alert alert-success" id="alertSuccess"></div>
 
-
-
         <!-- Seletor de tipo de usu?rio -->
 
         <div class="user-type-selector">
-
           <button
-
             type="button"
-
             class="user-type-btn active"
-
             data-type="profissional"
-
           >
-
             <i class="bi bi-person-fill"></i> Profissional
-
           </button>
 
           <button type="button" class="user-type-btn" data-type="empresa">
-
             <i class="bi bi-building"></i> Empresa
-
           </button>
-
         </div>
 
-
-
         <form id="loginForm" novalidate>
-
           <div class="form-group">
-
             <label for="email">E-mail</label>
 
             <input
-
               type="email"
-
               id="email"
-
               name="email"
-
               required
-
               placeholder="Digite seu e-mail"
-
               autocomplete="email"
-
             />
 
             <div class="error-message" id="email-error"></div>
-
           </div>
 
-
-
           <div class="form-group">
-
             <label for="password">Senha</label>
 
             <input
-
               type="password"
-
               id="password"
-
               name="password"
-
               required
-
               placeholder="Digite sua senha"
-
               autocomplete="current-password"
-
             />
 
             <div class="error-message" id="password-error"></div>
-
           </div>
 
-
-
           <div class="remember-forgot">
-
             <div class="remember-me">
-
               <input
-
                 type="checkbox"
-
                 id="rememberDevice"
-
                 name="rememberDevice"
-
                 checked
-
               />
 
               <label for="rememberDevice"
-
                 >Lembrar este dispositivo (30 dias)</label
-
               >
-
             </div>
 
             <a href="#" class="forgot-password">Esqueceu a senha?</a>
-
           </div>
 
-
-
           <button type="submit" class="submit-btn">
-
             <i class="bi bi-box-arrow-in-right"></i> Entrar
-
           </button>
-
         </form>
-
-
 
         <!-- Contas de Teste Dispon?veis -->
 
         <div
-
           style="
-
             margin-top: 30px;
 
             padding: 20px;
@@ -1837,15 +1290,10 @@
             border: 2px solid var(--primary-color);
 
             border-radius: 10px;
-
           "
-
         >
-
           <h3
-
             style="
-
               margin: 0 0 15px 0;
 
               font-size: 1.1rem;
@@ -1857,29 +1305,17 @@
               align-items: center;
 
               gap: 8px;
-
             "
-
           >
-
-            <i class="bi bi-key-fill"></i> Contas de Teste Dispon�veis
-
+            <i class="bi bi-key-fill"></i> Contas de Teste Disponiveis
           </h3>
 
-
-
           <div id="testAccountsContainer">
-
             <!-- Contas ser�o inseridas aqui via JavaScript -->
-
           </div>
 
-
-
           <p
-
             style="
-
               margin-top: 15px;
 
               font-size: 0.85rem;
@@ -1887,75 +1323,46 @@
               opacity: 0.8;
 
               text-align: center;
-
             "
-
           >
-
             <i class="bi bi-info-circle"></i> Clique em uma conta para preencher
-
             automaticamente
-
           </p>
-
         </div>
-
-
 
         <div class="register-link">
-
           <p id="registerText">
+            Ainda não tem conta?
 
-            Ainda n�o tem conta?
-
-            <a href="formu.html">Cadastre-se como Profissional</a>
-
+            <a href="/src/views/formu.html">Cadastre-se como Profissional</a>
           </p>
-
         </div>
-
       </div>
-
     </div>
-
-
 
     <!-- ===== PAINEL DE SESS�O ATIVA (RF04 / RF05) ===== -->
 
     <div class="login-container" id="profileContainer" style="display: none">
-
       <div class="profile-panel" id="profilePanel">
-
         <div class="profile-avatar" id="profileAvatar">
-
           <i class="bi bi-person-fill"></i>
-
         </div>
 
         <h2
-
           style="
-
             text-align: center;
 
             margin-bottom: 4px;
 
             color: var(--text-color);
-
           "
-
           id="profileName"
-
         >
-
           ?
-
         </h2>
 
         <p
-
           style="
-
             text-align: center;
 
             font-size: 0.85rem;
@@ -1965,1502 +1372,1382 @@
             margin-bottom: 18px;
 
             color: var(--text-color);
-
           "
-
           id="profileBadge"
-
         >
-
           ?
-
         </p>
-
-
 
         <div id="profileInfoRows"></div>
 
-
-
         <div class="profile-actions">
-
           <button class="btn btn-edit-profile" onclick="abrirModalEdicao()">
-
             <i class="bi bi-pencil-fill"></i> Editar dados
-
           </button>
 
           <button class="btn btn-delete-account" onclick="abrirModalExclusao()">
-
             <i class="bi bi-trash3-fill"></i> Excluir conta
-
           </button>
 
           <button class="btn btn-logout-profile" onclick="fazerLogoutPerfil()">
-
             <i class="bi bi-box-arrow-right"></i>
-
           </button>
-
         </div>
-
       </div>
-
     </div>
-
-
 
     <!-- ===== MODAL RF04 - EDITAR DADOS CADASTRAIS ===== -->
 
     <dialog
-
       class="fw-modal"
-
       id="modalEdicao"
-
       aria-labelledby="modalEdicaoTitle"
-
     >
-
       <h2 id="modalEdicaoTitle">
-
         <i class="bi bi-pencil-square" style="color: var(--primary-color)"></i>
 
         Editar dados cadastrais
-
       </h2>
 
       <p class="modal-subtitle">
-
         Campos em azul foram alterados. A senha atual � obrigat�ria para salvar.
-
       </p>
-
-
 
       <div id="editFieldsContainer"></div>
 
-
-
       <div
-
         class="form-group confirm-delete-input-wrap"
-
         style="margin-top: 10px"
-
       >
-
         <label for="editConfirmSenha"
-
           ><i class="bi bi-lock-fill"></i> Senha atual
 
           <span style="color: #e57373">*</span></label
-
         >
 
         <div class="pw-toggle">
-
           <input
-
             type="password"
-
             id="editConfirmSenha"
-
             placeholder="Confirme sua senha atual"
-
             autocomplete="current-password"
-
           />
 
           <button
-
             type="button"
-
             class="eye-btn"
-
             onclick="toggleSenhaVisibilidade('editConfirmSenha', this)"
-
           >
-
             <i class="bi bi-eye"></i>
-
           </button>
-
         </div>
-
       </div>
 
-
-
       <div class="modal-actions">
-
         <button class="btn fw-btn-cancel" onclick="fecharModal('modalEdicao')">
-
           Cancelar
-
         </button>
 
         <button class="btn fw-btn-primary" onclick="salvarEdicaoCadastral()">
-
           <i class="bi bi-check2"></i> Salvar altera��es
-
         </button>
-
       </div>
-
     </dialog>
-
-
 
     <!-- ===== MODAL RF05 ? EXCLUIR CONTA ===== -->
 
     <dialog
-
       class="fw-modal"
-
       id="modalExclusao"
-
       aria-labelledby="modalExclusaoTitle"
-
     >
-
       <h2 id="modalExclusaoTitle" style="color: #e53935">
-
         <i class="bi bi-exclamation-triangle-fill"></i> Excluir conta
-
       </h2>
 
       <p class="modal-subtitle">
-
         Esta a??o ? permanente e n?o pode ser desfeita.
-
       </p>
 
-
-
       <div class="delete-warning">
-
         Ao confirmar, <strong>todos os seus dados ser?o apagados</strong> e voc?
-
         ser? desconectado imediatamente. N?o ser? poss?vel recuperar as
-
         informa??es ap?s a exclus?o.
-
       </div>
 
-
-
       <div class="form-group">
-
         <label for="deleteConfirmSenha"
-
           ><i class="bi bi-lock-fill"></i> Confirme sua senha
 
           <span style="color: #e57373">*</span></label
-
         >
 
         <div class="pw-toggle">
-
           <input
-
             type="password"
-
             id="deleteConfirmSenha"
-
             placeholder="Digite sua senha para confirmar"
-
             autocomplete="current-password"
-
           />
 
           <button
-
             type="button"
-
             class="eye-btn"
-
             onclick="toggleSenhaVisibilidade('deleteConfirmSenha', this)"
-
           >
-
             <i class="bi bi-eye"></i>
-
           </button>
-
         </div>
-
       </div>
 
-
-
       <div class="modal-actions">
-
         <button
-
           class="btn fw-btn-cancel"
-
           onclick="fecharModal('modalExclusao')"
-
         >
-
           Cancelar
-
         </button>
 
         <button class="btn fw-btn-danger" onclick="confirmarExclusaoConta()">
-
           <i class="bi bi-trash3-fill"></i> Excluir permanentemente
-
         </button>
-
       </div>
-
     </dialog>
-
-
 
     <!-- Bootstrap JS -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-
-
-<script>
-      // ========== SISTEMA DE AUTENTICA�+ÃO COM LOCAL STORAGE ==========
-      // Chaves padronizadas
-      const STORAGE_KEY = "fastwork_users";
-      const SESSION_KEY = "fastwork_session";
-
-      // Classe para gerenciar usuários
-      class UserDatabase {
-        constructor() {
-          this.initializeDB();
-        }
-
-        initializeDB() {
-          const forceUpdate = true;
-          if (!localStorage.getItem(STORAGE_KEY) || forceUpdate) {
-            const exampleUsers = {
-              profissionais: [
-                {
-                  id: 1,
-                  nome: "João Silva",
-                  email: "joao@email.com",
-                  senha: "123456",
-                  profissao: "Pedreiro",
-                  telefone: "(11) 98765-4321",
-                  created_at: new Date().toISOString(),
-                },
-                {
-                  id: 2,
-                  nome: "Maria Santos",
-                  email: "maria@email.com",
-                  senha: "123456",
-                  profissao: "Eletricista",
-                  telefone: "(11) 99876-5432",
-                  created_at: new Date().toISOString(),
-                },
-              ],
-              empresas: [
-                {
-                  id: 1,
-                  nomeFantasia: "ABC Construções",
-                  razaoSocial: "Construção ABC Ltda",
-                  email: "contato@abc.com",
-                  senha: "123456",
-                  cnpj: "12.345.678/0001-90",
-                  telefone: "(11) 3456-7890",
-                  created_at: new Date().toISOString(),
-                },
-                {
-                  id: 2,
-                  nomeFantasia: "Tech Solutions",
-                  razaoSocial: "Tech Solutions Brasil Ltda",
-                  email: "contato@tech.com",
-                  senha: "123456",
-                  cnpj: "98.765.432/0001-10",
-                  telefone: "(11) 3210-9876",
-                  created_at: new Date().toISOString(),
-                },
-              ],
-            };
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(exampleUsers));
-          }
-        }
-
-        getUsers() {
-          return JSON.parse(localStorage.getItem(STORAGE_KEY));
-        }
-
-        saveUsers(users) {
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
-        }
-
-        getSession() {
-          const session = localStorage.getItem(SESSION_KEY);
-          return session ? JSON.parse(session) : null;
-        }
-
-        saveSession(session) {
-          localStorage.setItem(SESSION_KEY, JSON.stringify(session));
-        }
-
-        authenticate(email, senha, userType) {
-          const users = this.getUsers();
-          const userList = userType === "profissional" ? users.profissionais : users.empresas;
-          const user = userList.find((u) => u.email === email && u.senha === senha);
-          if (user) {
-            const session = {
-              user: { ...user },
-              userType: userType,
-              loginTime: new Date().toISOString(),
-            };
-            delete session.user.senha;
-            this.saveSession(session);
-            return { success: true, user: session };
-          }
-          return { success: false, message: "E-mail ou senha incorretos" };
-        }
-
-        logout() {
-          localStorage.removeItem(SESSION_KEY);
-        }
-
-        updateUser(id, updates, userType) {
-          const users = this.getUsers();
-          const list = userType === "profissional" ? users.profissionais : users.empresas;
-          const idx = list.findIndex((u) => u.id === id);
-          if (idx === -1) return { success: false, message: "Usuário não encontrado." };
-          const updated = { ...list[idx], ...updates, id: list[idx].id, created_at: list[idx].created_at, updated_at: new Date().toISOString() };
-          list[idx] = updated;
-          if (userType === "profissional") users.profissionais = list;
-          else users.empresas = list;
-          this.saveUsers(users);
-          const session = this.getSession();
-          if (session) {
-            session.user = { ...updated };
-            delete session.user.senha;
-            this.saveSession(session);
-          }
-          return { success: true, user: updated };
-        }
-
-        deleteUser(id, userType) {
-          const users = this.getUsers();
-          const list = userType === "profissional" ? users.profissionais : users.empresas;
-          const idx = list.findIndex((u) => u.id === id);
-          if (idx === -1) return { success: false, message: "Usuário não encontrado." };
-          list.splice(idx, 1);
-          if (userType === "profissional") users.profissionais = list;
-          else users.empresas = list;
-          this.saveUsers(users);
-          this.logout();
-          return { success: true };
-        }
-      }
-
-      const db = new UserDatabase();
-
-
-
-      // ========== RF04 / RF05 - PAINEL DE PERFIL ==========
-
-
-
-      const CAMPOS_PROFISSIONAL = [
-
-        {
-
-          key: "nome",
-
-          label: "Nome completo",
-
-          icon: "bi-person",
-
-          type: "text",
-
-          required: true,
-
-        },
-
-        {
-
-          key: "email",
-
-          label: "E-mail",
-
-          icon: "bi-envelope",
-
-          type: "email",
-
-          required: true,
-
-        },
-
-        {
-
-          key: "profissao",
-
-          label: "Profiss�o",
-
-          icon: "bi-briefcase",
-
-          type: "text",
-
-          required: true,
-
-        },
-
-        {
-
-          key: "telefone",
-
-          label: "Telefone",
-
-          icon: "bi-telephone",
-
-          type: "tel",
-
-          required: false,
-
-        },
-
-        {
-
-          key: "senha",
-
-          label: "Nova senha",
-
-          icon: "bi-lock",
-
-          type: "password",
-
-          required: false,
-
-          placeholder: "Deixe em branco p/ manter",
-
-        },
-
-      ];
-
-
-
-      const CAMPOS_EMPRESA = [
-
-        {
-
-          key: "nomeFantasia",
-
-          label: "Nome Fantasia",
-
-          icon: "bi-building",
-
-          type: "text",
-
-          required: true,
-
-        },
-
-        {
-
-          key: "razaoSocial",
-
-          label: "Raz?o Social",
-
-          icon: "bi-file-text",
-
-          type: "text",
-
-          required: true,
-
-        },
-
-        {
-
-          key: "email",
-
-          label: "E-mail",
-
-          icon: "bi-envelope",
-
-          type: "email",
-
-          required: true,
-
-        },
-
-        {
-
-          key: "cnpj",
-
-          label: "CNPJ",
-
-          icon: "bi-card-text",
-
-          type: "text",
-
-          required: false,
-
-        },
-
-        {
-
-          key: "telefone",
-
-          label: "Telefone",
-
-          icon: "bi-telephone",
-
-          type: "tel",
-
-          required: false,
-
-        },
-
-        {
-
-          key: "senha",
-
-          label: "Nova senha",
-
-          icon: "bi-lock",
-
-          type: "password",
-
-          required: false,
-
-          placeholder: "Deixe em branco p/ manter",
-
-        },
-
-      ];
-
-
-
-function exibirPainelPerfil(session) {
-        const usuario = session.user || session;
-        const userType = session.userType || "profissional";
-        const loginCont = document.querySelector(".login-container:not(#profileContainer)");
-        if (loginCont) loginCont.style.display = "none";
-        document.getElementById("profileContainer").style.display = "flex";
-        const displayName = usuario.nome || usuario.nomeFantasia || "Usuário";
-        const initials = displayName.split(" ").map((w) => w[0]).slice(0, 2).join("");
-        document.getElementById("profileAvatar").innerHTML = initials || '<i class="bi bi-person-fill"></i>';
-        document.getElementById("profileName").textContent = displayName;
-        document.getElementById("profileBadge").textContent = userType === "empresa" ? `Empresa${usuario.nomeFantasia ? " - " + usuario.nomeFantasia : ""}` : `Profissional`;
-        const campos = userType === "empresa" ? CAMPOS_EMPRESA : CAMPOS_PROFISSIONAL;
-        const rowsEl = document.getElementById("profileInfoRows");
-        rowsEl.innerHTML = campos.filter((c) => c.key !== "senha" && usuario[c.key]).map((c) => `<div class="profile-info-row"><i class="bi ${c.icon}"></i><span class="profile-info-label">${c.label}</span><span>${usuario[c.key] || ""}</span></div>`).join("");
-      }
-
-        document.getElementById("profileContainer").style.display = "flex";
-
-        const displayName = usuario.nome || usuario.nomeFantasia || "Usu�rio";
-        const initials = displayName
-          .split(" ")
-          .map((w) => w[0])
-          .slice(0, 2)
-          .join("");
-
-        document.getElementById("profileAvatar").innerHTML =
-          initials || '<i class="bi bi-person-fill"></i>';
-        document.getElementById("profileName").textContent = displayName;
-        document.getElementById("profileBadge").textContent =
-          usuario.tipo === "empresa" 
-            ? `Empresa${usuario.nomeFantasia ? " - " + usuario.nomeFantasia : ""}`
-            : `Profissional`;
-
-        const campos =
-          usuario.tipo === "empresa" ? CAMPOS_EMPRESA : CAMPOS_PROFISSIONAL;
-        const rowsEl = document.getElementById("profileInfoRows");
-        rowsEl.innerHTML = campos
-          .filter((c) => c.key !== "senha" && usuario[c.key])
-          .map(
-            (c) => `
-            <div class="profile-info-row">
-              <i class="bi ${c.icon}"></i>
-              <span class="profile-info-label">${c.label}</span>
-              <span>${usuario[c.key] || ""}</span>
-            </div>
-          `,
-          )
-          .join("");
-      }
-
-
-
-function fazerLogoutPerfil() {
-        localStorage.removeItem(SESSION_KEY);
-        const profileCont = document.getElementById("profileContainer");
-        if (profileCont) profileCont.style.display = "none";
-        const loginCont = document.querySelector(
-          ".login-container:not(#profileContainer)",
-        );
-        if (loginCont) loginCont.style.display = "flex";
-        showAlert("success", "Logout realizado com sucesso.");
-      }
-
-
-
-// ---- RF04: Abrir modal de edi��o ----
-      function abrirModalEdicao() {
-        const session = db.getSession();
-        if (!session) return;
-        const usuarioLogado = session.user;
-        const userType = session.userType;
-        const campos = userType === "empresa" ? CAMPOS_EMPRESA : CAMPOS_PROFISSIONAL;
-
-
-
-        const container = document.getElementById("editFieldsContainer");
-
-        container.innerHTML = campos
-
-          .map((campo) => {
-
-            const valor = campo.key === "senha" ? "" : usuarioLogado[campo.key] || "";
-
-            const isPw = campo.type === "password";
-
-            return `
-
-            <div class="form-group">
-
-              <label for="edit_${campo.key}">
-
-                <i class="bi ${campo.icon}"></i> ${campo.label}${campo.required ? ' <span style="color:#e57373;">*</span>' : ""}
-
-              </label>
-
-              ${
-
-                isPw
-
-                  ? `<div class="pw-toggle">
-
-                    <input type="password" id="edit_${campo.key}"
-
-                           placeholder="${campo.placeholder || ""}" />
-
-                    <button type="button" class="eye-btn"
-
-                            onclick="toggleSenhaVisibilidade('edit_${campo.key}', this)">
-
-                      <i class="bi bi-eye"></i>
-
-                    </button>
-
-                  </div>`
-
-                  : `<input type="${campo.type}" id="edit_${campo.key}"
-
-                          value="${escapeAttr(valor)}" />`
-
+    <script>
+            // ========== SISTEMA DE AUTENTICA�+ÃO COM LOCAL STORAGE ==========
+            // Chaves padronizadas
+            const STORAGE_KEY = "fastwork_users";
+            const SESSION_KEY = "fastwork_session";
+
+            // Classe para gerenciar usuários
+            class UserDatabase {
+              constructor() {
+                this.initializeDB();
               }
 
-            </div>`;
+              initializeDB() {
+                const forceUpdate = true;
+                if (!localStorage.getItem(STORAGE_KEY) || forceUpdate) {
+                  const exampleUsers = {
+                    profissionais: [
+                      {
+                        id: 1,
+                        nome: "João Silva",
+                        email: "joao@email.com",
+                        senha: "123456",
+                        profissao: "Pedreiro",
+                        telefone: "(11) 98765-4321",
+                        created_at: new Date().toISOString(),
+                      },
+                      {
+                        id: 2,
+                        nome: "Maria Santos",
+                        email: "maria@email.com",
+                        senha: "123456",
+                        profissao: "Eletricista",
+                        telefone: "(11) 99876-5432",
+                        created_at: new Date().toISOString(),
+                      },
+                    ],
+                    empresas: [
+                      {
+                        id: 1,
+                        nomeFantasia: "ABC Construções",
+                        razaoSocial: "Construção ABC Ltda",
+                        email: "contato@abc.com",
+                        senha: "123456",
+                        cnpj: "12.345.678/0001-90",
+                        telefone: "(11) 3456-7890",
+                        created_at: new Date().toISOString(),
+                      },
+                      {
+                        id: 2,
+                        nomeFantasia: "Tech Solutions",
+                        razaoSocial: "Tech Solutions Brasil Ltda",
+                        email: "contato@tech.com",
+                        senha: "123456",
+                        cnpj: "98.765.432/0001-10",
+                        telefone: "(11) 3210-9876",
+                        created_at: new Date().toISOString(),
+                      },
+                    ],
+                  };
+                  localStorage.setItem(STORAGE_KEY, JSON.stringify(exampleUsers));
+                }
+              }
+
+              getUsers() {
+                return JSON.parse(localStorage.getItem(STORAGE_KEY));
+              }
+
+              saveUsers(users) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
+              }
+
+              getSession() {
+                const session = localStorage.getItem(SESSION_KEY);
+                return session ? JSON.parse(session) : null;
+              }
+
+              saveSession(session) {
+                localStorage.setItem(SESSION_KEY, JSON.stringify(session));
+              }
+
+              authenticate(email, senha, userType) {
+                const users = this.getUsers();
+                const userList = userType === "profissional" ? users.profissionais : users.empresas;
+                const user = userList.find((u) => u.email === email && u.senha === senha);
+                if (user) {
+                  const session = {
+                    user: { ...user },
+                    userType: userType,
+                    loginTime: new Date().toISOString(),
+                  };
+                  delete session.user.senha;
+                  this.saveSession(session);
+                  return { success: true, user: session };
+                }
+                return { success: false, message: "E-mail ou senha incorretos" };
+              }
+
+              logout() {
+                localStorage.removeItem(SESSION_KEY);
+              }
+
+              updateUser(id, updates, userType) {
+                const users = this.getUsers();
+                const list = userType === "profissional" ? users.profissionais : users.empresas;
+                const idx = list.findIndex((u) => u.id === id);
+                if (idx === -1) return { success: false, message: "Usuário não encontrado." };
+                const updated = { ...list[idx], ...updates, id: list[idx].id, created_at: list[idx].created_at, updated_at: new Date().toISOString() };
+                list[idx] = updated;
+                if (userType === "profissional") users.profissionais = list;
+                else users.empresas = list;
+                this.saveUsers(users);
+                const session = this.getSession();
+                if (session) {
+                  session.user = { ...updated };
+                  delete session.user.senha;
+                  this.saveSession(session);
+                }
+                return { success: true, user: updated };
+              }
 
-          })
+              deleteUser(id, userType) {
+                const users = this.getUsers();
+                const list = userType === "profissional" ? users.profissionais : users.empresas;
+                const idx = list.findIndex((u) => u.id === id);
+                if (idx === -1) return { success: false, message: "Usuário não encontrado." };
+                list.splice(idx, 1);
+                if (userType === "profissional") users.profissionais = list;
+                else users.empresas = list;
+                this.saveUsers(users);
+                this.logout();
+                return { success: true };
+              }
+            }
 
-          .join("");
+            const db = new UserDatabase();
 
 
 
-        // Marcar campo alterado visualmente
+            // ========== RF04 / RF05 - PAINEL DE PERFIL ==========
 
-        campos.forEach((campo) => {
 
-          const input = document.getElementById("edit_" + campo.key);
 
-          if (!input) return;
+            const CAMPOS_PROFISSIONAL = [
 
-          const original = campo.key === "senha" ? "" : usuarioLogado[campo.key] || "";
+              {
 
-          input.addEventListener("input", () => {
+                key: "nome",
 
-            input.classList.toggle("field-changed", input.value !== original);
+                label: "Nome completo",
 
-          });
+                icon: "bi-person",
 
-        });
+                type: "text",
 
+                required: true,
 
+              },
 
-        document.getElementById("editConfirmSenha").value = "";
+              {
 
-        abrirModal("modalEdicao");
+                key: "email",
 
-      }
+                label: "E-mail",
 
+                icon: "bi-envelope",
 
+                type: "email",
 
-      function salvarEdicaoCadastral() {
+                required: true,
 
-        const session = db.getSession();
+              },
 
-        if (!session) return;
+              {
 
+                key: "profissao",
 
+                label: "Profiss�o",
 
-        const { user, userType } = session;
+                icon: "bi-briefcase",
 
-        const campos =
+                type: "text",
 
-          userType === "profissional" ? CAMPOS_PROFISSIONAL : CAMPOS_EMPRESA;
+                required: true,
 
-        const senhaConfirm = document
+              },
 
-          .getElementById("editConfirmSenha")
+              {
 
-          .value.trim();
+                key: "telefone",
 
+                label: "Telefone",
 
+                icon: "bi-telephone",
 
-        if (!senhaConfirm) {
+                type: "tel",
 
-          pulsarCampo("editConfirmSenha");
+                required: false,
 
-          showAlert(
+              },
 
-            "error",
+              {
 
-            "Informe sua senha atual para salvar as altera��es.",
+                key: "senha",
 
-          );
+                label: "Nova senha",
 
-          return;
+                icon: "bi-lock",
 
-        }
+                type: "password",
 
+                required: false,
 
+                placeholder: "Deixe em branco p/ manter",
 
-        // Verificar senha atual no banco
+              },
 
-        const users = db.getUsers();
+            ];
 
-        const lista =
 
-          userType === "profissional" ? users.profissionais : users.empresas;
 
-        const userBanco = lista.find((u) => u.id === user.id);
+            const CAMPOS_EMPRESA = [
 
-        if (!userBanco || userBanco.senha !== senhaConfirm) {
+              {
 
-          pulsarCampo("editConfirmSenha");
+                key: "nomeFantasia",
 
-          showAlert("error", "Senha atual incorreta.");
+                label: "Nome Fantasia",
 
-          return;
+                icon: "bi-building",
 
-        }
+                type: "text",
 
+                required: true,
 
+              },
 
-        // Coletar dados atualizados
+              {
 
-        const dadosAtualizados = {};
+                key: "razaoSocial",
 
-        for (const campo of campos) {
+                label: "Raz?o Social",
 
-          const input = document.getElementById("edit_" + campo.key);
+                icon: "bi-file-text",
 
-          if (!input) continue;
+                type: "text",
 
-          const val = input.value.trim();
+                required: true,
 
+              },
 
+              {
 
-          if (campo.required && !val) {
+                key: "email",
 
-            pulsarCampo("edit_" + campo.key);
+                label: "E-mail",
 
-            showAlert("error", `O campo "${campo.label}" ? obrigat�rio.`);
+                icon: "bi-envelope",
 
-            return;
+                type: "email",
 
-          }
+                required: true,
 
+              },
 
+              {
 
-          if (
+                key: "cnpj",
 
-            campo.key === "email" &&
+                label: "CNPJ",
 
-            val &&
+                icon: "bi-card-text",
 
-            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)
+                type: "text",
 
-          ) {
+                required: false,
 
-            pulsarCampo("edit_" + campo.key);
+              },
 
-            showAlert("error", "Informe um e-mail v?lido.");
+              {
 
-            return;
+                key: "telefone",
 
-          }
+                label: "Telefone",
 
+                icon: "bi-telephone",
 
+                type: "tel",
 
-          if (campo.key === "senha") {
+                required: false,
 
-            if (val && val.length < 6) {
+              },
 
-              pulsarCampo("edit_" + campo.key);
+              {
 
-              showAlert(
+                key: "senha",
 
-                "error",
+                label: "Nova senha",
 
-                "Nova senha deve ter pelo menos 6 caracteres.",
+                icon: "bi-lock",
 
+                type: "password",
+
+                required: false,
+
+                placeholder: "Deixe em branco p/ manter",
+
+              },
+
+            ];
+
+
+
+      function exibirPainelPerfil(session) {
+              const usuario = session.user || session;
+              const userType = session.userType || "profissional";
+              const loginCont = document.querySelector(".login-container:not(#profileContainer)");
+              if (loginCont) loginCont.style.display = "none";
+              document.getElementById("profileContainer").style.display = "flex";
+              const displayName = usuario.nome || usuario.nomeFantasia || "Usuário";
+              const initials = displayName.split(" ").map((w) => w[0]).slice(0, 2).join("");
+              document.getElementById("profileAvatar").innerHTML = initials || '<i class="bi bi-person-fill"></i>';
+              document.getElementById("profileName").textContent = displayName;
+              document.getElementById("profileBadge").textContent = userType === "empresa" ? `Empresa${usuario.nomeFantasia ? " - " + usuario.nomeFantasia : ""}` : `Profissional`;
+              const campos = userType === "empresa" ? CAMPOS_EMPRESA : CAMPOS_PROFISSIONAL;
+              const rowsEl = document.getElementById("profileInfoRows");
+              rowsEl.innerHTML = campos.filter((c) => c.key !== "senha" && usuario[c.key]).map((c) => `<div class="profile-info-row"><i class="bi ${c.icon}"></i><span class="profile-info-label">${c.label}</span><span>${usuario[c.key] || ""}</span></div>`).join("");
+            }
+
+              document.getElementById("profileContainer").style.display = "flex";
+
+              const displayName = usuario.nome || usuario.nomeFantasia || "Usu�rio";
+              const initials = displayName
+                .split(" ")
+                .map((w) => w[0])
+                .slice(0, 2)
+                .join("");
+
+              document.getElementById("profileAvatar").innerHTML =
+                initials || '<i class="bi bi-person-fill"></i>';
+              document.getElementById("profileName").textContent = displayName;
+              document.getElementById("profileBadge").textContent =
+                usuario.tipo === "empresa"
+                  ? `Empresa${usuario.nomeFantasia ? " - " + usuario.nomeFantasia : ""}`
+                  : `Profissional`;
+
+              const campos =
+                usuario.tipo === "empresa" ? CAMPOS_EMPRESA : CAMPOS_PROFISSIONAL;
+              const rowsEl = document.getElementById("profileInfoRows");
+              rowsEl.innerHTML = campos
+                .filter((c) => c.key !== "senha" && usuario[c.key])
+                .map(
+                  (c) => `
+                  <div class="profile-info-row">
+                    <i class="bi ${c.icon}"></i>
+                    <span class="profile-info-label">${c.label}</span>
+                    <span>${usuario[c.key] || ""}</span>
+                  </div>
+                `,
+                )
+                .join("");
+            }
+
+
+
+      function fazerLogoutPerfil() {
+              localStorage.removeItem(SESSION_KEY);
+              const profileCont = document.getElementById("profileContainer");
+              if (profileCont) profileCont.style.display = "none";
+              const loginCont = document.querySelector(
+                ".login-container:not(#profileContainer)",
               );
+              if (loginCont) loginCont.style.display = "flex";
+              showAlert("success", "Logout realizado com sucesso.");
+            }
 
-              return;
+
+
+      // ---- RF04: Abrir modal de edi��o ----
+            function abrirModalEdicao() {
+              const session = db.getSession();
+              if (!session) return;
+              const usuarioLogado = session.user;
+              const userType = session.userType;
+              const campos = userType === "empresa" ? CAMPOS_EMPRESA : CAMPOS_PROFISSIONAL;
+
+
+
+              const container = document.getElementById("editFieldsContainer");
+
+              container.innerHTML = campos
+
+                .map((campo) => {
+
+                  const valor = campo.key === "senha" ? "" : usuarioLogado[campo.key] || "";
+
+                  const isPw = campo.type === "password";
+
+                  return `
+
+                  <div class="form-group">
+
+                    <label for="edit_${campo.key}">
+
+                      <i class="bi ${campo.icon}"></i> ${campo.label}${campo.required ? ' <span style="color:#e57373;">*</span>' : ""}
+
+                    </label>
+
+                    ${
+
+                      isPw
+
+                        ? `<div class="pw-toggle">
+
+                          <input type="password" id="edit_${campo.key}"
+
+                                 placeholder="${campo.placeholder || ""}" />
+
+                          <button type="button" class="eye-btn"
+
+                                  onclick="toggleSenhaVisibilidade('edit_${campo.key}', this)">
+
+                            <i class="bi bi-eye"></i>
+
+                          </button>
+
+                        </div>`
+
+                        : `<input type="${campo.type}" id="edit_${campo.key}"
+
+                                value="${escapeAttr(valor)}" />`
+
+                    }
+
+                  </div>`;
+
+                })
+
+                .join("");
+
+
+
+              // Marcar campo alterado visualmente
+
+              campos.forEach((campo) => {
+
+                const input = document.getElementById("edit_" + campo.key);
+
+                if (!input) return;
+
+                const original = campo.key === "senha" ? "" : usuarioLogado[campo.key] || "";
+
+                input.addEventListener("input", () => {
+
+                  input.classList.toggle("field-changed", input.value !== original);
+
+                });
+
+              });
+
+
+
+              document.getElementById("editConfirmSenha").value = "";
+
+              abrirModal("modalEdicao");
 
             }
 
-            // S� atualiza a senha se o campo foi preenchido
 
-            if (val) dadosAtualizados.senha = val;
 
-          } else if (val) {
+            function salvarEdicaoCadastral() {
 
-            dadosAtualizados[campo.key] = val;
+              const session = db.getSession();
 
-          }
+              if (!session) return;
 
-        }
 
 
+              const { user, userType } = session;
 
-        const resultado = db.updateUser(user.id, dadosAtualizados, userType);
+              const campos =
 
+                userType === "profissional" ? CAMPOS_PROFISSIONAL : CAMPOS_EMPRESA;
 
+              const senhaConfirm = document
 
-        if (resultado.success) {
+                .getElementById("editConfirmSenha")
 
-          fecharModal("modalEdicao");
+                .value.trim();
 
-          showAlert("success", "Dados cadastrais atualizados com sucesso!");
 
-          const sess�oAtualizada = db.getSession();
 
-          if (sess�oAtualizada) exibirPainelPerfil(sess�oAtualizada);
+              if (!senhaConfirm) {
 
-          displayTestAccounts();
+                pulsarCampo("editConfirmSenha");
 
-        } else {
+                showAlert(
 
-          showAlert("error", resultado.message);
+                  "error",
 
-        }
+                  "Informe sua senha atual para salvar as altera��es.",
 
-      }
+                );
 
+                return;
 
+              }
 
-      // ---- RF05: Abrir modal de exclus�o ----
 
-      function abrirModalExclusao() {
 
-        document.getElementById("deleteConfirmSenha").value = "";
+              // Verificar senha atual no banco
 
-        abrirModal("modalExclusao");
+              const users = db.getUsers();
 
-      }
+              const lista =
 
+                userType === "profissional" ? users.profissionais : users.empresas;
 
+              const userBanco = lista.find((u) => u.id === user.id);
 
-      function confirmarExclusaoConta() {
+              if (!userBanco || userBanco.senha !== senhaConfirm) {
 
-        const session = db.getSession();
+                pulsarCampo("editConfirmSenha");
 
-        if (!session) return;
+                showAlert("error", "Senha atual incorreta.");
 
+                return;
 
+              }
 
-        const { user, userType } = session;
 
-        const senhaDigitada = document
 
-          .getElementById("deleteConfirmSenha")
+              // Coletar dados atualizados
 
-          .value.trim();
+              const dadosAtualizados = {};
 
+              for (const campo of campos) {
 
+                const input = document.getElementById("edit_" + campo.key);
 
-        if (!senhaDigitada) {
+                if (!input) continue;
 
-          pulsarCampo("deleteConfirmSenha");
+                const val = input.value.trim();
 
-          showAlert("error", "Digite sua senha para confirmar a exclus�o.");
 
-          return;
 
-        }
+                if (campo.required && !val) {
 
+                  pulsarCampo("edit_" + campo.key);
 
+                  showAlert("error", `O campo "${campo.label}" ? obrigat�rio.`);
 
-        // Verificar senha no banco
+                  return;
 
-        const users = db.getUsers();
+                }
 
-        const lista =
 
-          userType === "profissional" ? users.profissionais : users.empresas;
 
-        const userBanco = lista.find((u) => u.id === user.id);
+                if (
 
-        if (!userBanco || userBanco.senha !== senhaDigitada) {
+                  campo.key === "email" &&
 
-          pulsarCampo("deleteConfirmSenha");
+                  val &&
 
-          showAlert("error", "Senha incorreta. Exclus�o cancelada.");
+                  !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)
 
-          return;
+                ) {
 
-        }
+                  pulsarCampo("edit_" + campo.key);
 
+                  showAlert("error", "Informe um e-mail v?lido.");
 
+                  return;
 
-        const resultado = db.deleteUser(user.id, userType);
+                }
 
 
 
-        if (resultado.success) {
+                if (campo.key === "senha") {
 
-          fecharModal("modalExclusao");
+                  if (val && val.length < 6) {
 
-          const profileCont = document.getElementById("profileContainer");
+                    pulsarCampo("edit_" + campo.key);
 
-          if (profileCont) profileCont.style.display = "none";
+                    showAlert(
 
-          const loginCont = document.querySelector(
+                      "error",
 
-            ".login-container:not(#profileContainer)",
+                      "Nova senha deve ter pelo menos 6 caracteres.",
 
-          );
+                    );
 
-          if (loginCont) loginCont.style.display = "flex";
-
-          showAlert("success", "Conta exclu?da permanentemente. At? mais!");
-
-          displayTestAccounts();
-
-        } else {
-
-          showAlert("error", resultado.message);
-
-        }
-
-      }
-
-
-
-      // ---- Helpers de modal (native <dialog>) ----
-
-      function abrirModal(id) {
-
-        const dlg = document.getElementById(id);
-
-        if (dlg && typeof dlg.showModal === "function") dlg.showModal();
-
-      }
-
-
-
-      function fecharModal(id) {
-
-        const dlg = document.getElementById(id);
-
-        if (dlg && typeof dlg.close === "function") dlg.close();
-
-      }
-
-
-
-      // Fechar ao clicar no ::backdrop
-
-      document.querySelectorAll("dialog.fw-modal").forEach((dlg) => {
-
-        dlg.addEventListener("click", (e) => {
-
-          const rect = dlg.getBoundingClientRect();
-
-          const clickedBackdrop =
-
-            e.clientX < rect.left ||
-
-            e.clientX > rect.right ||
-
-            e.clientY < rect.top ||
-
-            e.clientY > rect.bottom;
-
-          if (clickedBackdrop) dlg.close();
-
-        });
-
-      });
-
-
-
-      function toggleSenhaVisibilidade(inputId, btn) {
-
-        const input = document.getElementById(inputId);
-
-        const icone = btn.querySelector("i");
-
-        if (input.type === "password") {
-
-          input.type = "text";
-
-          icone.className = "bi bi-eye-slash";
-
-        } else {
-
-          input.type = "password";
-
-          icone.className = "bi bi-eye";
-
-        }
-
-      }
-
-
-
-      function pulsarCampo(id) {
-
-        const el = document.getElementById(id);
-
-        if (!el) return;
-
-        el.style.borderColor = "#e53935";
-
-        el.focus();
-
-        setTimeout(() => {
-
-          el.style.borderColor = "";
-
-        }, 1800);
-
-      }
-
-
-
-      function escapeAttr(str) {
-
-        return String(str || "")
-
-          .replace(/"/g, "&quot;")
-
-          .replace(/'/g, "&#39;");
-
-      }
-
-
-
-      // ========== EXIBIR CONTAS DE TESTE ==========
-
-      function displayTestAccounts() {
-
-        const users = db.getUsers();
-
-        const container = document.getElementById("testAccountsContainer");
-
-        const currentType = selectedUserType;
-
-
-
-        const accountsList =
-
-          currentType === "profissional" ? users.profissionais : users.empresas;
-
-
-
-        container.innerHTML = accountsList
-
-          .map(
-
-            (user) => `
-
-          <div onclick="fillLoginForm('${user.email}', '${user.senha}')" 
-
-               style="cursor: pointer; padding: 12px; margin-bottom: 10px; background: var(--input-bg); border: 1px solid var(--border-color); border-radius: 8px; transition: all 0.3s ease;"
-
-               onmouseover="this.style.background='var(--primary-color)'; this.style.transform='translateX(5px)';"
-
-               onmouseout="this.style.background='var(--input-bg)'; this.style.transform='translateX(0)';">
-
-            <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
-
-              <div style="flex: 1;">
-
-                <div style="font-weight: 600; margin-bottom: 3px;">
-
-                  <i class="bi bi-person-circle"></i> ${
-
-                    user.nome || user.nomeFantasia
+                    return;
 
                   }
 
-                </div>
+                  // S� atualiza a senha se o campo foi preenchido
 
-                <div style="font-size: 0.85rem; opacity: 0.8;">
+                  if (val) dadosAtualizados.senha = val;
 
-                  <i class="bi bi-envelope"></i> ${user.email}
+                } else if (val) {
 
-                </div>
+                  dadosAtualizados[campo.key] = val;
 
-              </div>
+                }
 
-              <div style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; white-space: nowrap;">
-
-                <i class="bi bi-key"></i> ${user.senha}
-
-              </div>
-
-            </div>
-
-          </div>
-
-        `,
-
-          )
-
-          .join("");
-
-      }
-
-
-
-      function fillLoginForm(email, senha) {
-
-        document.getElementById("email").value = email;
-
-        document.getElementById("password").value = senha;
-
-
-
-        // Feedback visual
-
-        const emailInput = document.getElementById("email");
-
-        const passwordInput = document.getElementById("password");
-
-
-
-        emailInput.style.background = "rgba(25, 118, 210, 0.2)";
-
-        passwordInput.style.background = "rgba(25, 118, 210, 0.2)";
-
-
-
-        setTimeout(() => {
-
-          emailInput.style.background = "";
-
-          passwordInput.style.background = "";
-
-        }, 1000);
-
-
-
-        // Limpar erros
-
-        clearError(emailInput);
-
-        clearError(passwordInput);
-
-      }
-
-
-
-      // ========== GERENCIAMENTO DE TEMA ==========
-
-
-
-      function getStoredTheme() {
-
-        return localStorage.getItem("theme") || "dark";
-
-      }
-
-
-
-      function setStoredTheme(theme) {
-
-        localStorage.setItem("theme", theme);
-
-      }
-
-
-
-      function setTheme(theme) {
-
-        document.documentElement.setAttribute("data-theme", theme);
-
-        const themeText = document.querySelector(".theme-text");
-
-        if (themeText) {
-
-          themeText.textContent =
-
-            theme === "light" ? "Modo Escuro" : "Modo Claro";
-
-        }
-
-      }
-
-
-
-      function toggleTheme() {
-
-        const currentTheme =
-
-          document.documentElement.getAttribute("data-theme");
-
-        const newTheme = currentTheme === "light" ? "dark" : "light";
-
-        setTheme(newTheme);
-
-        setStoredTheme(newTheme);
-
-      }
-
-
-
-      // Menu hamburger functionality
-
-      function toggleMenu() {
-
-        const menu = document.getElementById("dropdownMenu");
-
-        const hamburgerBtn = document.querySelector(".hamburger-btn");
-
-        menu.classList.toggle("show");
-
-        hamburgerBtn.classList.toggle("active");
-
-      }
-
-
-
-      // Close menu when clicking outside
-
-      document.addEventListener("click", function (event) {
-
-        const menu = document.getElementById("dropdownMenu");
-
-        const hamburgerBtn = document.querySelector(".hamburger-btn");
-
-
-
-        if (
-
-          menu &&
-
-          hamburgerBtn &&
-
-          !menu.contains(event.target) &&
-
-          !hamburgerBtn.contains(event.target) &&
-
-          menu.classList.contains("show")
-
-        ) {
-
-          menu.classList.remove("show");
-
-          hamburgerBtn.classList.remove("active");
-
-        }
-
-      });
-
-
-
-      // ========== GERENCIAMENTO DO FORMUL�RIO ==========
-
-
-
-      let selectedUserType = "profissional";
-
-
-
-// Inicialização
-      document.addEventListener("DOMContentLoaded", () => {
-        const storedTheme = getStoredTheme();
-        setTheme(storedTheme);
-        displayTestAccounts();
-        const session = db.getSession();
-        if (session) {
-          exibirPainelPerfil(session);
-        }
-
-        // Seletor de tipo de usuário
-        document.querySelectorAll(".user-type-btn").forEach((btn) => {
-          btn.addEventListener("click", function () {
-            document.querySelectorAll(".user-type-btn").forEach((b) => b.classList.remove("active"));
-            this.classList.add("active");
-            selectedUserType = this.dataset.type;
-            displayTestAccounts();
-            const registerLink = document.getElementById("registerText");
-            if (registerLink) {
-              if (selectedUserType === "profissional") {
-                registerLink.innerHTML = 'Ainda n�o tem conta? <a href="formu.html">Cadastre-se como Profissional</a>';
-              } else {
-                registerLink.innerHTML = 'Ainda n�o tem conta? <a href="cadastroem.html">Cadastre-se como Empresa</a>';
               }
+
+
+
+              const resultado = db.updateUser(user.id, dadosAtualizados, userType);
+
+
+
+              if (resultado.success) {
+
+                fecharModal("modalEdicao");
+
+                showAlert("success", "Dados cadastrais atualizados com sucesso!");
+
+                const sess�oAtualizada = db.getSession();
+
+                if (sess�oAtualizada) exibirPainelPerfil(sess�oAtualizada);
+
+                displayTestAccounts();
+
+              } else {
+
+                showAlert("error", resultado.message);
+
+              }
+
             }
-          });
-        });
-      });
 
-      function showError(input, message) {
-        const errorDiv = document.getElementById(input.id + "-error");
-        if (errorDiv) errorDiv.textContent = message;
-        input.classList.add("is-invalid");
-      }
 
-      function clearError(input) {
-        const errorDiv = document.getElementById(input.id + "-error");
-        if (errorDiv) errorDiv.textContent = "";
-        input.classList.remove("is-invalid");
-      }
 
-      function showAlert(type, message) {
-        const alertElement = document.getElementById(`alert${type === "success" ? "Success" : "Error"}`);
-        alertElement.textContent = message;
-        alertElement.style.display = "block";
+            // ---- RF05: Abrir modal de exclus�o ----
 
-        setTimeout(() => {
-          alertElement.style.display = "none";
-        }, 5000);
-      }
+            function abrirModalExclusao() {
 
-      document.getElementById("email").addEventListener("input", function () {
+              document.getElementById("deleteConfirmSenha").value = "";
 
-        if (this.value && !this.validity.valid) {
+              abrirModal("modalExclusao");
 
-          showError(this, "E-mail inválido");
+            }
 
-        } else {
 
-          clearError(this);
 
-        }
+            function confirmarExclusaoConta() {
 
-      });
+              const session = db.getSession();
 
-      document
+              if (!session) return;
 
-        .getElementById("password")
 
-        .addEventListener("input", function () {
 
-          if (this.value.length > 0 && this.value.length < 6) {
+              const { user, userType } = session;
 
-            showError(this, "Senha deve ter pelo menos 6 caracteres");
+              const senhaDigitada = document
 
-          } else {
+                .getElementById("deleteConfirmSenha")
 
-            clearError(this);
+                .value.trim();
 
-          }
 
-        });
 
-      // Submit do formulário
-      document
-        .getElementById("loginForm")
+              if (!senhaDigitada) {
 
-        .addEventListener("submit", async function (e) {
-          e.preventDefault();
+                pulsarCampo("deleteConfirmSenha");
 
-          const email = document.getElementById("email").value.trim();
-          const senha = document.getElementById("password").value;
+                showAlert("error", "Digite sua senha para confirmar a exclus�o.");
 
-          // Limpar erros anteriores
-          clearError(document.getElementById("email"));
-          clearError(document.getElementById("password"));
-          document.getElementById("alertError").style.display = "none";
+                return;
 
-          // Valida��es
-          let hasError = false;
+              }
 
-          if (!email) {
-            showError(document.getElementById("email"), "E-mail � obrigat�rio");
-            hasError = true;
-          } else if (!document.getElementById("email").validity.valid) {
-            showError(document.getElementById("email"), "E-mail inv�lido");
-            hasError = true;
-          }
 
-          if (!senha) {
-            showError(
-              document.getElementById("password"),
-              "Senha � obrigat�ria",
-            );
-            hasError = true;
-          } else if (senha.length < 6) {
-            showError(
-              document.getElementById("password"),
-              "Senha deve ter pelo menos 6 caracteres",
-            );
-            hasError = true;
-          }
 
-          if (hasError) return;
+              // Verificar senha no banco
 
-          // Fazer requisi��o para API
-          const endpoint = selectedUserType === "profissional" 
-            ? "http://localhost:3000/api/login"
-            : "http://localhost:3000/api/login/empresa";
+              const users = db.getUsers();
 
-          try {
-            const response = await fetch(endpoint, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ email, senha }),
+              const lista =
+
+                userType === "profissional" ? users.profissionais : users.empresas;
+
+              const userBanco = lista.find((u) => u.id === user.id);
+
+              if (!userBanco || userBanco.senha !== senhaDigitada) {
+
+                pulsarCampo("deleteConfirmSenha");
+
+                showAlert("error", "Senha incorreta. Exclus�o cancelada.");
+
+                return;
+
+              }
+
+
+
+              const resultado = db.deleteUser(user.id, userType);
+
+
+
+              if (resultado.success) {
+
+                fecharModal("modalExclusao");
+
+                const profileCont = document.getElementById("profileContainer");
+
+                if (profileCont) profileCont.style.display = "none";
+
+                const loginCont = document.querySelector(
+
+                  ".login-container:not(#profileContainer)",
+
+                );
+
+                if (loginCont) loginCont.style.display = "flex";
+
+                showAlert("success", "Conta exclu?da permanentemente. At? mais!");
+
+                displayTestAccounts();
+
+              } else {
+
+                showAlert("error", resultado.message);
+
+              }
+
+            }
+
+
+
+            // ---- Helpers de modal (native <dialog>) ----
+
+            function abrirModal(id) {
+
+              const dlg = document.getElementById(id);
+
+              if (dlg && typeof dlg.showModal === "function") dlg.showModal();
+
+            }
+
+
+
+            function fecharModal(id) {
+
+              const dlg = document.getElementById(id);
+
+              if (dlg && typeof dlg.close === "function") dlg.close();
+
+            }
+
+
+
+            // Fechar ao clicar no ::backdrop
+
+            document.querySelectorAll("dialog.fw-modal").forEach((dlg) => {
+
+              dlg.addEventListener("click", (e) => {
+
+                const rect = dlg.getBoundingClientRect();
+
+                const clickedBackdrop =
+
+                  e.clientX < rect.left ||
+
+                  e.clientX > rect.right ||
+
+                  e.clientY < rect.top ||
+
+                  e.clientY > rect.bottom;
+
+                if (clickedBackdrop) dlg.close();
+
+              });
+
             });
 
-            const resultado = await response.json();
 
-            if (resultado.ok) {
-              showAlert(
-                "success",
-                "Login realizado com sucesso! Redirecionando...",
-              );
 
-              // Salvar token e dados do usuário
-              localStorage.setItem("token", resultado.token);
-              const userData = resultado.usuario || resultado.empresa;
-              localStorage.setItem("usuarioLogado", JSON.stringify(userData));
-              // Salvar sessão padronizada
-              db.saveSession({ user: userData, userType: userData.tipo || "profissional" });
+            function toggleSenhaVisibilidade(inputId, btn) {
 
-              // Redirecionar ap�s 1 segundo
-              setTimeout(() => {
-                window.location.href = "/";
-              }, 1000);
-            } else {
-              showAlert("error", resultado.erro || "Erro no login");
+              const input = document.getElementById(inputId);
+
+              const icone = btn.querySelector("i");
+
+              if (input.type === "password") {
+
+                input.type = "text";
+
+                icone.className = "bi bi-eye-slash";
+
+              } else {
+
+                input.type = "password";
+
+                icone.className = "bi bi-eye";
+
+              }
+
             }
-        } catch (error) {
-          showAlert("error", "Erro ao conectar com servidor");
-        }
-      });
 
-</script>
 
+
+            function pulsarCampo(id) {
+
+              const el = document.getElementById(id);
+
+              if (!el) return;
+
+              el.style.borderColor = "#e53935";
+
+              el.focus();
+
+              setTimeout(() => {
+
+                el.style.borderColor = "";
+
+              }, 1800);
+
+            }
+
+
+
+            function escapeAttr(str) {
+
+              return String(str || "")
+
+                .replace(/"/g, "&quot;")
+
+                .replace(/'/g, "&#39;");
+
+            }
+
+
+
+            // ========== EXIBIR CONTAS DE TESTE ==========
+
+            function displayTestAccounts() {
+
+              const users = db.getUsers();
+
+              const container = document.getElementById("testAccountsContainer");
+
+              const currentType = selectedUserType;
+
+
+
+              const accountsList =
+
+                currentType === "profissional" ? users.profissionais : users.empresas;
+
+
+
+              container.innerHTML = accountsList
+
+                .map(
+
+                  (user) => `
+
+                <div onclick="fillLoginForm('${user.email}', '${user.senha}')"
+
+                     style="cursor: pointer; padding: 12px; margin-bottom: 10px; background: var(--input-bg); border: 1px solid var(--border-color); border-radius: 8px; transition: all 0.3s ease;"
+
+                     onmouseover="this.style.background='var(--primary-color)'; this.style.transform='translateX(5px)';"
+
+                     onmouseout="this.style.background='var(--input-bg)'; this.style.transform='translateX(0)';">
+
+                  <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+
+                    <div style="flex: 1;">
+
+                      <div style="font-weight: 600; margin-bottom: 3px;">
+
+                        <i class="bi bi-person-circle"></i> ${
+
+                          user.nome || user.nomeFantasia
+
+                        }
+
+                      </div>
+
+                      <div style="font-size: 0.85rem; opacity: 0.8;">
+
+                        <i class="bi bi-envelope"></i> ${user.email}
+
+                      </div>
+
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; white-space: nowrap;">
+
+                      <i class="bi bi-key"></i> ${user.senha}
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              `,
+
+                )
+
+                .join("");
+
+            }
+
+
+
+            function fillLoginForm(email, senha) {
+
+              document.getElementById("email").value = email;
+
+              document.getElementById("password").value = senha;
+
+
+
+              // Feedback visual
+
+              const emailInput = document.getElementById("email");
+
+              const passwordInput = document.getElementById("password");
+
+
+
+              emailInput.style.background = "rgba(25, 118, 210, 0.2)";
+
+              passwordInput.style.background = "rgba(25, 118, 210, 0.2)";
+
+
+
+              setTimeout(() => {
+
+                emailInput.style.background = "";
+
+                passwordInput.style.background = "";
+
+              }, 1000);
+
+
+
+              // Limpar erros
+
+              clearError(emailInput);
+
+              clearError(passwordInput);
+
+            }
+
+
+
+            // ========== GERENCIAMENTO DE TEMA ==========
+
+
+
+            function getStoredTheme() {
+
+              return localStorage.getItem("theme") || "dark";
+
+            }
+
+
+
+            function setStoredTheme(theme) {
+
+              localStorage.setItem("theme", theme);
+
+            }
+
+
+
+            function setTheme(theme) {
+
+              document.documentElement.setAttribute("data-theme", theme);
+
+              const themeText = document.querySelector(".theme-text");
+
+              if (themeText) {
+
+                themeText.textContent =
+
+                  theme === "light" ? "Modo Escuro" : "Modo Claro";
+
+              }
+
+            }
+
+
+
+            function toggleTheme() {
+
+              const currentTheme =
+
+                document.documentElement.getAttribute("data-theme");
+
+              const newTheme = currentTheme === "light" ? "dark" : "light";
+
+              setTheme(newTheme);
+
+              setStoredTheme(newTheme);
+
+            }
+
+
+
+            // Menu hamburger functionality
+
+            function toggleMenu() {
+
+              const menu = document.getElementById("dropdownMenu");
+
+              const hamburgerBtn = document.querySelector(".hamburger-btn");
+
+              menu.classList.toggle("show");
+
+              hamburgerBtn.classList.toggle("active");
+
+            }
+
+
+
+            // Close menu when clicking outside
+
+            document.addEventListener("click", function (event) {
+
+              const menu = document.getElementById("dropdownMenu");
+
+              const hamburgerBtn = document.querySelector(".hamburger-btn");
+
+
+
+              if (
+
+                menu &&
+
+                hamburgerBtn &&
+
+                !menu.contains(event.target) &&
+
+                !hamburgerBtn.contains(event.target) &&
+
+                menu.classList.contains("show")
+
+              ) {
+
+                menu.classList.remove("show");
+
+                hamburgerBtn.classList.remove("active");
+
+              }
+
+            });
+
+
+
+            // ========== GERENCIAMENTO DO FORMUL�RIO ==========
+
+
+
+            let selectedUserType = "profissional";
+
+
+
+      // Inicialização
+            document.addEventListener("DOMContentLoaded", () => {
+              const storedTheme = getStoredTheme();
+              setTheme(storedTheme);
+              displayTestAccounts();
+              const session = db.getSession();
+              if (session) {
+                exibirPainelPerfil(session);
+              }
+
+              // Seletor de tipo de usuário
+              document.querySelectorAll(".user-type-btn").forEach((btn) => {
+                btn.addEventListener("click", function () {
+                  document.querySelectorAll(".user-type-btn").forEach((b) => b.classList.remove("active"));
+                  this.classList.add("active");
+                  selectedUserType = this.dataset.type;
+                  displayTestAccounts();
+                  const registerLink = document.getElementById("registerText");
+                  if (registerLink) {
+                    if (selectedUserType === "profissional") {
+                      registerLink.innerHTML = 'Ainda n�o tem conta? <a href="formu.html">Cadastre-se como Profissional</a>';
+                    } else {
+                      registerLink.innerHTML = 'Ainda n�o tem conta? <a href="cadastroem.html">Cadastre-se como Empresa</a>';
+                    }
+                  }
+                });
+              });
+            });
+
+            function showError(input, message) {
+              const errorDiv = document.getElementById(input.id + "-error");
+              if (errorDiv) errorDiv.textContent = message;
+              input.classList.add("is-invalid");
+            }
+
+            function clearError(input) {
+              const errorDiv = document.getElementById(input.id + "-error");
+              if (errorDiv) errorDiv.textContent = "";
+              input.classList.remove("is-invalid");
+            }
+
+            function showAlert(type, message) {
+              const alertElement = document.getElementById(`alert${type === "success" ? "Success" : "Error"}`);
+              alertElement.textContent = message;
+              alertElement.style.display = "block";
+
+              setTimeout(() => {
+                alertElement.style.display = "none";
+              }, 5000);
+            }
+
+            document.getElementById("email").addEventListener("input", function () {
+
+              if (this.value && !this.validity.valid) {
+
+                showError(this, "E-mail inválido");
+
+              } else {
+
+                clearError(this);
+
+              }
+
+            });
+
+            document
+
+              .getElementById("password")
+
+              .addEventListener("input", function () {
+
+                if (this.value.length > 0 && this.value.length < 6) {
+
+                  showError(this, "Senha deve ter pelo menos 6 caracteres");
+
+                } else {
+
+                  clearError(this);
+
+                }
+
+              });
+
+            // Submit do formulário
+            document
+              .getElementById("loginForm")
+
+              .addEventListener("submit", async function (e) {
+                e.preventDefault();
+
+                const email = document.getElementById("email").value.trim();
+                const senha = document.getElementById("password").value;
+
+                // Limpar erros anteriores
+                clearError(document.getElementById("email"));
+                clearError(document.getElementById("password"));
+                document.getElementById("alertError").style.display = "none";
+
+                // Valida��es
+                let hasError = false;
+
+                if (!email) {
+                  showError(document.getElementById("email"), "E-mail � obrigat�rio");
+                  hasError = true;
+                } else if (!document.getElementById("email").validity.valid) {
+                  showError(document.getElementById("email"), "E-mail inv�lido");
+                  hasError = true;
+                }
+
+                if (!senha) {
+                  showError(
+                    document.getElementById("password"),
+                    "Senha � obrigat�ria",
+                  );
+                  hasError = true;
+                } else if (senha.length < 6) {
+                  showError(
+                    document.getElementById("password"),
+                    "Senha deve ter pelo menos 6 caracteres",
+                  );
+                  hasError = true;
+                }
+
+                if (hasError) return;
+
+                // Fazer requisi��o para API
+                const endpoint = selectedUserType === "profissional"
+                  ? "http://localhost:3000/api/login"
+                  : "http://localhost:3000/api/login/empresa";
+
+                try {
+                  const response = await fetch(endpoint, {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ email, senha }),
+                  });
+
+                  const resultado = await response.json();
+
+                  if (resultado.ok) {
+                    showAlert(
+                      "success",
+                      "Login realizado com sucesso! Redirecionando...",
+                    );
+
+                    // Salvar token e dados do usuário
+                    localStorage.setItem("token", resultado.token);
+                    const userData = resultado.usuario || resultado.empresa;
+                    localStorage.setItem("usuarioLogado", JSON.stringify(userData));
+                    // Salvar sessão padronizada
+                    db.saveSession({ user: userData, userType: userData.tipo || "profissional" });
+
+                    // Redirecionar ap�s 1 segundo
+                    setTimeout(() => {
+                      window.location.href = "/";
+                    }, 1000);
+                  } else {
+                    showAlert("error", resultado.erro || "Erro no login");
+                  }
+              } catch (error) {
+                showAlert("error", "Erro ao conectar com servidor");
+              }
+            });
+    </script>
   </body>
-
 </html>
-
-
