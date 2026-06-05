@@ -25,17 +25,14 @@
       href="./src/public/images/Logo_FAVICON.png"
       type="image/png"
     />
-  <base href="/FastWork.github.io/">
+    <base href="/FastWork.github.io/" />
   </head>
 
   <body>
     <header class="cabecalho">
       <div class="cabecalho-container">
         <h1 class="fastwork">
-          <img
-            src="./src/public/images/Logo_FAVICON.png"
-            alt="FastWork Logo"
-          />
+          <img src="./src/public/images/Logo_FAVICON.png" alt="FastWork Logo" />
           FastWork
         </h1>
         <div class="cabecalho-direita">
@@ -67,7 +64,9 @@
               <a href="./src/views/empregos.html"
                 ><i class="bi bi-briefcase"></i> Empregos</a
               >
-              <a href="./src/views/sobre.html"><i class="bi bi-info-circle"></i> Sobre</a>
+              <a href="./src/views/sobre.html"
+                ><i class="bi bi-info-circle"></i> Sobre</a
+              >
               <a href="./src/views/ajuda.html"
                 ><i class="bi bi-question-circle"></i> Ajuda</a
               >
@@ -107,7 +106,7 @@
       <section class="cadastro-empresa">
         <div class="imagens-empresa">
           <div class="imagem-empresa">
-            <a href="/src/views/cadastroem.html">
+            <a href="./src/views/cadastroem.html">
               <img
                 src="https://tse3.mm.bing.net/th/id/OIP.n55Pyr_1rj8_Vbv8PAnLNwHaHa?cb=iwc2&rs=1&pid=ImgDetMain"
                 alt="imgem decorativa"
@@ -117,19 +116,19 @@
           <div class="botoes-cadastro">
             <button
               class="btn-cadastro"
-              onclick="window.location.href='./src/views/cadastroem.html'"
+              onclick="window.location.href = './src/views/cadastroem.html'"
             >
               <i class="bi bi-building"></i> Cadastrar Empresa
             </button>
             <button
               class="btn-cadastro"
-              onclick="window.location.href='./src/views/formu.html'"
+              onclick="window.location.href = './src/views/formu.html'"
             >
               <i class="bi bi-person-plus"></i> Cadastrar Profissional
             </button>
             <button
               class="btn-cadastro"
-              onclick="window.location.href='./src/views/login.html'"
+              onclick="window.location.href = './src/views/login.html'"
             >
               <i class="bi bi-box-arrow-in-right"></i> Fazer Login
             </button>
@@ -314,8 +313,6 @@
         </button>
       </div>
     </dialog>
-
-    
 
     <script>
       // ======= UserDatabase (espelha o mesmo localStorage de login.html) =======
@@ -875,7 +872,7 @@
 
           // Redirecionar para login
           alert("Você foi desconectado com sucesso!");
-          window.location.href = "/src/views/login.html";
+          window.location.href = "./src/views/login.html";
         }
       }
 
@@ -903,10 +900,10 @@
           switch (user.type) {
             case "admin":
               novosBotoes = `
-                <button class="btn-cadastro" onclick="window.location.href='/src/views/dashboard.html'">
+                <button class="btn-cadastro" onclick="window.location.href='./src/views/dashboard.html'">
                   <i class="bi bi-speedometer2"></i> Dashboard Admin
                 </button>
-                <button class="btn-cadastro" onclick="window.location.href='/src/views/empregos.html'">
+                <button class="btn-cadastro" onclick="window.location.href='./src/views/empregos.html'">
                   <i class="bi bi-briefcase"></i> Gerenciar Vagas
                 </button>
                 <button class="btn-cadastro" onclick="authSystem.logout()">
@@ -917,10 +914,10 @@
 
             case "empresa":
               novosBotoes = `
-                <button class="btn-cadastro" onclick="window.location.href='/src/views/dashboard.html'">
+                <button class="btn-cadastro" onclick="window.location.href='./src/views/dashboard.html'">
                   <i class="bi bi-speedometer2"></i> Meu Dashboard
                 </button>
-                <button class="btn-cadastro" onclick="window.location.href='/src/views/empregos.html'">
+                <button class="btn-cadastro" onclick="window.location.href='./src/views/empregos.html'">
                   <i class="bi bi-plus-circle"></i> Publicar Vaga
                 </button>
                 <button class="btn-cadastro" onclick="authSystem.logout()">
@@ -931,10 +928,10 @@
 
             case "profissional":
               novosBotoes = `
-                <button class="btn-cadastro" onclick="window.location.href='/src/views/dashboard.html'">
+                <button class="btn-cadastro" onclick="window.location.href='./src/views/dashboard.html'">
                   <i class="bi bi-speedometer2"></i> Meu Dashboard
                 </button>
-                <button class="btn-cadastro" onclick="window.location.href='/src/views/empregos.html'">
+                <button class="btn-cadastro" onclick="window.location.href='./src/views/empregos.html'">
                   <i class="bi bi-search"></i> Buscar Vagas
                 </button>
                 <button class="btn-cadastro" onclick="authSystem.logout()">
