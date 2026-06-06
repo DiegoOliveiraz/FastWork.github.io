@@ -25,6 +25,11 @@ app.get('/formu.html', (req, res) => res.sendFile(path.join(__dirname, 'views', 
 app.get('/cadastroem.html', (req, res) => res.sendFile(path.join(__dirname, 'views', 'cadastroem.html')));
 app.get('/login', (req, res) => res.sendFile(path.join(__dirname, 'views', 'login.html')));
 app.get('/validacao.html', (req, res) => res.sendFile(path.join(__dirname, 'views', 'validacao.html')));
+app.get('/dashboard.html', (req, res) => res.sendFile(path.join(__dirname, 'views', 'dashboard.html')));
+app.get('/empregos.html', (req, res) => res.sendFile(path.join(__dirname, 'views', 'empregos.html')));
+app.get('/sobre.html', (req, res) => res.sendFile(path.join(__dirname, 'views', 'sobre.html')));
+app.get('/ajuda.html', (req, res) => res.sendFile(path.join(__dirname, 'views', 'ajuda.html')));
+app.get('/Dev.html', (req, res) => res.sendFile(path.join(__dirname, 'views', 'Dev.html')));
 
 app.use((req, res) => res.status(404).send('Página não encontrada'));
 

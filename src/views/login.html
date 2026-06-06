@@ -1181,7 +1181,7 @@
       }
     </style>
 
-    <link rel="stylesheet" href="../public/css/style.css" />
+    <link rel="stylesheet" href="/src/public/css/style.css" />
   </head>
   <body>
     <script>
@@ -1334,7 +1334,7 @@
           <p id="registerText">
             Ainda não tem conta?
 
-            <a href="/src/views/formu.html">Cadastre-se como Profissional</a>
+            <a id="registerLink" href="/formu.html">Cadastre-se como Profissional</a>
           </p>
         </div>
       </div>
@@ -1531,7 +1531,7 @@
               }
 
               initializeDB() {
-                const forceUpdate = true;
+                const forceUpdate = false;
                 if (!localStorage.getItem(STORAGE_KEY) || forceUpdate) {
                   const exampleUsers = {
                     profissionais: [
@@ -1600,7 +1600,15 @@
 
               authenticate(email, senha, userType) {
                 const users = this.getUsers();
+                if (!users) {
+                  console.error("Nenhum usuário encontrado no localStorage");
+                  return { success: false, message: "Banco de dados vazio" };
+                }
                 const userList = userType === "profissional" ? users.profissionais : users.empresas;
+                if (!userList || userList.length === 0) {
+                  console.warn(`Nenhum ${userType} cadastrado`);
+                  return { success: false, message: `Nenhum ${userType} cadastrado` };
+                }
                 const user = userList.find((u) => u.email === email && u.senha === senha);
                 if (user) {
                   const session = {
@@ -1610,8 +1618,10 @@
                   };
                   delete session.user.senha;
                   this.saveSession(session);
+                  console.log("Login bem-sucedido para:", user.email);
                   return { success: true, user: session };
                 }
+                console.warn("Credenciais inválidas para:", email);
                 return { success: false, message: "E-mail ou senha incorretos" };
               }
 
@@ -1694,7 +1704,7 @@
 
                 key: "profissao",
 
-                label: "Profiss�o",
+                label: "Profissão",
 
                 icon: "bi-briefcase",
 
@@ -1831,67 +1841,31 @@
 
 
       function exibirPainelPerfil(session) {
-              const usuario = session.user || session;
-              const userType = session.userType || "profissional";
-              const loginCont = document.querySelector(".login-container:not(#profileContainer)");
-              if (loginCont) loginCont.style.display = "none";
-              document.getElementById("profileContainer").style.display = "flex";
-              const displayName = usuario.nome || usuario.nomeFantasia || "Usuário";
-              const initials = displayName.split(" ").map((w) => w[0]).slice(0, 2).join("");
-              document.getElementById("profileAvatar").innerHTML = initials || '<i class="bi bi-person-fill"></i>';
-              document.getElementById("profileName").textContent = displayName;
-              document.getElementById("profileBadge").textContent = userType === "empresa" ? `Empresa${usuario.nomeFantasia ? " - " + usuario.nomeFantasia : ""}` : `Profissional`;
-              const campos = userType === "empresa" ? CAMPOS_EMPRESA : CAMPOS_PROFISSIONAL;
-              const rowsEl = document.getElementById("profileInfoRows");
-              rowsEl.innerHTML = campos.filter((c) => c.key !== "senha" && usuario[c.key]).map((c) => `<div class="profile-info-row"><i class="bi ${c.icon}"></i><span class="profile-info-label">${c.label}</span><span>${usuario[c.key] || ""}</span></div>`).join("");
-            }
-
-              document.getElementById("profileContainer").style.display = "flex";
-
-              const displayName = usuario.nome || usuario.nomeFantasia || "Usu�rio";
-              const initials = displayName
-                .split(" ")
-                .map((w) => w[0])
-                .slice(0, 2)
-                .join("");
-
-              document.getElementById("profileAvatar").innerHTML =
-                initials || '<i class="bi bi-person-fill"></i>';
-              document.getElementById("profileName").textContent = displayName;
-              document.getElementById("profileBadge").textContent =
-                usuario.tipo === "empresa"
-                  ? `Empresa${usuario.nomeFantasia ? " - " + usuario.nomeFantasia : ""}`
-                  : `Profissional`;
-
-              const campos =
-                usuario.tipo === "empresa" ? CAMPOS_EMPRESA : CAMPOS_PROFISSIONAL;
-              const rowsEl = document.getElementById("profileInfoRows");
-              rowsEl.innerHTML = campos
-                .filter((c) => c.key !== "senha" && usuario[c.key])
-                .map(
-                  (c) => `
-                  <div class="profile-info-row">
-                    <i class="bi ${c.icon}"></i>
-                    <span class="profile-info-label">${c.label}</span>
-                    <span>${usuario[c.key] || ""}</span>
-                  </div>
-                `,
-                )
-                .join("");
-            }
-
-
+        const usuario = session.user || session;
+        const userType = session.userType || "profissional";
+        const loginCont = document.querySelector(".login-container:not(#profileContainer)");
+        if (loginCont) loginCont.style.display = "none";
+        document.getElementById("profileContainer").style.display = "flex";
+        const displayName = usuario.nome || usuario.nomeFantasia || "Usuário";
+        const initials = displayName.split(" ").map((w) => w[0]).slice(0, 2).join("");
+        document.getElementById("profileAvatar").innerHTML = initials || '<i class="bi bi-person-fill"></i>';
+        document.getElementById("profileName").textContent = displayName;
+        document.getElementById("profileBadge").textContent = userType === "empresa" ? `Empresa${usuario.nomeFantasia ? " - " + usuario.nomeFantasia : ""}` : `Profissional`;
+        const campos = userType === "empresa" ? CAMPOS_EMPRESA : CAMPOS_PROFISSIONAL;
+        const rowsEl = document.getElementById("profileInfoRows");
+        rowsEl.innerHTML = campos.filter((c) => c.key !== "senha" && usuario[c.key]).map((c) => `<div class="profile-info-row"><i class="bi ${c.icon}"></i><span class="profile-info-label">${c.label}</span><span>${usuario[c.key] || ""}</span></div>`).join("");
+      }
 
       function fazerLogoutPerfil() {
-              localStorage.removeItem(SESSION_KEY);
-              const profileCont = document.getElementById("profileContainer");
-              if (profileCont) profileCont.style.display = "none";
-              const loginCont = document.querySelector(
-                ".login-container:not(#profileContainer)",
-              );
-              if (loginCont) loginCont.style.display = "flex";
-              showAlert("success", "Logout realizado com sucesso.");
-            }
+        localStorage.removeItem(SESSION_KEY);
+        const profileCont = document.getElementById("profileContainer");
+        if (profileCont) profileCont.style.display = "none";
+        const loginCont = document.querySelector(
+          ".login-container:not(#profileContainer)",
+        );
+        if (loginCont) loginCont.style.display = "flex";
+        showAlert("success", "Logout realizado com sucesso.");
+      }
 
 
 
@@ -2137,9 +2111,9 @@
 
                 showAlert("success", "Dados cadastrais atualizados com sucesso!");
 
-                const sess�oAtualizada = db.getSession();
+                const sessãoAtualizada = db.getSession();
 
-                if (sess�oAtualizada) exibirPainelPerfil(sess�oAtualizada);
+                if (sessãoAtualizada) exibirPainelPerfil(sessãoAtualizada);
 
                 displayTestAccounts();
 
@@ -2358,73 +2332,46 @@
             // ========== EXIBIR CONTAS DE TESTE ==========
 
             function displayTestAccounts() {
-
               const users = db.getUsers();
-
               const container = document.getElementById("testAccountsContainer");
-
               const currentType = selectedUserType;
 
+              if (!users) {
+                container.innerHTML = "<p style='color: #ff9800; font-size: 0.9rem;'>Nenhum usuário cadastrado</p>";
+                return;
+              }
 
+              const accountsList = currentType === "profissional" ? users.profissionais : users.empresas;
 
-              const accountsList =
-
-                currentType === "profissional" ? users.profissionais : users.empresas;
-
-
+              if (!accountsList || accountsList.length === 0) {
+                container.innerHTML = `<p style='color: #ff9800; font-size: 0.9rem;'>Nenhum ${currentType} cadastrado. <a href="/formu.html" style="color: var(--primary-color);">Cadastre-se</a></p>`;
+                return;
+              }
 
               container.innerHTML = accountsList
-
                 .map(
-
                   (user) => `
-
                 <div onclick="fillLoginForm('${user.email}', '${user.senha}')"
-
                      style="cursor: pointer; padding: 12px; margin-bottom: 10px; background: var(--input-bg); border: 1px solid var(--border-color); border-radius: 8px; transition: all 0.3s ease;"
-
                      onmouseover="this.style.background='var(--primary-color)'; this.style.transform='translateX(5px)';"
-
                      onmouseout="this.style.background='var(--input-bg)'; this.style.transform='translateX(0)';">
-
                   <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
-
                     <div style="flex: 1;">
-
                       <div style="font-weight: 600; margin-bottom: 3px;">
-
-                        <i class="bi bi-person-circle"></i> ${
-
-                          user.nome || user.nomeFantasia
-
-                        }
-
+                        <i class="bi bi-person-circle"></i> ${user.nome || user.nomeFantasia}
                       </div>
-
                       <div style="font-size: 0.85rem; opacity: 0.8;">
-
                         <i class="bi bi-envelope"></i> ${user.email}
-
                       </div>
-
                     </div>
-
                     <div style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; white-space: nowrap;">
-
                       <i class="bi bi-key"></i> ${user.senha}
-
                     </div>
-
                   </div>
-
                 </div>
-
-              `,
-
+              `
                 )
-
                 .join("");
-
             }
 
 
@@ -2600,12 +2547,14 @@
                   this.classList.add("active");
                   selectedUserType = this.dataset.type;
                   displayTestAccounts();
-                  const registerLink = document.getElementById("registerText");
+                  const registerLink = document.getElementById("registerLink");
                   if (registerLink) {
                     if (selectedUserType === "profissional") {
-                      registerLink.innerHTML = 'Ainda n�o tem conta? <a href="formu.html">Cadastre-se como Profissional</a>';
+                      registerLink.href = "/formu.html";
+                      registerLink.textContent = "Cadastre-se como Profissional";
                     } else {
-                      registerLink.innerHTML = 'Ainda n�o tem conta? <a href="cadastroem.html">Cadastre-se como Empresa</a>';
+                      registerLink.href = "/cadastroem.html";
+                      registerLink.textContent = "Cadastre-se como Empresa";
                     }
                   }
                 });
@@ -2669,84 +2618,60 @@
             // Submit do formulário
             document
               .getElementById("loginForm")
-
-              .addEventListener("submit", async function (e) {
+              .addEventListener("submit", function (e) {
                 e.preventDefault();
 
                 const email = document.getElementById("email").value.trim();
                 const senha = document.getElementById("password").value;
+
+                console.log("=== TENTATIVA DE LOGIN ===");
+                console.log("Email:", email);
+                console.log("Tipo de usuário:", selectedUserType);
 
                 // Limpar erros anteriores
                 clearError(document.getElementById("email"));
                 clearError(document.getElementById("password"));
                 document.getElementById("alertError").style.display = "none";
 
-                // Valida��es
+                // Validações
                 let hasError = false;
 
                 if (!email) {
-                  showError(document.getElementById("email"), "E-mail � obrigat�rio");
+                  showError(document.getElementById("email"), "E-mail é obrigatório");
                   hasError = true;
                 } else if (!document.getElementById("email").validity.valid) {
-                  showError(document.getElementById("email"), "E-mail inv�lido");
+                  showError(document.getElementById("email"), "E-mail inválido");
                   hasError = true;
                 }
 
                 if (!senha) {
                   showError(
                     document.getElementById("password"),
-                    "Senha � obrigat�ria",
-                  );
-                  hasError = true;
-                } else if (senha.length < 6) {
-                  showError(
-                    document.getElementById("password"),
-                    "Senha deve ter pelo menos 6 caracteres",
+                    "Senha é obrigatória",
                   );
                   hasError = true;
                 }
 
                 if (hasError) return;
 
-                // Fazer requisi��o para API
-                const endpoint = selectedUserType === "profissional"
-                  ? "http://localhost:3000/api/login"
-                  : "http://localhost:3000/api/login/empresa";
+                // Autenticar usando localStorage
+                const resultado = db.authenticate(email, senha, selectedUserType);
+                
+                console.log("Resultado da autenticação:", resultado);
 
-                try {
-                  const response = await fetch(endpoint, {
-                    method: "POST",
-                    headers: {
-                      "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ email, senha }),
-                  });
+                if (resultado.success) {
+                  showAlert(
+                    "success",
+                    "Login realizado com sucesso!",
+                  );
 
-                  const resultado = await response.json();
-
-                  if (resultado.ok) {
-                    showAlert(
-                      "success",
-                      "Login realizado com sucesso! Redirecionando...",
-                    );
-
-                    // Salvar token e dados do usuário
-                    localStorage.setItem("token", resultado.token);
-                    const userData = resultado.usuario || resultado.empresa;
-                    localStorage.setItem("usuarioLogado", JSON.stringify(userData));
-                    // Salvar sessão padronizada
-                    db.saveSession({ user: userData, userType: userData.tipo || "profissional" });
-
-                    // Redirecionar ap�s 1 segundo
-                    setTimeout(() => {
-                      window.location.href = "/";
-                    }, 1000);
-                  } else {
-                    showAlert("error", resultado.erro || "Erro no login");
-                  }
-              } catch (error) {
-                showAlert("error", "Erro ao conectar com servidor");
-              }
+                  // Exibir painel de perfil
+                  setTimeout(() => {
+                    exibirPainelPerfil(resultado.user);
+                  }, 500);
+                } else {
+                  showAlert("error", resultado.message || "Erro no login");
+                }
             });
     </script>
   </body>

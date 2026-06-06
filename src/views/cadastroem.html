@@ -357,28 +357,55 @@
           if (f && !validateField(f)) valid = false;
         }
         if (!valid) return;
+        
         const formData = {
+          id: Date.now(),
           nome: document.getElementById("nome").value,
           cnpj: document.getElementById("cnpj").value,
           email: document.getElementById("email").value,
           telefone: document.getElementById("telefone").value,
           senha: document.getElementById("senha").value,
           endereco: document.getElementById("endereco").value,
-          setor: document.getElementById("setor").value
+          setor: document.getElementById("setor").value,
+          created_at: new Date().toISOString()
         };
+
+        // Salvar no localStorage
         try {
-          const r = await fetch("/api/empresas", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData)
-          });
-          const result = await r.json();
-          if (result.ok) {
-            alert("Empresa cadastrada com sucesso!");
-            window.location.href = "/login";
-          } else alert("Erro: " + result.erro);
+          const STORAGE_KEY = "fastwork_users";
+          const db = JSON.parse(localStorage.getItem(STORAGE_KEY)) || { profissionais: [], empresas: [] };
+          
+          console.log("=== CADASTRO DE EMPRESA ===");
+          console.log("Dados do formulário:", formData);
+          console.log("Banco antes:", db);
+          
+          // Verificar se email já existe
+          const emailExists = db.empresas.some(e => e.email === formData.email);
+          if (emailExists) {
+            alert("Este email já está cadastrado!");
+            console.warn("Email duplicado:", formData.email);
+            return;
+          }
+          
+          // Verificar se CNPJ já existe
+          const cnpjExists = db.empresas.some(e => e.cnpj === formData.cnpj);
+          if (cnpjExists) {
+            alert("Este CNPJ já está cadastrado!");
+            console.warn("CNPJ duplicado:", formData.cnpj);
+            return;
+          }
+          
+          db.empresas.push(formData);
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
+          
+          console.log("Banco depois:", db);
+          console.log("localStorage atualizado com sucesso!");
+          
+          alert("Empresa cadastrada com sucesso! Faça login para continuar.");
+          window.location.href = "/login";
         } catch (err) {
-          alert("Erro ao enviar formulário");
+          console.error("Erro ao salvar cadastro:", err);
+          alert("Erro ao processar cadastro");
         }
       });
     </script>

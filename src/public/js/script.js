@@ -79,7 +79,7 @@ function criarGaleriaServicos() {
 
     // Adicionar classes e atributos
     servicoDiv.className = "servico";
-    link.href = "/contrato_new.html";
+    link.href = "./src/views/contrato_new.html";
     link.target = "_blank";
     img.src = servico.img;
     img.alt = servico.nome;
