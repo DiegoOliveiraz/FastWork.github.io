@@ -155,7 +155,7 @@
       <ul class="nav flex-column">
         <li class="nav-item">
           <a class="nav-link active" href="#overview">
-            <i class="bi bi-house"></i> Vis�o Geral
+            <i class="bi bi-house"></i> Visão Geral
           </a>
         </li>
 
@@ -173,7 +173,7 @@
 
         <li class="nav-item">
           <a class="nav-link" href="#users">
-            <i class="bi bi-people"></i> Usu�rios
+            <i class="bi bi-people"></i> Usuários
           </a>
         </li>
 
@@ -211,9 +211,9 @@
           <div class="col-md-10">
             <h3 id="userName">Carregando...</h3>
 
-            <p id="userType" class="mb-0">Tipo de usu�rio</p>
+            <p id="userType" class="mb-0">Tipo de usuário</p>
 
-            <small id="lastLogin">�ltimo login: Carregando...</small>
+            <small id="lastLogin">Último login: Carregando...</small>
           </div>
         </div>
       </div>
@@ -229,7 +229,7 @@
 
             <h5 id="totalUsers">0</h5>
 
-            <p class="text-muted">Total de Usu�rios</p>
+            <p class="text-muted">Total de Usuários</p>
           </div>
         </div>
 
@@ -241,7 +241,7 @@
 
             <h5 id="activeUsers">0</h5>
 
-            <p class="text-muted">Usu�rios Ativos</p>
+            <p class="text-muted">Usuários Ativos</p>
           </div>
         </div>
 
@@ -265,7 +265,7 @@
 
             <h5 id="totalJobs">10</h5>
 
-            <p class="text-muted">Vagas Dispon�veis</p>
+            <p class="text-muted">Vagas Disponíveis</p>
           </div>
         </div>
       </div>
@@ -323,10 +323,10 @@
 
         <div class="row mt-3">
           <div class="col-md-6">
-            <h6>Cita��es Motivacionais</h6>
+            <h6>Citações Motivacionais</h6>
 
             <button class="btn btn-warning w-100" onclick="testarAPicitacao()">
-              <i class="bi bi-chat-quote"></i> Obter Cita��o
+              <i class="bi bi-chat-quote"></i> Obter Citação
             </button>
 
             <div
@@ -394,11 +394,11 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">
-            <i class="bi bi-devices"></i> Sess�es Ativas em Outros Dispositivos
+            <i class="bi bi-devices"></i> Sessões Ativas em Outros Dispositivos
           </h5>
 
           <p class="text-muted">
-            Gerencie suas sess�es ativas em diferentes dispositivos
+            Gerencie suas sessões ativas em diferentes dispositivos
           </p>
 
           <div id="activeSessionsList"></div>
@@ -408,14 +408,14 @@
               class="btn btn-outline-warning"
               onclick="atualizarSessoesAtivas()"
             >
-              <i class="bi bi-arrow-clockwise"></i> Atualizar Sess�es
+              <i class="bi bi-arrow-clockwise"></i> Atualizar Sessões
             </button>
 
             <button
               class="btn btn-outline-danger"
               onclick="encerrarTodasSessoes()"
             >
-              <i class="bi bi-power"></i> Encerrar Todas as Outras Sess�es
+              <i class="bi bi-power"></i> Encerrar Todas as Outras Sessões
             </button>
           </div>
         </div>
@@ -437,13 +437,13 @@
         console.log("Dashboard carregando...");
 
         setTimeout(() => {
-          console.log("Verificando autentica��o...");
+          console.log("Verificando autenticação...");
 
           if (typeof authSystem === "undefined") {
-            console.error("Sistema de autentica��o n�o encontrado");
+            console.error("Sistema de autenticação não encontrado");
 
             alert(
-              "Sistema de autentica��o n�o carregou. Redirecionando para login.",
+              "Sistema de autenticação não carregou. Redirecionando para login.",
             );
 
             window.location.href = "/login";
@@ -452,16 +452,16 @@
           }
 
           if (!authSystem.isAuthenticated()) {
-            console.log("Usu�rio n�o autenticado");
+            console.log("Usuário não autenticado");
 
-            alert("Voc� precisa estar logado para acessar o dashboard");
+            alert("Você precisa estar logado para acessar o dashboard");
 
             window.location.href = "/login";
 
             return;
           }
 
-          console.log("Usu�rio autenticado, carregando dashboard...");
+          console.log("Usuário autenticado, carregando dashboard...");
 
           carregarDadosUsuario();
 
@@ -471,7 +471,7 @@
         }, 1000);
       });
 
-      // Carregar dados do usu�rio
+      // Carregar dados do usuário
 
       function carregarDadosUsuario() {
         const user = authSystem.getCurrentUser();
@@ -487,7 +487,7 @@
           const lastLogin = new Date(user.lastLogin).toLocaleString("pt-BR");
 
           document.getElementById("lastLogin").textContent =
-            `�ltimo login: ${lastLogin}`;
+            `Último login: ${lastLogin}`;
         } else {
           document.getElementById("lastLogin").textContent = "Primeiro login";
         }
@@ -502,7 +502,7 @@
           localStorage.getItem("fastwork_sessoes") || "[]",
         );
 
-        // Estat�sticas
+        // Estatisticas
 
         document.getElementById("totalUsers").textContent = users.length;
 
@@ -514,7 +514,7 @@
           (u) => u.type === "empresa",
         ).length;
 
-        // Lista de usu�rios
+        // Lista de usuarios
 
         const usersList = document.getElementById("usersList");
 
@@ -540,7 +540,7 @@
           )
           .join("");
 
-        // Lista de sess�es
+        // Lista de sessões
 
         const sessãonsList = document.getElementById("sessãonsList");
 
@@ -559,7 +559,7 @@
 
                     <div class="mb-2 p-2 bg-light rounded">
 
-                        <small><strong>${user ? user.name : "Usu�rio n�o encontrado"}</strong></small><br>
+                        <small><strong>${user ? user.name : "Usuário não encontrado"}</strong></small><br>
 
                         <small class="text-muted">Expira em: ${expires}</small>
 
@@ -591,7 +591,7 @@
 
                     <strong>CEP:</strong> ${resultado.data.cep}<br>
 
-                    <strong>Endere�o:</strong> ${resultado.data.logradouro}<br>
+                    <strong>Endereço:</strong> ${resultado.data.logradouro}<br>
 
                     <strong>Bairro:</strong> ${resultado.data.bairro}<br>
 
@@ -653,7 +653,7 @@
         if (resultado.success) {
           resultDiv.innerHTML = `
 
-                    <strong>? Cita��o:</strong><br>
+                    <strong>? Citação:</strong><br>
 
                     <em>"${resultado.data.content}"</em><br>
 
@@ -739,17 +739,17 @@
       function limparDados() {
         if (
           confirm(
-            "Tem certeza que deseja limpar todos os dados? Esta a��o n�o pode ser desfeita.",
+            "Tem certeza que deseja limpar todos os dados? Esta ação não pode ser desfeita.",
           )
         ) {
           localStorage.removeItem("fastwork_users");
 
-          localStorage.removeItem("fastwork_sessãons");
+          localStorage.removeItem("fastwork_sessões");
 
           localStorage.removeItem("fastwork_sessãon_token");
 
           alert(
-            "Dados limpos com sucesso! Voc� ser� redirecionado para a p�gina de login.",
+            "Dados limpos com sucesso! Você será redirecionado para a página de login.",
           );
 
           window.location.href = "/login";
@@ -762,14 +762,14 @@
         }
       }
 
-      // Gerenciar sess�es ativas
+      // Gerenciar sessões ativas
 
       function atualizarSessoesAtivas() {
         const sessãoesList = document.getElementById("activeSessionsList");
 
         if (!authSystem.isAuthenticated()) {
           sessãoesList.innerHTML =
-            '<p class="text-muted">Fa�a login para ver suas sess�es ativas</p>';
+            '<p class="text-muted">Faça login para ver suas sessões ativas</p>';
 
           return;
         }
@@ -788,7 +788,7 @@
         sessãoes.forEach((sessão, index) => {
           const badgeClass = sessão.isCurrent ? "bg-success" : "bg-secondary";
 
-          const badgeText = sessão.isCurrent ? "Sess�o Atual" : "Remoto";
+          const badgeText = sessão.isCurrent ? "Sessão Atual" : "Remoto";
 
           html += `
 
@@ -826,11 +826,11 @@
 
                                         <strong>Navegador:</strong> ${sessão.device.browser}<br>
 
-                                        <strong>Resolu��o:</strong> ${sessão.device.screen}<br>
+                                        <strong>Resolução:</strong> ${sessão.device.screen}<br>
 
                                         <strong>Login:</strong> ${sessão.createdAt}<br>
 
-                                        <strong>�ltima Atividade:</strong> ${sessão.lastActivity}
+                                        <strong>ultima Atividade:</strong> ${sessão.lastActivity}
 
                                         ${sessão.rememberDevice ? '<br><i class="bi bi-check-circle text-success"></i> Dispositivo Lembrado' : ""}
 
@@ -872,21 +872,21 @@
 
           atualizarSessoesAtivas();
 
-          alert("Sess�o encerrada com sucesso!");
+          alert("Sessão encerrada com sucesso!");
         }
       }
 
       function encerrarTodasSessoes() {
         if (
           confirm(
-            "Tem certeza que deseja encerrar todas as outras sess�es? Isso desconectar� este usu�rio de todos os outros dispositivos.",
+            "Tem certeza que deseja encerrar todas as outras sessões? Isso desconectar este usuário de todos os outros dispositivos.",
           )
         ) {
           authSystem.terminateAllOtherSessions();
 
           atualizarSessoesAtivas();
 
-          alert("Todas as outras sess�es foram encerradas com sucesso!");
+          alert("Todas as outras sessões foram encerradas com sucesso!");
         }
       }
     </script>
