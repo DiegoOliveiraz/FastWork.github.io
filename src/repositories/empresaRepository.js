@@ -2,74 +2,57 @@ import sql from '../database/db.js';
 
 const empresaRepository = {
   async readAll() {
-    return await sql`SELECT * FROM empresas WHERE ativo = true ORDER BY data_cadastro DESC`;
+    return await sql`
+      SELECT e.*, u.nm_usuario, u.ds_email, u.ds_telefone, u.st_ativo
+      FROM empresas e
+      JOIN usuarios u ON u.id_usuario = e.id_usuario
+      WHERE u.st_ativo = true
+      ORDER BY e.dt_criacao DESC
+    `;
   },
 
-  async readById(id) {
+  async readById(id_empresa) {
     const [empresa] = await sql`
-      SELECT * FROM empresas WHERE id = ${id} AND ativo = true
+      SELECT e.*, u.nm_usuario, u.ds_email, u.ds_telefone, u.st_ativo
+      FROM empresas e
+      JOIN usuarios u ON u.id_usuario = e.id_usuario
+      WHERE e.id_empresa = ${id_empresa} AND u.st_ativo = true
     `;
     return empresa;
   },
 
-  async emailExiste(email) {
-    const [row] = await sql`
-      SELECT 1 FROM empresas WHERE lower(email) = lower(${email}) AND ativo = true
-    `;
-    return !!row;
-  },
-
-  async cnpjExiste(cnpj) {
-    const [row] = await sql`
-      SELECT 1 FROM empresas WHERE cnpj = ${cnpj} AND ativo = true
-    `;
-    return !!row;
-  },
-
-  async buscaPorEmail(email) {
+  async readByIdUsuario(id_usuario) {
     const [empresa] = await sql`
-      SELECT * FROM empresas WHERE lower(email) = lower(${email})
+      SELECT * FROM empresas WHERE id_usuario = ${id_usuario}
     `;
     return empresa;
   },
 
-  async create(empresa) {
-    const id = `emp_${Date.now()}`;
-    const { nome, cnpj, email, telefone, senha, endereco, setor } = empresa;
-
-    const [novaEmpresa] = await sql`
-      INSERT INTO empresas (id, nome, cnpj, email, telefone, senha, endereco, setor)
-      VALUES (${id}, ${nome}, ${cnpj}, ${email}, ${telefone}, ${senha}, ${endereco}, ${setor})
-      RETURNING *
-    `;
-    return novaEmpresa;
+  async cnpjExiste(ds_cnpj) {
+    const [row] = await sql`SELECT 1 FROM empresas WHERE ds_cnpj = ${ds_cnpj}`;
+    return !!row;
   },
 
-  async update(id, dados) {
-    const { nome, cnpj, email, telefone, senha, endereco, setor } = dados;
+  async update(id_empresa, dados) {
+    const {
+      nm_fantasia, nm_razao_social, ds_setor, ds_site,
+      ds_endereco, ds_cidade, ds_estado, ds_descricao,
+    } = dados;
 
     const [atualizada] = await sql`
       UPDATE empresas SET
-        nome     = COALESCE(${nome ?? null}, nome),
-        cnpj     = COALESCE(${cnpj ?? null}, cnpj),
-        email    = COALESCE(${email ?? null}, email),
-        telefone = COALESCE(${telefone ?? null}, telefone),
-        senha    = COALESCE(${senha ?? null}, senha),
-        endereco = COALESCE(${endereco ?? null}, endereco),
-        setor    = COALESCE(${setor ?? null}, setor)
-      WHERE id = ${id}
+        nm_fantasia     = COALESCE(${nm_fantasia ?? null}, nm_fantasia),
+        nm_razao_social = COALESCE(${nm_razao_social ?? null}, nm_razao_social),
+        ds_setor        = COALESCE(${ds_setor ?? null}, ds_setor),
+        ds_site         = COALESCE(${ds_site ?? null}, ds_site),
+        ds_endereco     = COALESCE(${ds_endereco ?? null}, ds_endereco),
+        ds_cidade       = COALESCE(${ds_cidade ?? null}, ds_cidade),
+        ds_estado       = COALESCE(${ds_estado ?? null}, ds_estado),
+        ds_descricao    = COALESCE(${ds_descricao ?? null}, ds_descricao)
+      WHERE id_empresa = ${id_empresa}
       RETURNING *
     `;
-    if (!atualizada) return null;
-    const { senha: _senha, ...dadosSemSenha } = atualizada;
-    return dadosSemSenha;
-  },
-
-  async deactivate(id) {
-    const [row] = await sql`
-      UPDATE empresas SET ativo = false WHERE id = ${id} RETURNING id
-    `;
-    return !!row;
+    return atualizada;
   },
 };
 

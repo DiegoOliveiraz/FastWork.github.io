@@ -1,55 +1,80 @@
-import empresaRepository from "../repositories/empresaRepository.js";
-import authMiddleware from "../middlewares/authMiddleware.js";
+import sql from '../database/db.js';
+import usuarioRepository from '../repositories/usuarioRepository.js';
+import empresaRepository from '../repositories/empresaRepository.js';
+import authMiddleware from '../middlewares/authMiddleware.js';
 import bcrypt from 'bcryptjs';
 
 export async function cadastrarEmpresa(req, res) {
   try {
-    const { nome, cnpj, email, telefone, senha, endereco, setor } = req.body;
+    const {
+      nm_usuario, ds_email, ds_senha, ds_telefone,
+      ds_cnpj, nm_fantasia, nm_razao_social, ds_setor, ds_site,
+      ds_endereco, ds_cidade, ds_estado, ds_descricao, st_aceite_termos,
+    } = req.body;
 
-    if (!nome || !cnpj || !email || !telefone || !senha) {
+    if (!nm_usuario || !ds_email || !ds_senha || !ds_telefone || !ds_cnpj) {
       return res.status(400).json({
         ok: false,
         erro: "Campos obrigatórios não preenchidos",
       });
     }
 
-    if (await empresaRepository.emailExiste(email)) {
+    if (await usuarioRepository.emailExiste(ds_email)) {
       return res.status(400).json({
         ok: false,
         erro: "Email já cadastrado",
       });
     }
 
-    if (await empresaRepository.cnpjExiste(cnpj)) {
+    if (await empresaRepository.cnpjExiste(ds_cnpj)) {
       return res.status(400).json({
         ok: false,
         erro: "CNPJ já cadastrado",
       });
     }
 
-    if (!validarCNPJ(cnpj)) {
+    if (!validarCNPJ(ds_cnpj)) {
       return res.status(400).json({
         ok: false,
         erro: "CNPJ inválido",
       });
     }
 
-    const senhaCriptografada = bcrypt.hashSync(senha, 10);
+    const ds_senha_hash = bcrypt.hashSync(ds_senha, 10);
 
-    const novaEmpresa = await empresaRepository.create({
-      nome,
-      cnpj,
-      email,
-      telefone,
-      senha: senhaCriptografada,
-      endereco,
-      setor,
-    });
+    // Mesmo padrão do cadastro de profissional: usuarios + empresas
+    // gravados atomicamente numa única query via CTE.
+    const [novaEmpresa] = await sql`
+      WITH novo_usuario AS (
+        INSERT INTO usuarios (nm_usuario, ds_email, ds_senha, ds_telefone, tp_usuario)
+        VALUES (${nm_usuario}, ${ds_email}, ${ds_senha_hash}, ${ds_telefone}, 'empresa')
+        RETURNING id_usuario, nm_usuario, ds_email
+      )
+      INSERT INTO empresas (
+        id_usuario, ds_cnpj, nm_fantasia, nm_razao_social, ds_setor, ds_site,
+        ds_endereco, ds_cidade, ds_estado, ds_descricao, st_aceite_termos
+      )
+      SELECT
+        novo_usuario.id_usuario,
+        ${ds_cnpj}, ${nm_fantasia ?? null}, ${nm_razao_social ?? null}, ${ds_setor ?? null}, ${ds_site ?? null},
+        ${ds_endereco ?? null}, ${ds_cidade ?? null}, ${ds_estado ?? null}, ${ds_descricao ?? null}, ${st_aceite_termos ?? false}
+      FROM novo_usuario
+      RETURNING
+        id_empresa, id_usuario,
+        (SELECT nm_usuario FROM novo_usuario) AS nm_usuario,
+        (SELECT ds_email FROM novo_usuario) AS ds_email
+    `;
 
     res.status(201).json({
       ok: true,
       msg: "Empresa cadastrada com sucesso",
-      empresa: { id: novaEmpresa.id, nome: novaEmpresa.nome, email: novaEmpresa.email, tipo: "empresa" }
+      empresa: {
+        id_usuario: novaEmpresa.id_usuario,
+        id_empresa: novaEmpresa.id_empresa,
+        nm_usuario: novaEmpresa.nm_usuario,
+        ds_email: novaEmpresa.ds_email,
+        tp_usuario: "empresa",
+      }
     });
   } catch (erro) {
     console.error('Erro ao cadastrar empresa:', erro);
@@ -59,44 +84,48 @@ export async function cadastrarEmpresa(req, res) {
 
 export async function loginEmpresa(req, res) {
   try {
-    const { email, senha } = req.body;
+    const { ds_email, ds_senha } = req.body;
 
-    if (!email || !senha) {
+    if (!ds_email || !ds_senha) {
       return res.status(400).json({
         ok: false,
         erro: "Email e senha são obrigatórios"
       });
     }
 
-    const empresa = await empresaRepository.buscaPorEmail(email);
-    if (!empresa) {
+    const usuario = await usuarioRepository.buscaPorEmail(ds_email);
+    if (!usuario || usuario.tp_usuario !== 'empresa') {
       return res.status(401).json({
         ok: false,
         erro: "Credenciais inválidas"
       });
     }
 
-    if (!empresa.ativo) {
+    if (!usuario.st_ativo) {
       return res.status(401).json({
         ok: false,
         erro: "Empresa desativada"
       });
     }
 
-    if (!bcrypt.compareSync(senha, empresa.senha)) {
+    if (!bcrypt.compareSync(ds_senha, usuario.ds_senha)) {
       return res.status(401).json({
         ok: false,
         erro: "Credenciais inválidas"
       });
     }
 
-    const token = authMiddleware.gerarToken({ id: empresa.id, email: empresa.email, tipo: "empresa" });
+    const token = authMiddleware.gerarToken({
+      id_usuario: usuario.id_usuario,
+      ds_email: usuario.ds_email,
+      tp_usuario: "empresa",
+    });
 
     res.json({
       ok: true,
       msg: "Login realizado com sucesso",
       token,
-      empresa: { id: empresa.id, nome: empresa.nome, email: empresa.email, tipo: "empresa" }
+      empresa: { id_usuario: usuario.id_usuario, nm_usuario: usuario.nm_usuario, ds_email: usuario.ds_email, tp_usuario: "empresa" }
     });
   } catch (erro) {
     console.error('Erro ao fazer login da empresa:', erro);
@@ -108,10 +137,10 @@ export async function listarEmpresas(req, res) {
   try {
     const empresas = await empresaRepository.readAll();
     const lista = empresas.map(e => ({
-      id: e.id,
-      nome: e.nome,
-      email: e.email,
-      setor: e.setor
+      id_empresa: e.id_empresa,
+      nm_usuario: e.nm_usuario,
+      ds_email: e.ds_email,
+      ds_setor: e.ds_setor,
     }));
     res.json({ ok: true, empresas: lista });
   } catch (erro) {
@@ -126,7 +155,7 @@ export async function obterEmpresa(req, res) {
     if (!empresa) {
       return res.status(404).json({ ok: false, erro: "Empresa não encontrada" });
     }
-    const { senha, ...dados } = empresa;
+    const { ds_senha, ...dados } = empresa;
     res.json({ ok: true, empresa: dados });
   } catch (erro) {
     console.error('Erro ao obter empresa:', erro);
@@ -136,21 +165,29 @@ export async function obterEmpresa(req, res) {
 
 export async function atualizarEmpresa(req, res) {
   try {
-    const { id } = req.params;
-    const { nome, cnpj, email, telefone, senha, endereco, setor } = req.body;
+    const { id } = req.params; // id_empresa
+    const {
+      nm_usuario, ds_email, ds_senha, ds_telefone,
+      nm_fantasia, nm_razao_social, ds_setor, ds_site,
+      ds_endereco, ds_cidade, ds_estado, ds_descricao,
+    } = req.body;
 
     const empresa = await empresaRepository.readById(id);
     if (!empresa) {
       return res.status(404).json({ ok: false, erro: "Empresa não encontrada" });
     }
 
-    const dadosAtualizados = { nome, cnpj, email, telefone, endereco, setor };
-    if (senha) {
-      dadosAtualizados.senha = bcrypt.hashSync(senha, 10);
+    const dadosUsuario = { nm_usuario, ds_email, ds_telefone };
+    if (ds_senha) {
+      dadosUsuario.ds_senha = bcrypt.hashSync(ds_senha, 10);
     }
+    await usuarioRepository.update(empresa.id_usuario, dadosUsuario);
 
-    const atualizado = await empresaRepository.update(id, dadosAtualizados);
-    res.json({ ok: true, msg: "Empresa atualizada", empresa: atualizado });
+    const atualizada = await empresaRepository.update(id, {
+      nm_fantasia, nm_razao_social, ds_setor, ds_site, ds_endereco, ds_cidade, ds_estado, ds_descricao,
+    });
+
+    res.json({ ok: true, msg: "Empresa atualizada", empresa: atualizada });
   } catch (erro) {
     console.error('Erro ao atualizar empresa:', erro);
     res.status(500).json({ ok: false, erro: 'Erro interno ao atualizar empresa' });
@@ -159,12 +196,12 @@ export async function atualizarEmpresa(req, res) {
 
 export async function deletarEmpresa(req, res) {
   try {
-    const { id } = req.params;
+    const { id } = req.params; // id_empresa
     const empresa = await empresaRepository.readById(id);
     if (!empresa) {
       return res.status(404).json({ ok: false, erro: "Empresa não encontrada" });
     }
-    await empresaRepository.deactivate(id);
+    await usuarioRepository.deactivate(empresa.id_usuario);
     res.json({ ok: true, msg: "Empresa desativada" });
   } catch (erro) {
     console.error('Erro ao deletar empresa:', erro);
