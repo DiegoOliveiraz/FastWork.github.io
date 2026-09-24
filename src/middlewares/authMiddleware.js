@@ -1,6 +1,12 @@
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'segredo_padrao_123';
+if (!process.env.JWT_SECRET) {
+  throw new Error(
+    'JWT_SECRET não definida. Configure essa variável de ambiente (localmente no .env, e na Vercel em Environment Variables) com uma chave forte e aleatória.'
+  );
+}
+
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const authMiddleware = {
   gerarToken(payload) {

@@ -1,14 +1,13 @@
-import pg from "pg";
+import { neon } from '@neondatabase/serverless';
 
-export async function connPG() {
-    const pool = new pg.Pool({
-        host:       process.env.PGHOST,
-        database:   process.env.PGDATABASE,
-        user:       process.env.PGUSER,
-        password:   process.env.PGPASSWORD,
-    })
-    const conn = await pool.connect()
-    return conn
+if (!process.env.DATABASE_URL) {
+  throw new Error(
+    'DATABASE_URL não definida. Copie a connection string do painel do Neon (Dashboard > Connection Details) e configure a env var DATABASE_URL.'
+  );
 }
+
+// `neon()` cria um cliente HTTP sem estado — ideal para funções serverless
+// (Vercel), porque não mantém conexão TCP aberta entre invocações.
+const sql = neon(process.env.DATABASE_URL);
 
 export default sql;

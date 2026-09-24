@@ -33,8 +33,6 @@
     "cors": "^2.8.6",
     "express": "^5.2.1",
     "fs": "^0.0.1-security",
-    "jsonwebtoken": "^9.0.3",
-    "mssql": "^12.7.2",
-    "pg": "^8.23.0"
+    "jsonwebtoken": "^9.0.3"
   }
 }

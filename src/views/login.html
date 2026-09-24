@@ -38,7 +38,7 @@
         <div class="text-center mb-4">
           <p class="text-primary text-uppercase fw-semibold mb-2">Acesso</p>
           <h1 class="display-6 fw-bold mb-2">Entre na sua conta</h1>
-          <p class="text-white-50 mb-0">Use uma conta de teste ou entre com seus dados cadastrados.</p>
+          <p class="text-white-50 mb-0">Entre com seus dados cadastrados.</p>
         </div>
 
         <div id="cardLogin" class="card bg-black border-primary shadow-lg">
@@ -68,17 +68,10 @@
                 <input type="password" class="form-control" id="senha" required placeholder="Digite sua senha" />
                 <div class="invalid-feedback">Informe sua senha.</div>
               </div>
-              <button type="submit" class="btn btn-primary w-100 btn-lg mb-4">
+              <button type="submit" class="btn btn-primary w-100 btn-lg mb-4" id="btnEntrar">
                 <i class="bi bi-box-arrow-in-right"></i> Entrar
               </button>
             </form>
-
-            <div class="border border-primary rounded-3 p-3 mb-4">
-              <h2 class="h6 text-primary mb-3"><i class="bi bi-key-fill"></i> Contas de teste</h2>
-              <div id="contasTeste"></div>
-              <p class="small text-white-50 text-center mb-0 mt-2">Clique em uma conta para preencher automaticamente
-              </p>
-            </div>
 
             <p class="text-center mb-0">
               Ainda não tem conta?
@@ -105,53 +98,11 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    const STORAGE_KEY = "fastwork_users";
+    // Sessão real: guarda o token JWT devolvido pela API + os dados do usuário/empresa.
     const SESSION_KEY = "fastwork_session";
-
-    // Contas de exemplo, criadas só na primeira vez que a página roda
-    function seedDB() {
-      if (localStorage.getItem(STORAGE_KEY)) return;
-      const exemplo = {
-        profissionais: [
-          { id: 1, nome: "João Silva", email: "joao@email.com", senha: "123456", profissao: "Pedreiro", telefone: "(11) 98765-4321" },
-        ],
-        empresas: [
-          { id: 1, nomeFantasia: "ABC Construções", email: "contato@abc.com", senha: "123456", cnpj: "12.345.678/0001-90" },
-        ],
-      };
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(exemplo));
-    }
-
-    function getDB() {
-      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || { profissionais: [], empresas: [] };
-    }
 
     function tipoSelecionado() {
       return document.getElementById("tipoEmpresa").checked ? "empresa" : "profissional";
-    }
-
-    function mostrarContasTeste() {
-      const tipo = tipoSelecionado();
-      const lista = tipo === "empresa" ? getDB().empresas : getDB().profissionais;
-      const container = document.getElementById("contasTeste");
-
-      if (!lista.length) {
-        container.innerHTML = `<p class="small text-warning mb-0">Nenhuma conta cadastrada ainda.</p>`;
-        return;
-      }
-
-      container.innerHTML = lista.map(u => `
-        <button type="button" class="list-group-item list-group-item-action bg-black text-light border-primary mb-2"
-          onclick="preencherLogin('${u.email}', '${u.senha}')">
-          <strong>${u.nome || u.nomeFantasia}</strong><br>
-          <span class="small text-white-50">${u.email} · senha: ${u.senha}</span>
-        </button>
-      `).join("");
-    }
-
-    function preencherLogin(email, senha) {
-      document.getElementById("email").value = email;
-      document.getElementById("senha").value = senha;
     }
 
     function mostrarAlerta(tipo, msg) {
@@ -163,24 +114,19 @@
       el.classList.remove("d-none");
     }
 
-    function exibirPerfil(user, tipo) {
+    function exibirPerfil(usuario, tipo) {
       document.getElementById("cardLogin").classList.add("d-none");
       document.getElementById("cardPerfil").classList.remove("d-none");
 
-      const nomeExibido = user.nome || user.nomeFantasia;
+      const nomeExibido = usuario.nm_usuario || "";
       document.getElementById("avatarPerfil").textContent = nomeExibido.charAt(0).toUpperCase();
       document.getElementById("nomePerfil").textContent = nomeExibido;
       document.getElementById("tipoPerfil").textContent = tipo === "empresa" ? "Empresa" : "Profissional";
 
-      const campos = tipo === "empresa"
-        ? [["E-mail", user.email], ["CNPJ", user.cnpj]]
-        : [["E-mail", user.email], ["Profissão", user.profissao], ["Telefone", user.telefone]];
-
-      document.getElementById("infoPerfil").innerHTML = campos
-        .filter(([, valor]) => valor)
-        .map(([label, valor]) => `<li class="list-group-item bg-black text-light border-primary d-flex justify-content-between">
-            <span class="text-white-50">${label}</span><span>${valor}</span>
-          </li>`).join("");
+      document.getElementById("infoPerfil").innerHTML = `
+        <li class="list-group-item bg-black text-light border-primary d-flex justify-content-between">
+          <span class="text-white-50">E-mail</span><span>${usuario.ds_email || ""}</span>
+        </li>`;
     }
 
     function sair() {
@@ -190,12 +136,8 @@
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-      seedDB();
-      mostrarContasTeste();
-
       document.querySelectorAll('input[name="tipo"]').forEach((radio) => {
         radio.addEventListener("change", () => {
-          mostrarContasTeste();
           const link = document.getElementById("linkCadastro");
           if (tipoSelecionado() === "empresa") {
             link.href = "cadastroem.html";
@@ -208,10 +150,10 @@
       });
 
       const sessao = JSON.parse(localStorage.getItem(SESSION_KEY) || "null");
-      if (sessao) exibirPerfil(sessao.user, sessao.tipo);
+      if (sessao) exibirPerfil(sessao.usuario, sessao.tipo);
     });
 
-    document.getElementById("formLogin").addEventListener("submit", (e) => {
+    document.getElementById("formLogin").addEventListener("submit", async (e) => {
       e.preventDefault();
       e.stopPropagation();
       const form = e.target;
@@ -221,20 +163,36 @@
         return;
       }
 
-      const email = document.getElementById("email").value.trim();
-      const senha = document.getElementById("senha").value;
+      const ds_email = document.getElementById("email").value.trim();
+      const ds_senha = document.getElementById("senha").value;
       const tipo = tipoSelecionado();
-      const lista = tipo === "empresa" ? getDB().empresas : getDB().profissionais;
-      const user = lista.find((u) => u.email === email && u.senha === senha);
+      const endpoint = tipo === "empresa" ? "/api/login/empresa" : "/api/login";
 
-      if (!user) {
-        mostrarAlerta("erro", "E-mail ou senha incorretos.");
-        return;
+      const btn = document.getElementById("btnEntrar");
+      btn.disabled = true;
+
+      try {
+        const resposta = await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ds_email, ds_senha }),
+        });
+        const data = await resposta.json();
+
+        if (!resposta.ok || !data.ok) {
+          mostrarAlerta("erro", data.erro || "E-mail ou senha incorretos.");
+          return;
+        }
+
+        const usuario = data.usuario || data.empresa;
+        localStorage.setItem(SESSION_KEY, JSON.stringify({ token: data.token, usuario, tipo }));
+        mostrarAlerta("sucesso", "Login realizado com sucesso!");
+        setTimeout(() => exibirPerfil(usuario, tipo), 400);
+      } catch (erro) {
+        mostrarAlerta("erro", "Não foi possível conectar ao servidor. Tente novamente.");
+      } finally {
+        btn.disabled = false;
       }
-
-      localStorage.setItem(SESSION_KEY, JSON.stringify({ user, tipo }));
-      mostrarAlerta("sucesso", "Login realizado com sucesso!");
-      setTimeout(() => exibirPerfil(user, tipo), 400);
     });
   </script>
 </body>
