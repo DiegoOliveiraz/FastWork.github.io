@@ -1,61 +1,76 @@
-import empresas from '../database/empresas.json' with { type: 'json'};
-import fs from 'fs';
-import path from 'path';
+import sql from '../database/db.js';
 
 const empresaRepository = {
-    readAll() {
-        return empresas.filter(e => e.ativo);
-    },
+  async readAll() {
+    return await sql`SELECT * FROM empresas WHERE ativo = true ORDER BY data_cadastro DESC`;
+  },
 
-    readById(id) {
-        return empresas.find(e => e.id === id && e.ativo);
-    },
+  async readById(id) {
+    const [empresa] = await sql`
+      SELECT * FROM empresas WHERE id = ${id} AND ativo = true
+    `;
+    return empresa;
+  },
 
-    emailExiste(email) {
-        return empresas.some(e => e.email.toLowerCase() === email.toLowerCase() && e.ativo);
-    },
+  async emailExiste(email) {
+    const [row] = await sql`
+      SELECT 1 FROM empresas WHERE lower(email) = lower(${email}) AND ativo = true
+    `;
+    return !!row;
+  },
 
-    cnpjExiste(cnpj) {
-        return empresas.some(e => e.cnpj === cnpj && e.ativo);
-    },
+  async cnpjExiste(cnpj) {
+    const [row] = await sql`
+      SELECT 1 FROM empresas WHERE cnpj = ${cnpj} AND ativo = true
+    `;
+    return !!row;
+  },
 
-    buscaPorEmail(email) {
-        return empresas.find(e => e.email.toLowerCase() === email.toLowerCase());
-    },
+  async buscaPorEmail(email) {
+    const [empresa] = await sql`
+      SELECT * FROM empresas WHERE lower(email) = lower(${email})
+    `;
+    return empresa;
+  },
 
-    create(empresa) {
-        const novaEmpresa = {
-            id: `emp_${Date.now()}`,
-            ...empresa,
-            dataCadastro: new Date().toISOString(),
-            ativo: true
-        };
-        empresas.push(novaEmpresa);
-        this.salvarEmArquivo();
-        return novaEmpresa;
-    },
+  async create(empresa) {
+    const id = `emp_${Date.now()}`;
+    const { nome, cnpj, email, telefone, senha, endereco, setor } = empresa;
 
-    update(id, dados) {
-        const indice = empresas.findIndex(e => e.id === id);
-        if (indice === -1) return null;
-        empresas[indice] = { ...empresas[indice], ...dados };
-        this.salvarEmArquivo();
-        const { senha, ...dadosSemSenha } = empresas[indice];
-        return dadosSemSenha;
-    },
+    const [novaEmpresa] = await sql`
+      INSERT INTO empresas (id, nome, cnpj, email, telefone, senha, endereco, setor)
+      VALUES (${id}, ${nome}, ${cnpj}, ${email}, ${telefone}, ${senha}, ${endereco}, ${setor})
+      RETURNING *
+    `;
+    return novaEmpresa;
+  },
 
-    deactivate(id) {
-        const indice = empresas.findIndex(e => e.id === id);
-        if (indice === -1) return false;
-        empresas[indice].ativo = false;
-        this.salvarEmArquivo();
-        return true;
-    },
+  async update(id, dados) {
+    const { nome, cnpj, email, telefone, senha, endereco, setor } = dados;
 
-    salvarEmArquivo() {
-        const caminhoDb = path.join(process.cwd(), 'src', 'database', 'empresas.json');
-        fs.writeFileSync(caminhoDb, JSON.stringify(empresas, null, 2));
-    }
+    const [atualizada] = await sql`
+      UPDATE empresas SET
+        nome     = COALESCE(${nome ?? null}, nome),
+        cnpj     = COALESCE(${cnpj ?? null}, cnpj),
+        email    = COALESCE(${email ?? null}, email),
+        telefone = COALESCE(${telefone ?? null}, telefone),
+        senha    = COALESCE(${senha ?? null}, senha),
+        endereco = COALESCE(${endereco ?? null}, endereco),
+        setor    = COALESCE(${setor ?? null}, setor)
+      WHERE id = ${id}
+      RETURNING *
+    `;
+    if (!atualizada) return null;
+    const { senha: _senha, ...dadosSemSenha } = atualizada;
+    return dadosSemSenha;
+  },
+
+  async deactivate(id) {
+    const [row] = await sql`
+      UPDATE empresas SET ativo = false WHERE id = ${id} RETURNING id
+    `;
+    return !!row;
+  },
 };
 
 export default empresaRepository;
