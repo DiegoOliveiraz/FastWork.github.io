@@ -1,4 +1,4 @@
-import sql from '../database/db.js';
+import sql from "../database/db.js";
 
 const profissionalRepository = {
   async readAll() {
@@ -30,8 +30,16 @@ const profissionalRepository = {
 
   async update(id_profissional, dados) {
     const {
-      ds_logradouro, ds_cidade, ds_estado, ds_cep, ds_profissao,
-      ds_resumo, ds_linkedin, nr_experiencia, ds_habilidades, st_disponibilidade,
+      ds_logradouro,
+      ds_cidade,
+      ds_estado,
+      ds_cep,
+      ds_profissao,
+      ds_resumo,
+      ds_linkedin,
+      nr_experiencia,
+      ds_habilidades,
+      st_disponibilidade,
     } = dados;
 
     const [atualizado] = await sql`
@@ -51,6 +59,67 @@ const profissionalRepository = {
       RETURNING *
     `;
     return atualizado;
+  },
+  async readPaginated({ profissao, cidade, disponivel, limit, offset }) {
+    const profissionais = await sql`
+    SELECT
+      p.id_profissional,
+      p.id_usuario,
+      p.ds_profissao,
+      p.ds_cidade,
+      p.ds_estado,
+      p.nr_experiencia,
+      p.ds_habilidades,
+      p.st_disponibilidade,
+      p.dt_criacao,
+      u.nm_usuario,
+      u.ds_email,
+      u.ds_telefone
+    FROM profissionais p
+    INNER JOIN usuarios u
+      ON u.id_usuario = p.id_usuario
+    WHERE u.st_ativo = true
+      AND (
+        ${profissao}::text IS NULL
+        OR p.ds_profissao ILIKE '%' || ${profissao} || '%'
+      )
+      AND (
+      ${cidade}::text IS NULL
+        OR p.ds_cidade ILIKE '%' || ${cidade} || '%'
+      )
+      AND (
+        ${disponivel}::boolean IS NULL
+        OR p.st_disponibilidade = ${disponivel}::boolean
+      )
+    ORDER BY p.dt_criacao DESC, p.id_profissional DESC
+    LIMIT ${limit}
+    OFFSET ${offset}  
+    `;
+
+    const [{ total }] = await sql`
+    SELECT COUNT(*) AS total
+    FROM profissionais p
+    INNER JOIN usuarios u
+      ON u.id_usuario = p.id_usuario
+    WHERE u.st_ativo = true
+      AND (
+        ${profissao}::text IS NULL
+        OR p.ds_profissao ILIKE '%' || ${profissao} || '%'
+      )
+      AND (
+      ${cidade}::text IS NULL
+        OR p.ds_cidade ILIKE '%' || ${cidade} || '%'
+      )
+      AND (
+        ${disponivel}::boolean IS NULL
+        OR p.st_disponibilidade = ${disponivel}::boolean
+      )
+    `;
+
+    return {
+      profissionais,
+      total: Number(total),
+    };
   },
 };
 

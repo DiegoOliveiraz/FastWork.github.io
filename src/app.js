@@ -33,5 +33,6 @@ app.get('/Dev.html', (req, res) => res.sendFile(path.join(__dirname, 'views', 'D
 // app.get('/validacao.html', (req, res) => res.sendFile(path.join(__dirname, 'views', 'validacao.html')));
 
 app.use((req, res) => res.status(404).send('Página não encontrada'));
+app,use("/api/profissionais", profissionalRoutes)
 
 export default app;
