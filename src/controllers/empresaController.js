@@ -210,32 +210,15 @@ export async function deletarEmpresa(req, res) {
 }
 
 function validarCNPJ(cnpj) {
-  const numeros = cnpj.replace(/\D/g, "");
-  if (numeros.length !== 14) return false;
-
-  let tamanho = numeros.length - 2;
-  let numeros_verificacao = numeros.substring(tamanho);
-  let nums = numeros.substring(0, tamanho);
-  nums = nums.split("").map((el) => Number(el));
-
-  let soma = 0;
-  let pos = 0;
-  for (let i = tamanho - 7; i <= 1; i++) {
-    soma += nums[pos++] * i;
-  }
-  let resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
-  if (resultado !== Number(numeros_verificacao[0])) return false;
-
-  tamanho = tamanho + 1;
-  nums = nums.join("") + resultado;
-  nums = nums.split("").map((el) => Number(el));
-  soma = 0;
-  pos = 0;
-  for (let i = tamanho - 7; i <= 1; i++) {
-    soma += nums[pos++] * i;
-  }
-  resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
-  if (resultado !== Number(numeros_verificacao[1])) return false;
-
-  return true;
+  const n = cnpj.replace(/\D/g, "");
+  if (n.length !== 14 || /^(\d)\1+$/.test(n)) return false;
+  const calc = (base) => {
+    let peso = base.length - 7, soma = 0;
+    for (const d of base) { soma += Number(d) * peso--; if (peso < 2) peso = 9; }
+    const r = soma % 11;
+    return r < 2 ? 0 : 11 - r;
+  };
+  const d1 = calc(n.slice(0, 12));
+  const d2 = calc(n.slice(0, 12) + d1);
+  return d1 === Number(n[12]) && d2 === Number(n[13]);
 }
