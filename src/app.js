@@ -28,6 +28,7 @@ app.get('/empregos.html', (req, res) => res.sendFile(path.join(__dirname, 'views
 app.get('/sobre.html', (req, res) => res.sendFile(path.join(__dirname, 'views', 'sobre.html')));
 app.get('/ajuda.html', (req, res) => res.sendFile(path.join(__dirname, 'views', 'ajuda.html')));
 app.get('/Dev.html', (req, res) => res.sendFile(path.join(__dirname, 'views', 'Dev.html')));
+app.get('/login.html', (req, res) => res.redirect('/login'))
 // Removida a rota de '/validacao.html': o arquivo não existe em src/views,
 // então essa rota dava erro. Se você criar essa view, é só adicionar de volta:
 // app.get('/validacao.html', (req, res) => res.sendFile(path.join(__dirname, 'views', 'validacao.html')));
