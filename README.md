@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://diegooliveiraz.github.io/FastWork.github.io/src/public/images/icons8-instagram-logo-500.png" width="60" alt="FastWork Logo" style="display:none"/>
+<img src="https://diegooliveiraz.github.io/FastWork.github.io/src/public/images/icons8-instagram-logo-500.png" alt="FastWork Logo" width="90" />
 
 # ⚡ FastWork
 
@@ -10,10 +10,13 @@
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.2-7952B3?logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
-[![Licença](https://img.shields.io/badge/licença-acadêmica-blue)](./LICENSE)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-5-7952B3?logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
+[![Node.js](https://img.shields.io/badge/Node.js-Express-339933?logo=nodedotjs&logoColor=white)](https://expressjs.com/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon-4169E1?logo=postgresql&logoColor=white)](https://neon.tech/)
+[![Vercel](https://img.shields.io/badge/deploy-Vercel-000000?logo=vercel&logoColor=white)](https://vercel.com/)
+[![SUS](https://img.shields.io/badge/SUS-73,97%20(Bom)-brightgreen)](#-avaliação-de-usabilidade-sus)
 
-[🌐 Acessar o site](https://diegooliveiraz.github.io/FastWork.github.io/) · [📋 Ver documentação](#documentação) · [🐛 Reportar problema](https://github.com/DiegoOliveiraz/FastWork.github.io/issues)
+[🌐 Acessar o site](https://diegooliveiraz.github.io/FastWork.github.io/) · [📋 Documentação](#-documentação-acadêmica) · [🐛 Reportar problema](https://github.com/DiegoOliveiraz/FastWork.github.io/issues)
 
 </div>
 
@@ -21,51 +24,69 @@
 
 ## 📌 Sobre o projeto
 
-O **FastWork** é uma plataforma digital hiperlocal desenvolvida para conectar trabalhadores autônomos e contratantes no mercado informal da região de Volta Redonda, RJ.
+O **FastWork** é uma plataforma digital hiperlocal que conecta trabalhadores autônomos e contratantes no mercado informal de **Volta Redonda, RJ**.
 
-O projeto nasce de uma realidade concreta: o Brasil tem uma das maiores taxas de informalidade do mundo, mas faltam ferramentas que promovam **transparência, confiança e agilidade** nessas relações de trabalho. O FastWork resolve isso com uma interface simples, direta e focada na experiência do usuário.
+O Brasil tem uma das maiores taxas de informalidade do mundo, mas faltam ferramentas que tragam **transparência, confiança e agilidade** para essas relações de trabalho. O FastWork responde a isso com uma interface minimalista, catálogo aberto e foco na comunidade local.
 
-> *"A plataforma atua como um facilitador digital de indicações locais — você muito provavelmente conhece quem vai contratar."*
+> *A plataforma atua como um facilitador digital de indicações locais: você muito provavelmente conhece quem vai contratar.*
+
+**Objetivo geral:** desenvolver um protótipo de plataforma digital que facilite a interação entre contratantes e prestadores de serviços informais, promovendo transparência, segurança e eficiência.
 
 ### Por que o FastWork é diferente?
 
-| Critério | GetNinjas | FastWork |
-|---|---|---|
-| Alcance | Nacional | Hiperlocal — Volta Redonda |
-| Modelo de contato | Compra de leads (moedas) | Catálogo aberto e direto |
-| Fator confiança | Usuários desconhecidos | Comunidade local |
-| Fomento econômico | Plataforma nacional | Circula a economia regional |
-| Barreira de entrada | Alta | Baixa — interface minimalista |
+| Critério            | GetNinjas                | FastWork                    |
+| ------------------- | ------------------------ | --------------------------- |
+| Alcance             | Nacional                 | Hiperlocal (Volta Redonda)  |
+| Modelo de contato   | Compra de leads (moedas) | Catálogo aberto e direto    |
+| Fator confiança     | Usuários desconhecidos   | Comunidade local            |
+| Fomento econômico   | Plataforma nacional      | Circula a economia regional |
+| Barreira de entrada | Alta                     | Baixa (interface simples)   |
+
+---
+
+## 🆕 Atualizações desta versão
+
+| Área | O que mudou |
+| ---- | ----------- |
+| **Gestão** | Projeto revisitado sob **Scrum**: 4 Sprints entre 10/08/2026 e 28/09/2026, Product Backlog priorizado e quadro Kanban no GitHub Projects |
+| **Back-end** | API em **Node.js + Express** (CORS e configuração via variáveis de ambiente), preparada para deploy serverless na **Vercel** |
+| **Banco de dados** | **PostgreSQL hospedado na Neon**, acessado pelo back-end via `pg` e `@neondatabase/serverless` |
+| **Segurança** | Dependências `bcryptjs` (hash de senha) e `jsonwebtoken` (JWT) incluídas no back-end |
+| **Modelagem** | Modelo de Entidades e Relacionamentos (ER) elaborado como base do banco relacional |
+| **Requisitos** | Backlog formal: RF-001 a RF-010, RNF-001 a RNF-003 e 5 histórias de usuário. **RF-006** e **RF-008** evoluíram para a versão 1.1 |
+| **Contratação** | Fluxos de candidatura (RF-009) e oferta direta (RF-010), com geração de contrato eletrônico |
+| **Validação** | Teste SUS com 46 usuários: média **73,97 (Bom)** |
+
+> ⚠️ **Estado real da integração:** a interface avaliada pelos usuários ainda é um front-end estático que persiste dados no `localStorage`. O back-end e o banco estão vinculados ao projeto, mas a migração completa dos fluxos da interface para eles é a **próxima etapa** (veja o [Roadmap](#️-roadmap)).
 
 ---
 
 ## ✨ Funcionalidades
 
-- **Cadastro de Profissional** — perfil completo com área de atuação, habilidades, experiência e disponibilidade
-- **Cadastro de Empresa** — conta corporativa com dados de CNPJ e setor de atuação
-- **Login com sessão persistente** — autenticação com identificação automática do tipo de conta
-- **Catálogo de serviços** — grid responsivo com categorias (Pedreiro, Babá, Eletricista, Faxineira, Garçom, etc.)
-- **Listagem de profissionais** — cards com foto, profissão, experiência, localização e disponibilidade
-- **Busca de vagas** — empresas publicam oportunidades; profissionais se candidatam
-- **Preenchimento automático de endereço** — integração com a API pública [ViaCEP](https://viacep.com.br/)
-- **Dicas de carreira** — conteúdo informativo para profissionais melhorarem sua visibilidade
-- **Modo claro/escuro** — alternância de tema na interface
-- **Design responsivo** — adaptado para mobile (320px+), tablet e desktop
+- **Cadastro de Profissional** (RF-001): dados pessoais, área de atuação, habilidades, experiência e disponibilidade
+- **Cadastro de Empresa** (RF-002): dados corporativos (CNPJ, razão social) e acesso
+- **Login com sessão** (RF-003): profissionais e empresas, com e-mail e senha
+- **Endereço automático por CEP** (RF-004): integração com a API [ViaCEP](https://viacep.com.br/)
+- **Catálogo de categorias** (RF-005): grid responsivo (Pedreiro, Babá, Eletricista, Faxineira, Garçom etc.)
+- **Listagem de profissionais** (RF-006, v1.1): cards com foto, profissão, experiência, localização e disponibilidade
+- **Busca de vagas** (RF-007): vagas ativas visíveis ao trabalhador autenticado
+- **Publicação de vagas** (RF-008, v1.1): empresas autenticadas publicam oportunidades
+- **Candidatura pelo trabalhador** (RF-009): carta de apresentação e contrato eletrônico em caso de aceite
+- **Oferta direta pela empresa** (RF-010): carta de oferta e contrato eletrônico em caso de aceite
+- **Dicas de carreira**: conteúdo para o profissional melhorar sua visibilidade
+- **Modo claro/escuro** e **design responsivo** (mobile 320px+, tablet 768px+, desktop 1024px+)
 
 ---
 
-## 🛠️ Tecnologias
+## 🏗️ Arquitetura
 
-| Tecnologia | Uso no projeto |
-|---|---|
-| **HTML5** | Estrutura e arquitetura da informação das páginas |
-| **CSS3** | Estilização, responsividade e identidade visual minimalista |
-| **JavaScript (vanilla)** | Interatividade, validação de formulários, lógica de sessão |
-| **Bootstrap 5.3.2** | Sistema de grid, componentes de UI, menu responsivo |
-| **localStorage** | Persistência de dados de usuários e sessões (MVP) |
-| **API ViaCEP** | Preenchimento automático de endereço por CEP |
-
-> ⚠️ **Nota técnica:** Esta versão é um protótipo de front-end estático. Senhas são armazenadas em texto simples no `localStorage` — **não recomendado para produção**. O próximo passo é implementar um back-end com banco de dados relacional, hashing de senhas e autenticação via JWT.
+| Camada | Tecnologia | Função |
+| ------ | ---------- | ------ |
+| **Front-end** | HTML5, CSS3, JavaScript, Bootstrap 5 | Interface, navegação e responsividade; base do protótipo avaliado no SUS |
+| **Back-end** | Node.js, Express, CORS, dotenv | API da plataforma, configurada por variáveis de ambiente |
+| **Banco de dados** | PostgreSQL (Neon), `pg`, `@neondatabase/serverless` | Persistência relacional |
+| **Autenticação** | `bcryptjs`, `jsonwebtoken` | Hash de senhas e tokens JWT |
+| **Publicação** | GitHub Pages (front-end), Vercel (API serverless) | Hospedagem e deploy |
 
 ---
 
@@ -79,93 +100,140 @@ FastWork.github.io/
 ├── sobre.html                  # Sobre o projeto
 ├── ajuda.html                  # Suporte
 ├── Dev.html                    # Comunidade de desenvolvedores
+├── package.json                # Dependências do back-end
+├── .env.example                # Modelo de variáveis de ambiente
 └── src/
     ├── views/
     │   ├── cadastroem.html     # Cadastro de empresa
     │   ├── contrato.html       # Listagem de profissionais
-    │   ├── publicidade.html
-    │   ├── investidores.html
-    │   ├── fornecedores.html
-    │   ├── legal.html
-    │   ├── seguranca.html
-    │   ├── politicas.html
-    │   ├── cookies.html
-    │   └── acessibilidade.html
+    │   └── ...                 # Páginas institucionais e legais
     └── public/
-        └── images/             # Imagens e ícones do projeto
+        └── images/             # Imagens e ícones
 ```
 
 ---
 
-## 🚀 Como executar localmente
+## 🚀 Como executar
 
-Nenhuma dependência de instalação. O projeto é 100% estático.
+### Front-end (protótipo estático)
 
 ```bash
-# Clone o repositório
 git clone https://github.com/DiegoOliveiraz/FastWork.github.io.git
-
-# Acesse a pasta
 cd FastWork.github.io
 
-# Abra no navegador
-# Basta abrir o arquivo index.html diretamente, ou usar um servidor local:
+# Opção 1: abrir o index.html direto no navegador
+# Opção 2: servidor local
 npx serve .
 ```
+
+### Back-end (API)
+
+```bash
+# Instalar dependências
+npm install
+
+# Criar o arquivo de ambiente a partir do modelo
+cp .env.example .env
+```
+
+Preencha o `.env` com:
+
+| Variável | Descrição |
+| -------- | --------- |
+| String de conexão do banco | URL do PostgreSQL na Neon |
+| Segredo do JWT | Chave usada para assinar os tokens |
+| Porta do servidor | Porta local da API |
+
+> Os nomes exatos das variáveis estão no arquivo `.env.example`. **Nunca** faça commit do `.env`.
 
 ---
 
 ## 📊 Avaliação de usabilidade (SUS)
 
-O protótipo foi avaliado pelo método **System Usability Scale (SUS)** com **46 usuários**.
+Aplicada via Google Forms (10 perguntas padrão, escala Likert), de forma remota e assíncrona, durante a Sprint 3 (05/09 a 19/09/2026), com amostragem por conveniência.
 
 | Métrica | Resultado |
-|---|---|
+| ------- | --------- |
+| Avaliações | **46 usuários** |
 | Pontuação média | **73,97 / 100** |
 | Classificação | ✅ **Bom** |
-| Principal ponto forte | Facilidade de uso e transmissão de confiança |
-| Principal gargalo | Inconsistência na navegação entre telas (22% dos usuários) |
+| Ponto forte | Facilidade de uso e confiança na plataforma |
+| Principal gargalo | Inconsistência de navegação entre telas (**22%** dos usuários), causada pela falta de padronização visual |
+
+---
+
+## 🔄 Gestão ágil (Scrum)
+
+**Metodologia combinada:** Design Thinking (concepção) + Scrum (gestão) + SUS (avaliação).
+
+| Sprint | Período | Objetivo | Principais entregas |
+| ------ | ------- | -------- | ------------------- |
+| **1** | 10/08 – 21/08/2026 | Empatia e definição | Pesquisa com 35 participantes, requisitos, regras de negócio, Product Backlog inicial |
+| **2** | 22/08 – 04/09/2026 | Ideação e prototipagem | Arquitetura de informação, telas, início do front-end |
+| **3** | 05/09 – 19/09/2026 | Desenvolvimento, teste e validação | Protótipo funcional e teste SUS |
+| **4** | 20/09 – 28/09/2026 | Refinamento e finalização | Revisão de requisitos (RF-006 e RF-008 v1.1), refinamento do backlog, documentação |
+
+**Ferramentas:** GitHub Projects (Kanban: A Fazer, Em Andamento, Concluído), Google Forms (SUS), mensagens e chamadas rápidas (alinhamentos).
+
+**Priorização:** prioridade **Alta** para os fluxos centrais (cadastro, autenticação, catálogo, vagas, candidatura e contrato) e para os 3 requisitos não funcionais. Prioridade **Média** para o preenchimento de endereço por CEP (RF-004).
 
 ---
 
 ## 👥 Equipe
 
-| Integrante | Papel |
-|---|---|
-| **Douglas de Almeida Santos** | Gerente de Projeto (Líder) |
-| **Diego Davi de Oliveira Dias** | Analista de Requisitos |
-| **Gabriel Elias Moreira da Silva Araujo** | Desenvolvedor Front-End |
-| **Gustavo Gonçalves de Souza** | Designer UI/UX |
-| **Lucas Menegaz Rivero** | Especialista em Qualidade (QA) |
+| Integrante | Função no projeto | Papel no Scrum |
+| ---------- | ----------------- | -------------- |
+| **Diego Davi de Oliveira Dias** | Analista de Requisitos | Product Owner |
+| **Gabriel Elias Moreira da Silva Araujo** | Gerente de Projeto e Desenvolvedor Front-End | Scrum Master e Time de Desenvolvimento |
+| **Gustavo Gonçalves de Souza** | Designer UI/UX | Time de Desenvolvimento |
+| **Lucas Menegaz Rivero** | Especialista em Qualidade (QA) | Time de Desenvolvimento |
 
 ---
 
 ## 🗺️ Roadmap
 
-- [x] Protótipo estático com HTML, CSS e JS
-- [x] Cadastro e autenticação via localStorage
+**Concluído**
+
+- [x] Protótipo estático com HTML, CSS e JavaScript
+- [x] Cadastro e autenticação simulados via `localStorage`
 - [x] Catálogo de serviços e listagem de profissionais
 - [x] Integração com ViaCEP
-- [x] Avaliação de usabilidade (SUS)
-- [ ] Desenvolvimento de back-end (Node.js / NestJS)
-- [ ] Banco de dados relacional (PostgreSQL)
-- [ ] Autenticação segura (bcrypt + JWT + HTTPS)
-- [ ] Sistema de avaliação de profissionais (estrelas + comentários)
+- [x] Fluxos de vagas, candidatura e oferta (protótipo)
+- [x] Modelo ER do banco de dados
+- [x] Avaliação de usabilidade (SUS: 73,97)
+- [x] Back-end vinculado (Node.js + Express) e banco PostgreSQL na Neon
+- [x] Revisão do backlog (RF-006 e RF-008 v1.1)
+
+**Próximas etapas**
+
+- [ ] Integrar a interface ao back-end e ao banco (remover a dependência do `localStorage`)
+- [ ] Autenticação segura nos fluxos reais: hash com bcrypt, JWT, HTTPS e proteção contra XSS/CSRF
+- [ ] Padronizar os elementos visuais entre as telas (corrigir a inconsistência de navegação apontada no SUS)
+- [ ] Validar geração e assinatura do contrato eletrônico em ambiente real (RF-009 e RF-010)
+- [ ] Sistema de avaliação de profissionais (1 a 5 estrelas e comentário)
 - [ ] Filtros avançados por categoria, localização e disponibilidade
-- [ ] Notificações de candidatura em tempo real
+- [ ] Testes de usabilidade menores a cada Sprint
 
 ---
 
-## 📄 Documentação
+## ⚠️ Limitações conhecidas
 
-Este projeto foi desenvolvido como trabalho acadêmico interdisciplinar no curso de **Sistemas de Informação — 3º período** do [UNIFOA](https://www.unifoa.edu.br/), em Volta Redonda/RJ.
+- O protótipo avaliado guarda **senhas em texto simples no `localStorage`**. Não usar com dados reais nem em produção.
+- Os fluxos de contrato eletrônico (RF-009 e RF-010) não foram validados em ambiente real.
+- A avaliação de usabilidade ficou concentrada em uma única Sprint, e por isso o problema de navegação só apareceu com as telas já prontas.
 
-**Disciplina:** Programação para Todos  
-**Professores:** Débora Amorim de Carvalho Paulo · Marcelo Passos dos Santos · Osni Augusto Souza da Silva · Rafael Iacillo Soares · Carlos Eduardo Costa Vieira  
-**Coordenador:** Carlos Eduardo Costa Vieira  
+---
+
+## 📄 Documentação acadêmica
+
+Projeto desenvolvido no curso de **Sistemas de Informação** do [UNIFOA](https://www.unifoa.edu.br/), em Volta Redonda/RJ.
+
+| Etapa | Disciplina | Documento |
+| ----- | ---------- | --------- |
+| 3º período | Programação para Todos | Documentação original do protótipo (Design Thinking) |
+| 4º período | Gerenciamento Ágil de Sistemas (Prof. Leonardo Dias da Silva) | Relatório Técnico: Aplicação da Metodologia Ágil no Projeto |
+
 **Ano:** 2026
-
-A metodologia adotada foi o **Design Thinking** (Brown, 2009), conduzido em cinco etapas: empatia, definição, ideação, prototipagem e teste.
 
 ---
 
@@ -179,6 +247,6 @@ A metodologia adotada foi o **Design Thinking** (Brown, 2009), conduzido em cinc
 
 <div align="center">
 
-© 2025–2026 FastWork · Todos os direitos reservados · Desenvolvido em Volta Redonda, RJ 🇧🇷
+© 2025–2026 FastWork · Desenvolvido em Volta Redonda, RJ 🇧🇷
 
 </div>
