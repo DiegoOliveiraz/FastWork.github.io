@@ -1,4 +1,4 @@
-REATE TABLE usuarios (
+CREATE TABLE usuarios (
   id_usuario      SERIAL PRIMARY KEY,
   nm_usuario      VARCHAR(150) NOT NULL,
   ds_email        VARCHAR(150) NOT NULL UNIQUE,
