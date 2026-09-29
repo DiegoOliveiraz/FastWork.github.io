@@ -209,10 +209,10 @@ Aplicada via Google Forms (10 perguntas padrão, escala Likert), de forma remota
 
 | Integrante                                | Função no projeto                            | Papel no Scrum                         |
 | ----------------------------------------- | -------------------------------------------- | -------------------------------------- |
-| **Diego David Oliveira Dias**             | Analista de Requisitos                       | Product Owner                          |
+| **Diego Davi de Oliveira Dias**             | Analista de Requisitos                       | Product Owner                          |
 | **Gabriel Elias Moreira da Silva Araujo** | Gerente de Projeto e Desenvolvedor Front-End | Scrum Master e Time de Desenvolvimento |
 | **Gustavo Gonçalves de Souza**            | Designer UI/UX                               | Time de Desenvolvimento                |
-| **Lucas Menegais**                        | Especialista em Qualidade (QA)               | Time de Desenvolvimento                |
+| **Lucas Menegaz**                        | Especialista em Qualidade (QA)               | Time de Desenvolvimento                |
 
 ---
 
