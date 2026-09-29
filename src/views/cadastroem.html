@@ -83,11 +83,31 @@
                 <div class="invalid-feedback">A senha deve ter pelo menos 6 caracteres.</div>
               </div>
 
-              <div class="mb-3">
-                <label for="endereco" class="form-label">Endereço</label>
-                <textarea class="form-control" id="endereco" rows="3" required minlength="10"
-                  placeholder="Digite o endereço completo"></textarea>
-                <div class="invalid-feedback">Informe o endereço completo.</div>
+              <div class="row">
+                <div class="col-md-5 mb-3">
+                  <label for="cep" class="form-label">CEP</label>
+                  <input type="text" class="form-control" id="cep" required inputmode="numeric" maxlength="9"
+                    placeholder="00000-000" />
+                  <div class="invalid-feedback">Informe um CEP válido.</div>
+                </div>
+                <div class="col-md-7 mb-3">
+                  <label for="endereco" class="form-label">Logradouro</label>
+                  <input type="text" class="form-control" id="endereco" required placeholder="Rua, avenida..." />
+                  <div class="invalid-feedback">Informe o logradouro.</div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-8 mb-3">
+                  <label for="cidade" class="form-label">Cidade</label>
+                  <input type="text" class="form-control" id="cidade" required placeholder="Digite a cidade" />
+                  <div class="invalid-feedback">Informe a cidade.</div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="estado" class="form-label">UF</label>
+                  <input type="text" class="form-control" id="estado" required maxlength="2" placeholder="RJ" />
+                  <div class="invalid-feedback">Informe a UF.</div>
+                </div>
               </div>
 
               <div class="mb-4">
@@ -114,6 +134,7 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../services/APIs.js"></script>
   <script>
     const form = document.getElementById("formEmpresa");
     const alertaErro = document.getElementById("alertaErro");
@@ -137,6 +158,27 @@
       e.target.value = v;
     });
 
+    document.getElementById("cep").addEventListener("input", (e) => {
+      const numeros = e.target.value.replace(/\D/g, "").slice(0, 8);
+      e.target.value = numeros.length > 5
+        ? `${numeros.slice(0, 5)}-${numeros.slice(5)}`
+        : numeros;
+    });
+
+    document.getElementById("cep").addEventListener("blur", async (e) => {
+      const resultado = await window.apiService.buscarCEP(e.target.value);
+      if (!resultado.success) {
+        alertaErro.textContent = resultado.message;
+        alertaErro.classList.remove("d-none");
+        return;
+      }
+
+      alertaErro.classList.add("d-none");
+      document.getElementById("endereco").value = resultado.data.logradouro || "";
+      document.getElementById("cidade").value = resultado.data.localidade || "";
+      document.getElementById("estado").value = resultado.data.uf || "";
+    });
+
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       e.stopPropagation();
@@ -154,6 +196,9 @@
         ds_telefone: document.getElementById("telefone").value,
         ds_senha: document.getElementById("senha").value,
         ds_endereco: document.getElementById("endereco").value,
+        ds_cep: document.getElementById("cep").value,
+        ds_cidade: document.getElementById("cidade").value,
+        ds_estado: document.getElementById("estado").value,
         ds_setor: document.getElementById("setor").value,
       };
 
