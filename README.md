@@ -2,7 +2,7 @@
 
 <img src="https://diegooliveiraz.github.io/FastWork.github.io/src/public/images/icons8-instagram-logo-500.png" alt="FastWork Logo" width="90" />
 
-# ⚡ FastWork
+# :zap: FastWork
 
 **Conectando profissionais e contratantes no mercado informal de Volta Redonda.**
 
@@ -14,15 +14,15 @@
 [![Node.js](https://img.shields.io/badge/Node.js-Express-339933?logo=nodedotjs&logoColor=white)](https://expressjs.com/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon-4169E1?logo=postgresql&logoColor=white)](https://neon.tech/)
 [![Vercel](https://img.shields.io/badge/deploy-Vercel-000000?logo=vercel&logoColor=white)](https://vercel.com/)
-[![SUS](https://img.shields.io/badge/SUS-73,97%20(Bom)-brightgreen)](#-avaliação-de-usabilidade-sus)
+[![SUS](https://img.shields.io/badge/SUS-73,97%20(Bom)-brightgreen)](https://github.com/DiegoOliveiraz/FastWork.github.io)
 
-[🌐 Acessar o site](https://diegooliveiraz.github.io/FastWork.github.io/) · [📋 Documentação](#-documentação-acadêmica) · [🐛 Reportar problema](https://github.com/DiegoOliveiraz/FastWork.github.io/issues)
+[:globe_with_meridians: Acessar o site](https://diegooliveiraz.github.io/FastWork.github.io/) · [:bug: Reportar problema](https://github.com/DiegoOliveiraz/FastWork.github.io/issues)
 
 </div>
 
 ---
 
-## 📌 Sobre o projeto
+## :pushpin: Sobre o projeto
 
 O **FastWork** é uma plataforma digital hiperlocal que conecta trabalhadores autônomos e contratantes no mercado informal de **Volta Redonda, RJ**.
 
@@ -30,7 +30,7 @@ O Brasil tem uma das maiores taxas de informalidade do mundo, mas faltam ferrame
 
 > *A plataforma atua como um facilitador digital de indicações locais: você muito provavelmente conhece quem vai contratar.*
 
-**Objetivo geral:** desenvolver um protótipo de plataforma digital que facilite a interação entre contratantes e prestadores de serviços informais, promovendo transparência, segurança e eficiência.
+**Objetivo geral:** desenvolver uma plataforma digital que facilite a interação entre contratantes e prestadores de serviços informais, promovendo transparência, segurança e eficiência.
 
 ### Por que o FastWork é diferente?
 
@@ -44,27 +44,28 @@ O Brasil tem uma das maiores taxas de informalidade do mundo, mas faltam ferrame
 
 ---
 
-## 🆕 Atualizações desta versão
+## :sparkles: Atualizações desta versão
 
 | Área | O que mudou |
 | ---- | ----------- |
-| **Gestão** | Projeto revisitado sob **Scrum**: 4 Sprints entre 10/08/2026 e 28/09/2026, Product Backlog priorizado e quadro Kanban no GitHub Projects |
-| **Back-end** | API em **Node.js + Express** (CORS e configuração via variáveis de ambiente), preparada para deploy serverless na **Vercel** |
-| **Banco de dados** | **PostgreSQL hospedado na Neon**, acessado pelo back-end via `pg` e `@neondatabase/serverless` |
-| **Segurança** | Dependências `bcryptjs` (hash de senha) e `jsonwebtoken` (JWT) incluídas no back-end |
-| **Modelagem** | Modelo de Entidades e Relacionamentos (ER) elaborado como base do banco relacional |
+| **Persistência** | Cadastros e dados da plataforma agora são salvos no **banco de dados PostgreSQL** (Neon). O `localStorage` deixou de ser usado como armazenamento |
+| **Back-end** | API em **Node.js + Express** (CORS e configuração via variáveis de ambiente), com deploy serverless na **Vercel** |
+| **Banco de dados** | **PostgreSQL hospedado na Neon**, acessado via `pg` e `@neondatabase/serverless` |
+| **Segurança** | Dependências `bcryptjs` (hash de senha) e `jsonwebtoken` (JWT) no back-end |
+| **Modelagem** | Modelo de Entidades e Relacionamentos (ER) como base do banco relacional |
+| **Gestão** | Projeto conduzido com **Scrum**: 4 Sprints entre 10/08/2026 e 28/09/2026, Product Backlog priorizado e Kanban no GitHub Projects |
 | **Requisitos** | Backlog formal: RF-001 a RF-010, RNF-001 a RNF-003 e 5 histórias de usuário. **RF-006** e **RF-008** evoluíram para a versão 1.1 |
-| **Contratação** | Fluxos de candidatura (RF-009) e oferta direta (RF-010), com geração de contrato eletrônico |
+| **Contratação** | Fluxos de candidatura (RF-009) e oferta direta (RF-010), com contrato eletrônico |
 | **Validação** | Teste SUS com 46 usuários: média **73,97 (Bom)** |
 
-> ⚠️ **Estado real da integração:** a interface avaliada pelos usuários ainda é um front-end estático que persiste dados no `localStorage`. O back-end e o banco estão vinculados ao projeto, mas a migração completa dos fluxos da interface para eles é a **próxima etapa** (veja o [Roadmap](#️-roadmap)).
+> :information_source: O teste SUS foi aplicado sobre a versão anterior do protótipo, ainda com dados no navegador. A nota reflete a usabilidade da interface, não a integração com o banco.
 
 ---
 
-## ✨ Funcionalidades
+## :sparkles: Funcionalidades
 
-- **Cadastro de Profissional** (RF-001): dados pessoais, área de atuação, habilidades, experiência e disponibilidade
-- **Cadastro de Empresa** (RF-002): dados corporativos (CNPJ, razão social) e acesso
+- **Cadastro de Profissional** (RF-001): dados pessoais, área de atuação, habilidades, experiência e disponibilidade, salvos no banco
+- **Cadastro de Empresa** (RF-002): dados corporativos (CNPJ, razão social) e acesso, salvos no banco
 - **Login com sessão** (RF-003): profissionais e empresas, com e-mail e senha
 - **Endereço automático por CEP** (RF-004): integração com a API [ViaCEP](https://viacep.com.br/)
 - **Catálogo de categorias** (RF-005): grid responsivo (Pedreiro, Babá, Eletricista, Faxineira, Garçom etc.)
@@ -78,19 +79,19 @@ O Brasil tem uma das maiores taxas de informalidade do mundo, mas faltam ferrame
 
 ---
 
-## 🏗️ Arquitetura
+## :building_construction: Arquitetura
 
 | Camada | Tecnologia | Função |
 | ------ | ---------- | ------ |
-| **Front-end** | HTML5, CSS3, JavaScript, Bootstrap 5 | Interface, navegação e responsividade; base do protótipo avaliado no SUS |
+| **Front-end** | HTML5, CSS3, JavaScript, Bootstrap 5 | Interface, navegação e responsividade |
 | **Back-end** | Node.js, Express, CORS, dotenv | API da plataforma, configurada por variáveis de ambiente |
-| **Banco de dados** | PostgreSQL (Neon), `pg`, `@neondatabase/serverless` | Persistência relacional |
+| **Banco de dados** | PostgreSQL (Neon), `pg`, `@neondatabase/serverless` | Persistência relacional dos cadastros e demais dados |
 | **Autenticação** | `bcryptjs`, `jsonwebtoken` | Hash de senhas e tokens JWT |
 | **Publicação** | GitHub Pages (front-end), Vercel (API serverless) | Hospedagem e deploy |
 
 ---
 
-## 📁 Estrutura do projeto
+## :file_folder: Estrutura do projeto
 
 ```
 FastWork.github.io/
@@ -113,22 +114,13 @@ FastWork.github.io/
 
 ---
 
-## 🚀 Como executar
-
-### Front-end (protótipo estático)
+## :rocket: Como executar
 
 ```bash
+# Clonar o repositório
 git clone https://github.com/DiegoOliveiraz/FastWork.github.io.git
 cd FastWork.github.io
 
-# Opção 1: abrir o index.html direto no navegador
-# Opção 2: servidor local
-npx serve .
-```
-
-### Back-end (API)
-
-```bash
 # Instalar dependências
 npm install
 
@@ -146,9 +138,11 @@ Preencha o `.env` com:
 
 > Os nomes exatos das variáveis estão no arquivo `.env.example`. **Nunca** faça commit do `.env`.
 
+Para ver só o front-end, basta abrir o `index.html` no navegador ou usar `npx serve .`.
+
 ---
 
-## 📊 Avaliação de usabilidade (SUS)
+## :bar_chart: Avaliação de usabilidade (SUS)
 
 Aplicada via Google Forms (10 perguntas padrão, escala Likert), de forma remota e assíncrona, durante a Sprint 3 (05/09 a 19/09/2026), com amostragem por conveniência.
 
@@ -156,13 +150,13 @@ Aplicada via Google Forms (10 perguntas padrão, escala Likert), de forma remota
 | ------- | --------- |
 | Avaliações | **46 usuários** |
 | Pontuação média | **73,97 / 100** |
-| Classificação | ✅ **Bom** |
+| Classificação | :white_check_mark: **Bom** |
 | Ponto forte | Facilidade de uso e confiança na plataforma |
 | Principal gargalo | Inconsistência de navegação entre telas (**22%** dos usuários), causada pela falta de padronização visual |
 
 ---
 
-## 🔄 Gestão ágil (Scrum)
+## :arrows_counterclockwise: Gestão ágil (Scrum)
 
 **Metodologia combinada:** Design Thinking (concepção) + Scrum (gestão) + SUS (avaliação).
 
@@ -179,7 +173,7 @@ Aplicada via Google Forms (10 perguntas padrão, escala Likert), de forma remota
 
 ---
 
-## 👥 Equipe
+## :busts_in_silhouette: Equipe
 
 | Integrante | Função no projeto | Papel no Scrum |
 | ---------- | ----------------- | -------------- |
@@ -190,24 +184,23 @@ Aplicada via Google Forms (10 perguntas padrão, escala Likert), de forma remota
 
 ---
 
-## 🗺️ Roadmap
+## :world_map: Roadmap
 
 **Concluído**
 
-- [x] Protótipo estático com HTML, CSS e JavaScript
-- [x] Cadastro e autenticação simulados via `localStorage`
+- [x] Protótipo com HTML, CSS e JavaScript
 - [x] Catálogo de serviços e listagem de profissionais
 - [x] Integração com ViaCEP
-- [x] Fluxos de vagas, candidatura e oferta (protótipo)
+- [x] Fluxos de vagas, candidatura e oferta
 - [x] Modelo ER do banco de dados
+- [x] Back-end em Node.js + Express
+- [x] Banco PostgreSQL na Neon com cadastros salvos no banco
 - [x] Avaliação de usabilidade (SUS: 73,97)
-- [x] Back-end vinculado (Node.js + Express) e banco PostgreSQL na Neon
 - [x] Revisão do backlog (RF-006 e RF-008 v1.1)
 
 **Próximas etapas**
 
-- [ ] Integrar a interface ao back-end e ao banco (remover a dependência do `localStorage`)
-- [ ] Autenticação segura nos fluxos reais: hash com bcrypt, JWT, HTTPS e proteção contra XSS/CSRF
+- [ ] Autenticação segura completa: hash com bcrypt, JWT, HTTPS e proteção contra XSS/CSRF
 - [ ] Padronizar os elementos visuais entre as telas (corrigir a inconsistência de navegação apontada no SUS)
 - [ ] Validar geração e assinatura do contrato eletrônico em ambiente real (RF-009 e RF-010)
 - [ ] Sistema de avaliação de profissionais (1 a 5 estrelas e comentário)
@@ -216,15 +209,7 @@ Aplicada via Google Forms (10 perguntas padrão, escala Likert), de forma remota
 
 ---
 
-## ⚠️ Limitações conhecidas
-
-- O protótipo avaliado guarda **senhas em texto simples no `localStorage`**. Não usar com dados reais nem em produção.
-- Os fluxos de contrato eletrônico (RF-009 e RF-010) não foram validados em ambiente real.
-- A avaliação de usabilidade ficou concentrada em uma única Sprint, e por isso o problema de navegação só apareceu com as telas já prontas.
-
----
-
-## 📄 Documentação acadêmica
+## :page_facing_up: Documentação acadêmica
 
 Projeto desenvolvido no curso de **Sistemas de Informação** do [UNIFOA](https://www.unifoa.edu.br/), em Volta Redonda/RJ.
 
@@ -237,16 +222,16 @@ Projeto desenvolvido no curso de **Sistemas de Informação** do [UNIFOA](https:
 
 ---
 
-## 📬 Contato
+## :incoming_envelope: Contato
 
-- 🌐 Site: [diegooliveiraz.github.io/FastWork.github.io](https://diegooliveiraz.github.io/FastWork.github.io/)
-- 📸 Instagram: [@fast_work2025.1](https://www.instagram.com/fast_work2025.1/)
-- 💼 GitHub do dev: [github.com/DiegoOliveiraz](https://github.com/DiegoOliveiraz)
+- :globe_with_meridians: Site: [diegooliveiraz.github.io/FastWork.github.io](https://diegooliveiraz.github.io/FastWork.github.io/)
+- :camera: Instagram: [@fast_work2025.1](https://www.instagram.com/fast_work2025.1/)
+- :briefcase: GitHub do dev: [github.com/DiegoOliveiraz](https://github.com/DiegoOliveiraz)
 
 ---
 
 <div align="center">
 
-© 2025–2026 FastWork · Desenvolvido em Volta Redonda, RJ 🇧🇷
+© 2025–2026 FastWork · Desenvolvido em Volta Redonda, RJ :brazil:
 
 </div>
