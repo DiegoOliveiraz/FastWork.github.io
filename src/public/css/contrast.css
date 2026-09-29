@@ -1,0 +1,22 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.card-title,
+.card-body h1,
+.card-body h2,
+.card-body h3,
+.card-body h4,
+.card-body h5,
+.card-body h6,
+.form-label {
+  color: #ffffff !important;
+}
+
+.card-body p:not(.text-white-50),
+.card-body label {
+  color: #ffffff;
+}

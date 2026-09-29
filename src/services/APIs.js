@@ -7,7 +7,9 @@ const apiService = {
     }
 
     try {
-      const resposta = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
+      const resposta = await fetch(
+        `https://viacep.com.br/ws/${cepLimpo}/json/`,
+      );
       if (!resposta.ok) {
         throw new Error("Falha na consulta do ViaCEP");
       }
@@ -19,19 +21,27 @@ const apiService = {
 
       return { success: true, data };
     } catch {
-      return { success: false, message: "Não foi possível consultar o ViaCEP." };
+      return {
+        success: false,
+        message: "Não foi possível consultar o ViaCEP.",
+      };
     }
   },
 
   async buscarUsuarioGitHub(username) {
     try {
-      const resposta = await fetch(`https://api.github.com/users/${encodeURIComponent(username)}`);
+      const resposta = await fetch(
+        `https://api.github.com/users/${encodeURIComponent(username)}`,
+      );
       if (!resposta.ok) {
         return { success: false, message: "Usuário do GitHub não encontrado." };
       }
       return { success: true, data: await resposta.json() };
     } catch {
-      return { success: false, message: "Não foi possível consultar o GitHub." };
+      return {
+        success: false,
+        message: "Não foi possível consultar o GitHub.",
+      };
     }
   },
 
@@ -51,9 +61,24 @@ const apiService = {
     return {
       success: true,
       data: [
-        { titulo: "Pedreiro", empresa: "FastWork", localizacao: "Volta Redonda, RJ", salario: "A combinar" },
-        { titulo: "Eletricista", empresa: "FastWork", localizacao: "Volta Redonda, RJ", salario: "A combinar" },
-        { titulo: "Auxiliar de manutenção", empresa: "FastWork", localizacao: "Volta Redonda, RJ", salario: "A combinar" },
+        {
+          titulo: "Pedreiro",
+          empresa: "FastWork",
+          localizacao: "Volta Redonda, RJ",
+          salario: "A combinar",
+        },
+        {
+          titulo: "Eletricista",
+          empresa: "FastWork",
+          localizacao: "Volta Redonda, RJ",
+          salario: "A combinar",
+        },
+        {
+          titulo: "Auxiliar de manutenção",
+          empresa: "FastWork",
+          localizacao: "Volta Redonda, RJ",
+          salario: "A combinar",
+        },
       ],
     };
   },
