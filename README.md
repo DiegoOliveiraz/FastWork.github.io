@@ -266,7 +266,7 @@ A metodologia apresentada no PDF combina **Design Thinking** (empatia, defini√ß√
 
 ## :incoming_envelope: Contato
 
-- :globe_with_meridians: Site: [diegooliveiraz.github.io/FastWork.github.io](https://diegooliveiraz.github.io/FastWork.github.io/)
+- :globe_with_meridians: Site: [diegooliveiraz.github.io/FastWork.github.io](https://fast-workprojects.onrender.com)
 - :camera: Instagram: [@fast_work2025.1](https://www.instagram.com/fast_work2025.1/)
 - :briefcase: GitHub do dev: [github.com/DiegoOliveiraz](https://github.com/DiegoOliveiraz)
 
