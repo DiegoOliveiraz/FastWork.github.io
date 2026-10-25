@@ -1,105 +1,92 @@
-const listaServicos = [
-  {
-    nome: "Pedreiro",
-    img: "./src/public/images/pedreiro.jpg",
-  },
-  {
-    nome: "Babá",
-    img: "./src/public/images/Babá.jpeg",
-  },
-  {
-    nome: "Cuidadora",
-    img: "./src/public/images/cudadora.jpg",
-  },
-  {
-    nome: "Faxineira",
-    img: "./src/public/images/faxineira.jpg",
-  },
-  {
-    nome: "Garçom",
-    img: "./src/public/images/Garçom.jpg",
-  },
-  {
-    nome: "Limpador de Piscina",
-    img: "./src/public/images/LDP.jpg",
-  },
-  {
-    nome: "Entregador",
-    img: "./src/public/images/entregadorcria.jpeg",
-  },
-  {
-    nome: "Pintor",
-    img: "./src/public/images/pintor.jpg",
-  },
-  {
-    nome: "Jardineiro",
-    img: "./src/public/images/corrtador de grama.jpg",
-  },
-  {
-    nome: "Marceneiro",
-    img: "./src/public/images/marceneirocria.avif",
-  },
+const servicos = [
+  { nome: "Eletricista", icone: "lightning-charge", categoria: "Casa", popular: true },
+  { nome: "Encanador", icone: "wrench", categoria: "Casa", popular: true },
+  { nome: "Pedreiro", icone: "hammer", categoria: "Casa", popular: true },
+  { nome: "Pintor", icone: "brush", categoria: "Casa", popular: true },
+  { nome: "Marceneiro", icone: "tools", categoria: "Casa" },
+  { nome: "Chaveiro", icone: "key", categoria: "Casa" },
+  { nome: "Montador de móveis", icone: "box-seam", categoria: "Casa", popular: true },
+  { nome: "Ar-condicionado", icone: "snow", categoria: "Casa" },
+  { nome: "Diarista", icone: "bucket", categoria: "Limpeza", popular: true },
+  { nome: "Jardineiro", icone: "tree", categoria: "Limpeza", popular: true },
+  { nome: "Dedetizador", icone: "bug", categoria: "Limpeza" },
+  { nome: "Piscineiro", icone: "water", categoria: "Limpeza" },
+  { nome: "Lavagem de estofados", icone: "droplet", categoria: "Limpeza" },
+  { nome: "Técnico de informática", icone: "pc-display", categoria: "Tecnologia", popular: true },
+  { nome: "Instalador de câmeras", icone: "camera-video", categoria: "Tecnologia" },
+  { nome: "Conserto de celular", icone: "phone", categoria: "Tecnologia" },
+  { nome: "Cuidador de idosos", icone: "heart-pulse", categoria: "Pessoas" },
+  { nome: "Babá", icone: "balloon-heart", categoria: "Pessoas" },
+  { nome: "Passeador de cães", icone: "heart", categoria: "Pessoas" },
+  { nome: "Professor particular", icone: "book", categoria: "Pessoas" },
+  { nome: "Freteiro", icone: "truck", categoria: "Transporte" },
+  { nome: "Mudanças", icone: "box-seam", categoria: "Transporte" },
+  { nome: "Entregador", icone: "bicycle", categoria: "Transporte" },
+  { nome: "Mecânico", icone: "gear", categoria: "Transporte" },
+  { nome: "Cabeleireiro", icone: "scissors", categoria: "Beleza e eventos" },
+  { nome: "Manicure", icone: "gem", categoria: "Beleza e eventos" },
+  { nome: "Fotógrafo", icone: "camera", categoria: "Beleza e eventos" },
+  { nome: "DJ", icone: "music-note-beamed", categoria: "Beleza e eventos" },
+  { nome: "Churrasqueiro", icone: "fire", categoria: "Beleza e eventos" },
 ];
 
-// Função para criar a galeria de serviços
-function criarGaleriaServicos() {
-  const servicosContainer = document.querySelector(".servicos-container");
+const categorias = [
+  "Populares",
+  "Casa",
+  "Limpeza",
+  "Tecnologia",
+  "Pessoas",
+  "Transporte",
+  "Beleza e eventos",
+];
 
-  if (!servicosContainer) {
-    console.warn("Container de serviços não encontrado");
+function inicializarServicos() {
+  const grid = document.getElementById("grid");
+  const chips = document.getElementById("chips");
+
+  if (!grid || !chips) {
     return;
   }
 
-  // Limpa o container antes de adicionar os novos elementos
-  servicosContainer.innerHTML = "";
+  function exibirServicos(categoria) {
+    const lista = (categoria === "Populares"
+      ? servicos.filter((servico) => servico.popular)
+      : servicos.filter((servico) => servico.categoria === categoria)
+    ).slice(0, 8);
 
-  // Determina quantos serviços mostrar baseado no tamanho da tela
-  const larguraTela = window.innerWidth;
-  let maxServicos;
-
-  if (larguraTela <= 899) {
-    maxServicos = 6;
-  } else if (larguraTela >= 899 && larguraTela <= 1119) {
-    maxServicos = 8;
-  } else {
-    maxServicos = 10;
+    grid.classList.remove("play");
+    grid.innerHTML = lista
+      .map(
+        (servico, indice) => `
+          <div class="col">
+            <a class="svc" style="--i:${indice}" href="src/views/contrato_new.html">
+              <i class="bi bi-${servico.icone}" aria-hidden="true"></i>
+              <span>${servico.nome}</span>
+            </a>
+          </div>
+        `,
+      )
+      .join("");
+    void grid.offsetWidth;
+    grid.classList.add("play");
   }
 
-  // Cria apenas a quantidade de serviços necessária
-  const servicosParaMostrar = listaServicos.slice(0, maxServicos);
-
-  // Para cada serviço selecionado, cria os elementos necessários
-  servicosParaMostrar.forEach((servico) => {
-    // Criar elementos
-    const servicoDiv = document.createElement("div");
-    const link = document.createElement("a");
-    const img = document.createElement("img");
-    const p = document.createElement("p");
-    const strong = document.createElement("strong");
-
-    // Adicionar classes e atributos
-    servicoDiv.className = "servico";
-    link.href = "./src/views/contrato_new.html";
-    link.target = "_blank";
-    img.src = servico.img;
-    img.alt = servico.nome;
-    strong.textContent = servico.nome;
-
-    // Montar a estrutura
-    p.appendChild(strong);
-    link.appendChild(img);
-    servicoDiv.appendChild(link);
-    servicoDiv.appendChild(p);
-
-    // Adicionar ao container
-    servicosContainer.appendChild(servicoDiv);
+  categorias.forEach((categoria, indice) => {
+    const botao = document.createElement("button");
+    botao.className = "chip";
+    botao.type = "button";
+    botao.textContent = categoria;
+    botao.setAttribute("aria-pressed", String(indice === 0));
+    botao.addEventListener("click", () => {
+      exibirServicos(categoria);
+      chips.querySelectorAll(".chip").forEach((item) => {
+        item.setAttribute("aria-pressed", String(item === botao));
+      });
+    });
+    chips.appendChild(botao);
   });
+
+  exibirServicos("Populares");
 }
 
-// Executar a função quando o documento estiver carregado
-document.addEventListener("DOMContentLoaded", function () {
-  criarGaleriaServicos();
-});
-
-// Atualizar a galeria quando a janela for redimensionada
-window.addEventListener("resize", criarGaleriaServicos);
+document.addEventListener("DOMContentLoaded", inicializarServicos);
