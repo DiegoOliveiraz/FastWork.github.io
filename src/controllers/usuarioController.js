@@ -3,6 +3,7 @@ import usuarioRepository from '../repositories/usuarioRepository.js';
 import profissionalRepository from '../repositories/profissionalRepository.js';
 import authMiddleware from '../middlewares/authMiddleware.js';
 import bcrypt from 'bcryptjs';
+import { isDuplicateEmailError } from '../utils/errosBanco.js';
 
 export async function cadastrarUsuario(req, res) {
   try {
@@ -13,21 +14,14 @@ export async function cadastrarUsuario(req, res) {
       st_aceite_termos, st_disponibilidade,
     } = req.body;
 
-    if (!nm_usuario || !ds_email || !ds_senha || !ds_telefone) {
-      return res.status(400).json({
-        ok: false,
-        erro: 'Campos obrigatórios não preenchidos'
-      });
-    }
-
     if (await usuarioRepository.emailExiste(ds_email)) {
-      return res.status(400).json({
+      return res.status(409).json({
         ok: false,
-        erro: 'Email já cadastrado'
+        erro: 'E-mail já cadastrado'
       });
     }
 
-    const ds_senha_hash = bcrypt.hashSync(ds_senha, 10);
+    const ds_senha_hash = await bcrypt.hash(ds_senha, 10);
 
     // Insere em usuarios e profissionais numa única query (CTE), garantindo
     // atomicidade: se qualquer uma das duas partes falhar, nada é gravado.
@@ -65,6 +59,9 @@ export async function cadastrarUsuario(req, res) {
       }
     });
   } catch (erro) {
+    if (isDuplicateEmailError(erro)) {
+      return res.status(409).json({ ok: false, erro: 'E-mail já cadastrado' });
+    }
     console.error('Erro ao cadastrar usuário:', erro);
     res.status(500).json({ ok: false, erro: 'Erro interno ao cadastrar usuário' });
   }
@@ -74,13 +71,6 @@ export async function loginUsuario(req, res) {
   try {
     const { ds_email, ds_senha } = req.body;
 
-    if (!ds_email || !ds_senha) {
-      return res.status(400).json({
-        ok: false,
-        erro: 'Email e senha são obrigatórios'
-      });
-    }
-
     const usuario = await usuarioRepository.buscaPorEmail(ds_email);
     if (!usuario || usuario.tp_usuario !== 'profissional') {
       return res.status(401).json({
@@ -89,14 +79,7 @@ export async function loginUsuario(req, res) {
       });
     }
 
-    if (!usuario.st_ativo) {
-      return res.status(401).json({
-        ok: false,
-        erro: 'Usuário desativado'
-      });
-    }
-
-    if (!bcrypt.compareSync(ds_senha, usuario.ds_senha)) {
+    if (!usuario.st_ativo || !(await bcrypt.compare(ds_senha, usuario.ds_senha))) {
       return res.status(401).json({
         ok: false,
         erro: 'Credenciais inválidas'
@@ -127,7 +110,6 @@ export async function listarUsuarios(req, res) {
     const lista = profissionais.map(p => ({
       id_profissional: p.id_profissional,
       nm_usuario: p.nm_usuario,
-      ds_email: p.ds_email,
       ds_profissao: p.ds_profissao,
     }));
     res.json({ ok: true, usuarios: lista });
@@ -167,7 +149,7 @@ export async function atualizarUsuario(req, res) {
 
     const dadosUsuario = { nm_usuario, ds_email, ds_telefone };
     if (ds_senha) {
-      dadosUsuario.ds_senha = bcrypt.hashSync(ds_senha, 10);
+      dadosUsuario.ds_senha = await bcrypt.hash(ds_senha, 10);
     }
     await usuarioRepository.update(profissional.id_usuario, dadosUsuario);
 
@@ -178,6 +160,9 @@ export async function atualizarUsuario(req, res) {
 
     res.json({ ok: true, msg: 'Usuário atualizado', usuario: atualizado });
   } catch (erro) {
+    if (isDuplicateEmailError(erro)) {
+      return res.status(409).json({ ok: false, erro: 'E-mail já cadastrado' });
+    }
     console.error('Erro ao atualizar usuário:', erro);
     res.status(500).json({ ok: false, erro: 'Erro interno ao atualizar usuário' });
   }

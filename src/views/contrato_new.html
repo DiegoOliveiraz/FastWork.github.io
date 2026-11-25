@@ -6,15 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contratação - FastWork</title>
     <link rel="shortcut icon" href="../public/images/Logo_FAVICON.png" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="../public/vendor/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="../public/vendor/bootstrap-icons/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="../public/css/contrast.css" />
-    <style>
-        body {
-            background: radial-gradient(circle at top, rgba(13, 110, 253, .22), transparent 28%), linear-gradient(180deg, #050505 0%, #0d1117 100%);
-            min-height: 100vh;
-        }
-    </style>
+    <link rel="stylesheet" href="../public/css/paginas.css" />
 </head>
 
 <body class="text-light">
@@ -26,7 +21,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="menu">
                 <ul class="navbar-nav gap-2">
                     <li class="nav-item"><a class="nav-link" href="../../index.html">Início</a></li>
-                    <li class="nav-item"><a class="nav-link" href="empregos.html">Empregos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="institucional.html?pagina=empregos">Empregos</a></li>
                     <li class="nav-item"><a class="nav-link active" href="contrato_new.html">Contratação</a></li>
                 </ul>
             </div>
@@ -49,7 +44,7 @@
                         <p class="text-white-50 mb-1">Pedreiro</p>
                         <p class="text-white-50 mb-1">Experiência: 5 anos</p>
                         <p class="text-white-50 mb-3">São Paulo, SP</p><button class="btn btn-primary w-100"
-                            onclick="alert('Contato iniciado com João Silva!')">Contratar</button>
+                            data-contratado="João Silva">Contratar</button>
                     </div>
                 </div>
             </div>
@@ -62,7 +57,7 @@
                         <p class="text-white-50 mb-1">Servente de Pedreiro</p>
                         <p class="text-white-50 mb-1">Experiência: 2 anos</p>
                         <p class="text-white-50 mb-3">Rio de Janeiro, RJ</p><button class="btn btn-primary w-100"
-                            onclick="alert('Contato iniciado com Mario Oliveira!')">Contratar</button>
+                            data-contratado="Mario Oliveira">Contratar</button>
                     </div>
                 </div>
             </div>
@@ -75,58 +70,16 @@
                         <p class="text-white-50 mb-1">Pedreiro Iniciante</p>
                         <p class="text-white-50 mb-1">Experiência: 1 ano</p>
                         <p class="text-white-50 mb-3">Belo Horizonte, MG</p><button class="btn btn-primary w-100"
-                            onclick="alert('Contato iniciado com Pedro Santos!')">Contratar</button>
+                            data-contratado="Pedro Santos">Contratar</button>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-    <footer class="bg-black border-top border-primary pt-5 pb-4 mt-auto">
-        <div class="container">
-            <div class="row gy-4">
-                <div class="col-6 col-md-3">
-                    <h5 class="text-primary">FastWork</h5><a href="sobre.html"
-                        class="d-block link-light link-opacity-75 text-decoration-none">Sobre</a><a href="empregos.html"
-                        class="d-block link-light link-opacity-75 text-decoration-none">Empregos</a>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h5 class="text-primary">Comunidades</h5><a href="Dev.html"
-                        class="d-block link-light link-opacity-75 text-decoration-none">Desenvolvedores</a><a
-                        href="publicidade.html"
-                        class="d-block link-light link-opacity-75 text-decoration-none">Publicidade</a><a
-                        href="investidores.html"
-                        class="d-block link-light link-opacity-75 text-decoration-none">Investidores</a><a
-                        href="fornecedores.html"
-                        class="d-block link-light link-opacity-75 text-decoration-none">Fornecedores</a>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h5 class="text-primary">Links úteis</h5><a href="ajuda.html"
-                        class="d-block link-light link-opacity-75 text-decoration-none">Suporte</a><a href="legal.html"
-                        class="d-block link-light link-opacity-75 text-decoration-none">Legal</a><a
-                        href="seguranca.html" class="d-block link-light link-opacity-75 text-decoration-none">Segurança
-                        e privacidade</a><a href="politicas.html"
-                        class="d-block link-light link-opacity-75 text-decoration-none">Políticas de privacidade</a><a
-                        href="cookies.html"
-                        class="d-block link-light link-opacity-75 text-decoration-none">Cookies</a><a
-                        href="acessibilidade.html"
-                        class="d-block link-light link-opacity-75 text-decoration-none">Acessibilidade</a>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h5 class="text-primary">Redes sociais</h5>
-                    <div class="d-flex gap-2"><a href="https://www.instagram.com/fast_work2025.1/" target="_blank"
-                            rel="noopener noreferrer" aria-label="Instagram do FastWork"
-                            class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-instagram"></i></a><a
-                            href="#" class="btn btn-outline-light btn-sm rounded-circle" aria-label="Facebook"><i
-                                class="bi bi-facebook"></i></a><a href="#"
-                            class="btn btn-outline-light btn-sm rounded-circle" aria-label="Twitter"><i
-                                class="bi bi-twitter-x"></i></a></div>
-                </div>
-            </div>
-            <p class="text-center text-white-50 small mt-4 pt-3 border-top border-primary mb-0">© 2025–2026 FastWork ·
-                Todos os direitos reservados</p>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <footer id="rodape" class="bg-black border-top border-primary pt-5 pb-4 mt-auto"></footer>
+    <script src="../public/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../public/js/contrato.js"></script>
+  <script src="../public/js/rodape.js"></script>
 </body>
 
 </html>

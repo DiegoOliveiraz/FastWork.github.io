@@ -55,18 +55,27 @@ function inicializarServicos() {
     ).slice(0, 8);
 
     grid.classList.remove("play");
-    grid.innerHTML = lista
-      .map(
-        (servico, indice) => `
-          <div class="col">
-            <a class="svc" style="--i:${indice}" href="src/views/contrato_new.html">
-              <i class="bi bi-${servico.icone}" aria-hidden="true"></i>
-              <span>${servico.nome}</span>
-            </a>
-          </div>
-        `,
-      )
-      .join("");
+    const cartoes = lista.map((servico, indice) => {
+      const coluna = document.createElement("div");
+      coluna.className = "col";
+
+      const link = document.createElement("a");
+      link.className = "svc";
+      link.style.setProperty("--i", String(indice)); // atraso da animação de entrada
+      link.href = "src/views/contrato_new.html";
+
+      const icone = document.createElement("i");
+      icone.className = `bi bi-${servico.icone}`;
+      icone.setAttribute("aria-hidden", "true");
+
+      const nome = document.createElement("span");
+      nome.textContent = servico.nome;
+
+      link.append(icone, nome);
+      coluna.appendChild(link);
+      return coluna;
+    });
+    grid.replaceChildren(...cartoes);
     void grid.offsetWidth;
     grid.classList.add("play");
   }

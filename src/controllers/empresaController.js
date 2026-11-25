@@ -3,6 +3,7 @@ import usuarioRepository from '../repositories/usuarioRepository.js';
 import empresaRepository from '../repositories/empresaRepository.js';
 import authMiddleware from '../middlewares/authMiddleware.js';
 import bcrypt from 'bcryptjs';
+import { isDuplicateEmailError, isUniqueViolation } from '../utils/errosBanco.js';
 
 export async function cadastrarEmpresa(req, res) {
   try {
@@ -12,22 +13,15 @@ export async function cadastrarEmpresa(req, res) {
       ds_endereco, ds_cidade, ds_estado, ds_descricao, st_aceite_termos,
     } = req.body;
 
-    if (!nm_usuario || !ds_email || !ds_senha || !ds_telefone || !ds_cnpj) {
-      return res.status(400).json({
-        ok: false,
-        erro: "Campos obrigatórios não preenchidos",
-      });
-    }
-
     if (await usuarioRepository.emailExiste(ds_email)) {
-      return res.status(400).json({
+      return res.status(409).json({
         ok: false,
-        erro: "Email já cadastrado",
+        erro: "E-mail já cadastrado",
       });
     }
 
     if (await empresaRepository.cnpjExiste(ds_cnpj)) {
-      return res.status(400).json({
+      return res.status(409).json({
         ok: false,
         erro: "CNPJ já cadastrado",
       });
@@ -36,11 +30,11 @@ export async function cadastrarEmpresa(req, res) {
     if (!validarCNPJ(ds_cnpj)) {
       return res.status(400).json({
         ok: false,
-        erro: "CNPJ inválido",
+        erro: "Dados inválidos",
       });
     }
 
-    const ds_senha_hash = bcrypt.hashSync(ds_senha, 10);
+    const ds_senha_hash = await bcrypt.hash(ds_senha, 10);
 
     // Mesmo padrão do cadastro de profissional: usuarios + empresas
     // gravados atomicamente numa única query via CTE.
@@ -77,6 +71,12 @@ export async function cadastrarEmpresa(req, res) {
       }
     });
   } catch (erro) {
+    if (isDuplicateEmailError(erro)) {
+      return res.status(409).json({ ok: false, erro: "E-mail já cadastrado" });
+    }
+    if (isUniqueViolation(erro)) {
+      return res.status(409).json({ ok: false, erro: "CNPJ já cadastrado" });
+    }
     console.error('Erro ao cadastrar empresa:', erro);
     res.status(500).json({ ok: false, erro: 'Erro interno ao cadastrar empresa' });
   }
@@ -86,13 +86,6 @@ export async function loginEmpresa(req, res) {
   try {
     const { ds_email, ds_senha } = req.body;
 
-    if (!ds_email || !ds_senha) {
-      return res.status(400).json({
-        ok: false,
-        erro: "Email e senha são obrigatórios"
-      });
-    }
-
     const usuario = await usuarioRepository.buscaPorEmail(ds_email);
     if (!usuario || usuario.tp_usuario !== 'empresa') {
       return res.status(401).json({
@@ -101,14 +94,7 @@ export async function loginEmpresa(req, res) {
       });
     }
 
-    if (!usuario.st_ativo) {
-      return res.status(401).json({
-        ok: false,
-        erro: "Empresa desativada"
-      });
-    }
-
-    if (!bcrypt.compareSync(ds_senha, usuario.ds_senha)) {
+    if (!usuario.st_ativo || !(await bcrypt.compare(ds_senha, usuario.ds_senha))) {
       return res.status(401).json({
         ok: false,
         erro: "Credenciais inválidas"
@@ -139,7 +125,6 @@ export async function listarEmpresas(req, res) {
     const lista = empresas.map(e => ({
       id_empresa: e.id_empresa,
       nm_usuario: e.nm_usuario,
-      ds_email: e.ds_email,
       ds_setor: e.ds_setor,
     }));
     res.json({ ok: true, empresas: lista });
@@ -179,7 +164,7 @@ export async function atualizarEmpresa(req, res) {
 
     const dadosUsuario = { nm_usuario, ds_email, ds_telefone };
     if (ds_senha) {
-      dadosUsuario.ds_senha = bcrypt.hashSync(ds_senha, 10);
+      dadosUsuario.ds_senha = await bcrypt.hash(ds_senha, 10);
     }
     await usuarioRepository.update(empresa.id_usuario, dadosUsuario);
 
@@ -189,6 +174,9 @@ export async function atualizarEmpresa(req, res) {
 
     res.json({ ok: true, msg: "Empresa atualizada", empresa: atualizada });
   } catch (erro) {
+    if (isDuplicateEmailError(erro)) {
+      return res.status(409).json({ ok: false, erro: "E-mail já cadastrado" });
+    }
     console.error('Erro ao atualizar empresa:', erro);
     res.status(500).json({ ok: false, erro: 'Erro interno ao atualizar empresa' });
   }

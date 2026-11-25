@@ -20,7 +20,7 @@ const authMiddleware = {
     }
     const token = authHeader.substring(7);
     try {
-      req.usuarioLogado = jwt.verify(token, JWT_SECRET);
+      req.usuarioLogado = jwt.verify(token, JWT_SECRET, { algorithms: ["HS256"] });
       next();
     } catch (e) {
       return res.status(401).json({ ok: false, erro: 'Token inválido ou expirado' });

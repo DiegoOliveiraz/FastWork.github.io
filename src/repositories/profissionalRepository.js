@@ -72,9 +72,7 @@ const profissionalRepository = {
       p.ds_habilidades,
       p.st_disponibilidade,
       p.dt_criacao,
-      u.nm_usuario,
-      u.ds_email,
-      u.ds_telefone
+      u.nm_usuario
     FROM profissionais p
     INNER JOIN usuarios u
       ON u.id_usuario = p.id_usuario
