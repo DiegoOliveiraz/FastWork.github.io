@@ -77,7 +77,7 @@ O Brasil tem uma das maiores taxas de informalidade do mundo, mas faltam ferrame
 - **Dicas de carreira**: conteúdo para o profissional melhorar sua visibilidade
 - **Modo claro/escuro** e **design responsivo** (mobile 320px+, tablet 768px+, desktop 1024px+)
 
-> ⚠️ **Nota técnica:** O repositório contém um backend funcional para usuários, profissionais e empresas, mas ainda não deve ser considerado pronto para produção. É necessário configurar `DATABASE_URL` e `JWT_SECRET`, corrigir a execução da suíte de testes, gerar cobertura, adicionar autorização por proprietário do recurso e implementar os módulos de vagas/candidaturas.
+> ⚠️ **Nota técnica:** O repositório contém um backend funcional para usuários, profissionais e empresas, mas ainda não deve ser considerado pronto para produção. É necessário configurar `DATABASE_URL` e `JWT_SECRET`, corrigir a execução da suíte de testes, gerar cobertura e implementar os módulos de vagas/candidaturas.
 
 ---
 
@@ -111,7 +111,7 @@ FastWork.github.io/
     ├── middlewares/            # Autenticação JWT
     ├── repositories/           # Consultas ao banco
     ├── routes/                 # Rotas REST
-    ├── views/                  # Páginas HTML de cadastro, login, dashboard e institucionais
+    ├── views/                  # Páginas HTML de cadastro, login, sobre e institucionais (institucional.html)
     └── public/                 # CSS, JavaScript e imagens
 ```
 
