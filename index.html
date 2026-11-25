@@ -1,126 +1,122 @@
 <!doctype html>
 <html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FastWork - Conectando profissionais e contratantes</title>
+    <link
+      rel="shortcut icon"
+      href="src/public/images/Logo_FAVICON.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="src/public/vendor/bootstrap/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="src/public/vendor/bootstrap-icons/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="src/public/css/style.css" />
+    <link rel="stylesheet" href="src/public/css/contrast.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FastWork - Conectando profissionais e contratantes</title>
-  <link rel="shortcut icon" href="src/public/images/Logo_FAVICON.png" type="image/x-icon" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link rel="stylesheet" href="src/public/css/style.css" />
-  <link rel="stylesheet" href="src/public/css/contrast.css" />
-</head>
-
-<body class="bg-dark text-light">
-
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-dark navbar-expand-lg bg-black border-bottom border-primary">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-        <img src="src/public/images/Logo_FAVICON.png" width="40" alt="Logo FastWork" />
-        <span class="fw-bold fs-4">FastWork</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="menu">
-        <ul class="navbar-nav gap-2">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Início</a></li>
-          <li class="nav-item"><a class="nav-link" href="src/views/login.html">Entrar</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <header class="container py-5">
-    <div class="row align-items-center g-4">
-      <div class="col-lg-6">
-        <h1 class="display-5 fw-bold">Conectando profissionais e contratantes</h1>
-        <p class="lead text-white-50">Encontre ou ofereça serviços na sua região de forma rápida e confiável.</p>
-        <div class="d-grid gap-3 col-lg-8">
-          <a href="src/views/cadastroem.html" class="btn btn-primary btn-lg">
-            <i class="bi bi-building"></i> Cadastrar empresa
-          </a>
-          <a href="src/views/formu.html" class="btn btn-primary btn-lg">
-            <i class="bi bi-person-plus"></i> Cadastrar profissional
-          </a>
-          <a href="src/views/login.html" class="btn btn-outline-light btn-lg">
-            <i class="bi bi-box-arrow-in-right"></i> Fazer login
-          </a>
+  <body class="bg-dark text-light">
+    <!-- NAVBAR -->
+    <nav
+      class="navbar navbar-dark navbar-expand-lg bg-black border-bottom border-primary"
+    >
+      <div class="container">
+        <a
+          class="navbar-brand d-flex align-items-center gap-2"
+          href="index.html"
+        >
+          <img
+            src="src/public/images/Logo_FAVICON.png"
+            width="40"
+            alt="Logo FastWork"
+          />
+          <span class="fw-bold fs-4">FastWork</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="menu">
+          <ul class="navbar-nav gap-2">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="src/views/login.html">Entrar</a>
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="col-lg-6 text-center">
-        <img src="https://tse3.mm.bing.net/th/id/OIP.n55Pyr_1rj8_Vbv8PAnLNwHaHa?cb=iwc2&rs=1&pid=ImgDetMain"
-          alt="Profissionais trabalhando" class="img-fluid rounded-4" />
-      </div>
-    </div>
-  </header>
+    </nav>
 
-  <!-- SERVIÇOS -->
-  <section class="block" id="servicos">
+    <!-- HERO -->
+    <header class="container py-5">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <h1 class="display-5 fw-bold">
+            Conectando profissionais e contratantes
+          </h1>
+          <p class="lead text-white-50">
+            Encontre ou ofereça serviços na sua região de forma rápida e
+            confiável.
+          </p>
+          <div class="d-grid gap-3 col-lg-8">
+            <a href="src/views/cadastroem.html" class="btn btn-primary btn-lg">
+              <i class="bi bi-building"></i> Cadastrar empresa
+            </a>
+            <a href="src/views/formu.html" class="btn btn-primary btn-lg">
+              <i class="bi bi-person-plus"></i> Cadastrar profissional
+            </a>
+            <a href="src/views/login.html" class="btn btn-outline-light btn-lg">
+              <i class="bi bi-box-arrow-in-right"></i> Fazer login
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center">
+          <img
+            src="https://tse3.mm.bing.net/th/id/OIP.n55Pyr_1rj8_Vbv8PAnLNwHaHa?cb=iwc2&rs=1&pid=ImgDetMain"
+            alt="Profissionais trabalhando"
+            class="img-fluid rounded-4"
+          />
+        </div>
+      </div>
+    </header>
+
+    <!-- SERVIÇOS -->
+    <section class="block" id="servicos">
       <div class="wrap">
         <div class="head">
           <h2>Serviços</h2>
           <a class="more" href="#grid">Ver todos</a>
         </div>
-        <div class="chips" id="chips" role="group" aria-label="Categorias"></div>
+        <div
+          class="chips"
+          id="chips"
+          role="group"
+          aria-label="Categorias"
+        ></div>
         <div class="row row-cols-2 row-cols-md-4 g-3 grid" id="grid"></div>
       </div>
     </section>
 
-  <!-- FOOTER -->
-  <footer class="bg-black border-top border-primary pt-5 pb-4">
-    <div class="container">
-      <div class="row gy-4">
-        <div class="col-6 col-md-3">
-          <h5 class="text-primary">FastWork</h5>
-          <a href="src/views/sobre.html" class="d-block link-light link-opacity-75 text-decoration-none">Sobre</a>
-          <a href="src/views/empregos.html" class="d-block link-light link-opacity-75 text-decoration-none">Empregos</a>
-        </div>
-        <div class="col-6 col-md-3">
-          <h5 class="text-primary">Comunidades</h5>
-          <a href="src/views/Dev.html" class="d-block link-light link-opacity-75 text-decoration-none">Desenvolvedores</a>
-          <a href="src/views/publicidade.html"
-            class="d-block link-light link-opacity-75 text-decoration-none">Publicidade</a>
-          <a href="src/views/investidores.html"
-            class="d-block link-light link-opacity-75 text-decoration-none">Investidores</a>
-          <a href="src/views/fornecedores.html"
-            class="d-block link-light link-opacity-75 text-decoration-none">Fornecedores</a>
-        </div>
-        <div class="col-6 col-md-3">
-          <h5 class="text-primary">Links úteis</h5>
-          <a href="src/views/ajuda.html" class="d-block link-light link-opacity-75 text-decoration-none">Suporte</a>
-          <a href="src/views/legal.html" class="d-block link-light link-opacity-75 text-decoration-none">Legal</a>
-          <a href="src/views/seguranca.html" class="d-block link-light link-opacity-75 text-decoration-none">Segurança e
-            privacidade</a>
-          <a href="src/views/politicas.html" class="d-block link-light link-opacity-75 text-decoration-none">Políticas
-            de privacidade</a>
-          <a href="src/views/cookies.html" class="d-block link-light link-opacity-75 text-decoration-none">Cookies</a>
-          <a href="src/views/acessibilidade.html"
-            class="d-block link-light link-opacity-75 text-decoration-none">Acessibilidade</a>
-        </div>
-        <div class="col-6 col-md-3">
-          <h5 class="text-primary">Redes sociais</h5>
-          <div class="d-flex gap-2">
-            <a href="https://www.instagram.com/fast_work2025.1/" target="_blank" rel="noopener noreferrer"
-              class="btn btn-outline-light btn-sm rounded-circle" aria-label="Instagram do FastWork"><i
-                class="bi bi-instagram"></i></a>
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-twitter-x"></i></a>
-          </div>
-        </div>
-      </div>
+    <!-- FOOTER -->
+    <footer
+      id="rodape"
+      class="bg-black border-top border-primary pt-5 pb-4"
+    ></footer>
 
-    </div>
-    <p class="text-center text-white-50 small mt-4 pt-3 border-top border-primary mb-0 ">
-      © 2025–2026 FastWork · Todos os direitos reservados
-    </p>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="src/public/js/script.js"></script>
-</body>
-
+    <script src="src/public/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="src/public/js/script.js"></script>
+    <script src="src/public/js/rodape.js" data-base="src/views/"></script>
+  </body>
 </html>
