@@ -277,3 +277,8 @@ A metodologia apresentada no PDF combina **Design Thinking** (empatia, definiç�
 © 2025–2026 FastWork · Desenvolvido em Volta Redonda, RJ :brazil:
 
 </div>
+
+## Vagas e candidaturas (Lote 6)
+
+Páginas: `src/views/vagas.html` (profissionais veem e se candidatam) e `src/views/admin-vagas.html` (painel da empresa).
+Detalhes de decisões, rotas e como rodar os testes: `LEIA-ME_LOTE6.md`.
