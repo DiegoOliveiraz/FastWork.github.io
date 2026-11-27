@@ -22,6 +22,11 @@ function exibirPerfil(usuario, tipo) {
   document.getElementById("nomePerfil").textContent = nomeExibido;
   document.getElementById("tipoPerfil").textContent = tipo === "empresa" ? "Empresa" : "Profissional";
 
+  // Empresa gerencia vagas pelo painel; profissional vê e se candidata.
+  const linkVagas = document.getElementById("linkVagas");
+  linkVagas.href = tipo === "empresa" ? "admin-vagas.html" : "vagas.html";
+  linkVagas.lastChild.textContent = tipo === "empresa" ? " Painel de vagas" : " Ver vagas";
+
   const item = document.createElement("li");
   item.className = "list-group-item bg-black text-light border-primary d-flex justify-content-between";
   const rotulo = document.createElement("span");

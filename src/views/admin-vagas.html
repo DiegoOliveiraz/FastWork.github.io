@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel de vagas - FastWork</title>
+  <link rel="shortcut icon" href="../public/images/Logo_FAVICON.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../public/vendor/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="../public/vendor/bootstrap-icons/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../public/css/contrast.css" />
+  <link rel="stylesheet" href="../public/css/paginas.css" />
+</head>
+
+<body class="text-light d-flex flex-column">
+  <nav class="navbar navbar-dark navbar-expand-lg bg-black border-bottom border-primary">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="../../index.html">
+        <img src="../public/images/Logo_FAVICON.png" width="40" alt="Logo FastWork" />
+        <span class="fw-bold fs-4">FastWork</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+        aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="menu">
+        <ul class="navbar-nav gap-2">
+          <li class="nav-item"><a class="nav-link" href="../../index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="vagas.html">Vagas</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="admin-vagas.html">Painel de vagas</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Entrar</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5 flex-grow-1">
+    <section class="text-center py-4 mb-4">
+      <p class="text-primary text-uppercase fw-semibold mb-2">Área da empresa</p>
+      <h1 class="display-5 fw-bold mb-3">Painel de vagas</h1>
+      <p class="lead text-white-50 mx-auto resumo-pagina">
+        Publique vagas, defina o período em que ficam abertas, acompanhe os candidatos e feche ou aprove.
+      </p>
+    </section>
+
+    <!-- Preenchido pelo admin-vagas.js quando não há sessão ou a conta não é de empresa -->
+    <div id="aviso"></div>
+
+    <div id="painel" class="d-none">
+      <div id="alerta"></div>
+
+      <!-- Números da empresa (consulta com CTE + subconsultas) -->
+      <section class="row row-cols-2 row-cols-lg-5 g-3 mb-4" id="estatisticas"></section>
+
+      <div class="row g-4">
+        <!-- Nova vaga -->
+        <section class="col-lg-5">
+          <div class="card bg-black border-primary">
+            <div class="card-body p-4">
+              <h2 class="h4 mb-3"><i class="bi bi-plus-circle text-primary"></i> Nova vaga</h2>
+              <div id="alertaForm"></div>
+              <form id="formVaga" class="needs-validation" novalidate>
+                <div class="mb-3">
+                  <label for="vTipo" class="form-label">Tipo da vaga (profissão exigida)</label>
+                  <select class="form-select" id="vTipo" required>
+                    <option value="">Selecione</option>
+                    <option value="pedreiro">Pedreiro</option>
+                    <option value="eletricista">Eletricista</option>
+                    <option value="encanador">Encanador</option>
+                    <option value="pintor">Pintor</option>
+                    <option value="carpinteiro">Carpinteiro</option>
+                    <option value="outro">Outro</option>
+                  </select>
+                  <div class="form-text text-white-50">Só profissionais com esta profissão conseguem se candidatar.</div>
+                  <div class="invalid-feedback">Escolha o tipo da vaga.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="vDescricao" class="form-label">Descrição</label>
+                  <textarea class="form-control" id="vDescricao" rows="3" maxlength="5000"
+                    placeholder="O que será feito, local da obra, equipamentos..."></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="vRequisitos" class="form-label">Requisitos</label>
+                  <textarea class="form-control" id="vRequisitos" rows="2" maxlength="5000"
+                    placeholder="Experiência mínima, documentos, disponibilidade..."></textarea>
+                </div>
+                <div class="row g-3 mb-3">
+                  <div class="col-sm-6">
+                    <label for="vContrato" class="form-label">Contrato</label>
+                    <select class="form-select" id="vContrato">
+                      <option value="">Não informar</option>
+                      <option value="freelance">Freelance</option>
+                      <option value="CLT">CLT</option>
+                      <option value="PJ">PJ</option>
+                      <option value="estagio">Estágio</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="vModalidade" class="form-label">Modalidade</label>
+                    <select class="form-select" id="vModalidade">
+                      <option value="">Não informar</option>
+                      <option value="presencial">Presencial</option>
+                      <option value="remoto">Remoto</option>
+                      <option value="hibrido">Híbrido</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row g-3 mb-3">
+                  <div class="col-sm-4">
+                    <label for="vSalario" class="form-label">Valor (R$)</label>
+                    <input type="number" class="form-control" id="vSalario" min="0" step="0.01" placeholder="3500" />
+                  </div>
+                  <div class="col-sm-5">
+                    <label for="vCidade" class="form-label">Cidade</label>
+                    <input type="text" class="form-control" id="vCidade" maxlength="100" placeholder="Volta Redonda" />
+                  </div>
+                  <div class="col-sm-3">
+                    <label for="vEstado" class="form-label">UF</label>
+                    <input type="text" class="form-control" id="vEstado" maxlength="2" placeholder="RJ" />
+                  </div>
+                </div>
+                <div class="row g-3 mb-4">
+                  <div class="col-sm-6">
+                    <label for="vAbertura" class="form-label">Abre em</label>
+                    <input type="datetime-local" class="form-control" id="vAbertura" />
+                    <div class="form-text text-white-50">Vazio = abre agora.</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="vEncerramento" class="form-label">Fecha em</label>
+                    <input type="datetime-local" class="form-control" id="vEncerramento" />
+                    <div class="form-text text-white-50">Vazio = sem data para fechar.</div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 btn-lg" id="btnCriar">
+                  <i class="bi bi-megaphone"></i> Publicar vaga
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- Minhas vagas -->
+        <section class="col-lg-7">
+          <h2 class="h4 mb-3"><i class="bi bi-briefcase text-primary"></i> Minhas vagas</h2>
+          <div class="row g-3" id="listaVagas"></div>
+        </section>
+      </div>
+
+      <!-- Relatório de demanda x oferta -->
+      <section class="mt-5">
+        <div class="card bg-black border-primary">
+          <div class="card-body p-4">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+              <h2 class="h4 mb-0"><i class="bi bi-bar-chart text-primary"></i> Demanda x oferta por profissão</h2>
+              <button type="button" class="btn btn-outline-primary btn-sm" id="btnDemanda">Atualizar relatório</button>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-dark table-hover align-middle mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col">Profissão</th>
+                    <th scope="col" class="text-end">Vagas abertas</th>
+                    <th scope="col" class="text-end">Profissionais disponíveis</th>
+                    <th scope="col" class="text-end">Vagas por profissional</th>
+                  </tr>
+                </thead>
+                <tbody id="tabelaDemanda"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Modal: candidatos da vaga -->
+  <div class="modal fade" id="modalCandidatos" tabindex="-1" aria-labelledby="modalCandidatosTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content bg-black border-primary text-light">
+        <div class="modal-header border-primary">
+          <h2 class="modal-title h5" id="modalCandidatosTitulo">Candidatos</h2>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <div id="alertaCandidatos"></div>
+          <div class="table-responsive">
+            <table class="table table-dark table-hover align-middle mb-0">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Profissional</th>
+                  <th scope="col">Experiência</th>
+                  <th scope="col">Local</th>
+                  <th scope="col">Status</th>
+                  <th scope="col" class="text-end">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="tabelaCandidatos"></tbody>
+            </table>
+          </div>
+          <p class="text-white-50 small mt-3 mb-0">
+            A posição (#) ordena por tempo de experiência. Aprovar um candidato rejeita os demais e encerra a vaga.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: profissionais sugeridos -->
+  <div class="modal fade" id="modalSugestoes" tabindex="-1" aria-labelledby="modalSugestoesTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content bg-black border-primary text-light">
+        <div class="modal-header border-primary">
+          <h2 class="modal-title h5" id="modalSugestoesTitulo">Profissionais sugeridos</h2>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-white-50 small">
+            Profissionais disponíveis, da mesma profissão da vaga, que ainda não se candidataram.
+          </p>
+          <div class="table-responsive">
+            <table class="table table-dark table-hover align-middle mb-0">
+              <thead>
+                <tr>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Experiência</th>
+                  <th scope="col">Local</th>
+                  <th scope="col" class="text-end">Candidaturas em andamento</th>
+                </tr>
+              </thead>
+              <tbody id="tabelaSugestoes"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer id="rodape" class="bg-black border-top border-primary pt-5 pb-4 mt-auto"></footer>
+
+  <script src="../public/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../public/js/vagas-comum.js"></script>
+  <script src="../public/js/admin-vagas.js"></script>
+  <script src="../public/js/rodape.js"></script>
+</body>
+
+</html>

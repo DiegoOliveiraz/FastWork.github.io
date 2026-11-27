@@ -16,6 +16,7 @@
       titulo: "FastWork",
       links: [
         ["Sobre", `${base}sobre.html`],
+        ["Vagas", `${base}vagas.html`],
         ["Empregos", inst("empregos")],
       ],
     },

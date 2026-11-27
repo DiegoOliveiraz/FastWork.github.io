@@ -6,6 +6,7 @@ import helmet from "helmet";
 import usuarioRoutes from "./routes/usuarioRoutes.js";
 import empresaRoutes from "./routes/empresaRoutes.js";
 import profissionalRoutes from "./routes/profissionalRoutes.js";
+import vagaRoutes from "./routes/vagaRoutes.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -34,6 +35,7 @@ app.use("/public", servePublic);
 app.use("/api", usuarioRoutes);
 app.use("/api", empresaRoutes);
 app.use("/api", profissionalRoutes);
+app.use("/api", vagaRoutes);
 
 // Rotas HTML explicitamente permitidas; arquivos do projeto não são servidos estaticamente.
 const sendView = (filename) => (_req, res) =>
@@ -54,6 +56,11 @@ app.get(
 app.get(
   ["/contrato_new.html", "/src/views/contrato_new.html"],
   sendView("contrato_new.html"),
+);
+app.get(["/vagas.html", "/src/views/vagas.html"], sendView("vagas.html"));
+app.get(
+  ["/admin-vagas.html", "/src/views/admin-vagas.html"],
+  sendView("admin-vagas.html"),
 );
 app.get("/login.html", (req, res) => res.redirect("/login"));
 
