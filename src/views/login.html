@@ -1,0 +1,102 @@
+﻿<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - FastWork</title>
+  <link rel="shortcut icon" href="../public/images/Logo_FAVICON.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../public/vendor/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="../public/vendor/bootstrap-icons/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../public/css/contrast.css" />
+    <link rel="stylesheet" href="../public/css/paginas.css" />
+</head>
+
+<body class="text-light">
+  <nav class="navbar navbar-dark navbar-expand-lg bg-black border-bottom border-primary">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="../../index.html">
+        <img src="../public/images/Logo_FAVICON.png" width="40" alt="Logo FastWork" />
+        <span class="fw-bold fs-4">FastWork</span>
+      </a>
+      <div class="d-flex align-items-center gap-3 flex-wrap">
+        <a class="nav-link text-white-50 p-0" href="../../index.html">Início</a>
+        <a class="nav-link active p-0" href="login.html">Entrar</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-xl-5">
+        <div class="text-center mb-4">
+          <p class="text-primary text-uppercase fw-semibold mb-2">Acesso</p>
+          <h1 class="display-6 fw-bold mb-2">Entre na sua conta</h1>
+          <p class="text-white-50 mb-0">Entre com seus dados cadastrados.</p>
+        </div>
+
+        <div id="cardLogin" class="card bg-black border-primary shadow-lg">
+          <div class="card-body p-4 p-md-5">
+            <div id="alertaErro" class="alert alert-danger d-none"></div>
+            <div id="alertaSucesso" class="alert alert-success d-none"></div>
+
+            <div class="btn-group w-100 mb-4" role="group">
+              <input type="radio" class="btn-check" name="tipo" id="tipoProfissional" checked>
+              <label class="btn btn-outline-primary" for="tipoProfissional">
+                <i class="bi bi-person-fill"></i> Profissional
+              </label>
+              <input type="radio" class="btn-check" name="tipo" id="tipoEmpresa">
+              <label class="btn btn-outline-primary" for="tipoEmpresa">
+                <i class="bi bi-building"></i> Empresa
+              </label>
+            </div>
+
+            <form id="formLogin" class="needs-validation" novalidate>
+              <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="email" required placeholder="Digite seu e-mail" />
+                <div class="invalid-feedback">Informe um e-mail válido.</div>
+              </div>
+              <div class="mb-3">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="senha" required placeholder="Digite sua senha" />
+                <div class="invalid-feedback">Informe sua senha.</div>
+              </div>
+              <button type="submit" class="btn btn-primary w-100 btn-lg mb-4" id="btnEntrar">
+                <i class="bi bi-box-arrow-in-right"></i> Entrar
+              </button>
+            </form>
+
+            <p class="text-center mb-0">
+              Ainda não tem conta?
+              <a id="linkCadastro" href="formu.html" class="text-primary">Cadastre-se como Profissional</a>
+            </p>
+          </div>
+        </div>
+
+        <div id="cardPerfil" class="card bg-black border-primary shadow-lg d-none mt-4">
+          <div class="card-body p-4 p-md-5 text-center">
+            <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+              style="width:70px; height:70px; font-size:1.5rem;" id="avatarPerfil"></div>
+            <h2 class="h4 mb-1" id="nomePerfil"></h2>
+            <p class="text-white-50 mb-4" id="tipoPerfil"></p>
+            <ul class="list-group list-group-flush text-start mb-4" id="infoPerfil"></ul>
+            <a class="btn btn-primary w-100 mb-2" id="linkVagas" href="vagas.html">
+              <i class="bi bi-briefcase"></i> Ver vagas
+            </a>
+            <button class="btn btn-outline-light w-100" id="btnSair">
+              <i class="bi bi-box-arrow-right"></i> Sair
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="rodape" class="bg-black border-top border-primary pt-5 pb-4 mt-5"></footer>
+  <script src="../public/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../public/js/login.js"></script>
+  <script src="../public/js/rodape.js"></script>
+</body>
+
+</html>

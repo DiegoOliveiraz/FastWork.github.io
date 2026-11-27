@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vagas - FastWork</title>
+  <link rel="shortcut icon" href="../public/images/Logo_FAVICON.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../public/vendor/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="../public/vendor/bootstrap-icons/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../public/css/contrast.css" />
+  <link rel="stylesheet" href="../public/css/paginas.css" />
+</head>
+
+<body class="text-light d-flex flex-column">
+  <nav class="navbar navbar-dark navbar-expand-lg bg-black border-bottom border-primary">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="../../index.html">
+        <img src="../public/images/Logo_FAVICON.png" width="40" alt="Logo FastWork" />
+        <span class="fw-bold fs-4">FastWork</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+        aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="menu">
+        <ul class="navbar-nav gap-2">
+          <li class="nav-item"><a class="nav-link" href="../../index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="vagas.html">Vagas</a></li>
+          <li class="nav-item"><a class="nav-link d-none" id="linkPainel" href="admin-vagas.html">Painel de vagas</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Entrar</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5 flex-grow-1">
+    <section class="text-center py-4 mb-4">
+      <p class="text-primary text-uppercase fw-semibold mb-2">Oportunidades</p>
+      <h1 class="display-5 fw-bold mb-3">Vagas abertas</h1>
+      <p class="lead text-white-50 mx-auto resumo-pagina">
+        Escolha uma vaga e candidate-se. Você só consegue se candidatar a vagas da sua profissão.
+      </p>
+    </section>
+
+    <div id="alerta"></div>
+
+    <!-- Preenchido pelo vagas.js quando não há sessão ou quando a conta é de empresa -->
+    <div id="aviso"></div>
+
+    <section id="areaVagas" class="d-none">
+      <form id="formFiltro" class="card bg-black border-primary mb-4">
+        <div class="card-body p-4">
+          <div class="row g-3 align-items-end">
+            <div class="col-md-4">
+              <label for="filtroProfissao" class="form-label">Tipo de vaga</label>
+              <select class="form-select" id="filtroProfissao">
+                <option value="">Todas</option>
+                <option value="pedreiro">Pedreiro</option>
+                <option value="eletricista">Eletricista</option>
+                <option value="encanador">Encanador</option>
+                <option value="pintor">Pintor</option>
+                <option value="carpinteiro">Carpinteiro</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label for="filtroCidade" class="form-label">Cidade</label>
+              <input type="text" class="form-control" id="filtroCidade" maxlength="100" placeholder="Ex.: Volta Redonda" />
+            </div>
+            <div class="col-md-4 d-grid">
+              <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i> Filtrar</button>
+            </div>
+          </div>
+          <div class="form-check mt-3 d-none" id="blocoCompativeis">
+            <input class="form-check-input" type="checkbox" id="filtroCompativeis" />
+            <label class="form-check-label" for="filtroCompativeis">
+              Mostrar só vagas do meu perfil (<span id="perfilProfissao"></span>)
+            </label>
+          </div>
+        </div>
+      </form>
+
+      <p class="text-white-50" id="contagem" aria-live="polite"></p>
+      <div class="row g-4" id="listaVagas"></div>
+      <div class="text-center mt-4 d-none" id="blocoMais">
+        <button type="button" class="btn btn-outline-primary" id="btnMais">Carregar mais vagas</button>
+      </div>
+    </section>
+
+    <section id="areaCandidaturas" class="d-none mt-5">
+      <h2 class="h4 mb-3"><i class="bi bi-send-check text-primary"></i> Minhas candidaturas</h2>
+      <div class="row g-3" id="listaCandidaturas"></div>
+    </section>
+  </main>
+
+  <!-- Modal de candidatura: mostra QUAL vaga está sendo escolhida -->
+  <div class="modal fade" id="modalCandidatura" tabindex="-1" aria-labelledby="modalCandidaturaTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-black border-primary text-light">
+        <div class="modal-header border-primary">
+          <h2 class="modal-title h5" id="modalCandidaturaTitulo">Candidatar-se à vaga</h2>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <form id="formCandidatura">
+          <div class="modal-body">
+            <div id="alertaModal"></div>
+            <div class="border border-primary rounded p-3 mb-3">
+              <p class="text-primary text-uppercase small fw-semibold mb-1">Vaga selecionada</p>
+              <p class="h5 mb-1" id="resumoVagaTitulo"></p>
+              <p class="text-white-50 small mb-0" id="resumoVagaDetalhes"></p>
+            </div>
+            <label for="carta" class="form-label">Apresentação (opcional)</label>
+            <textarea class="form-control" id="carta" rows="4" maxlength="2000"
+              placeholder="Conte rapidamente por que você é a pessoa certa para esta vaga."></textarea>
+            <div class="form-text text-white-50">Até 2000 caracteres.</div>
+          </div>
+          <div class="modal-footer border-primary">
+            <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary" id="btnConfirmarCandidatura">
+              <i class="bi bi-send"></i> Enviar candidatura
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer id="rodape" class="bg-black border-top border-primary pt-5 pb-4 mt-auto"></footer>
+
+  <script src="../public/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../public/js/vagas-comum.js"></script>
+  <script src="../public/js/vagas.js"></script>
+  <script src="../public/js/rodape.js"></script>
+</body>
+
+</html>
